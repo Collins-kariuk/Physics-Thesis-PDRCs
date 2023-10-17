@@ -5,37 +5,5 @@ To enhance the effectiveness of PDRC, it becomes essential to accurately measure
 The Fresnel equations are mathematical expressions that delineate the proportion of incident energy that is either transmitted or reflected at the interface of two materials with differing refractive indices. This concept aligns precisely with our objectives, as we plan to stack plane surfaces featuring distinct reflective properties and refractive indices. This chapter serves as an exploration of the theoretical framework underpinning the derivation of $R$ via the Fresnel Equations, delving into associated phenomena such as total internal reflection. Additionally, we explore the practical application of these principles to PDRC devices.
 
 
+
 \section{Fresnel Equations}
-Consider a light ray incident at point P upon a planar interface, leading to the generation of both reflected and refracted rays. It is noteworthy that the refractive index at the interface for both the incident and reflected rays ($n_1$) differs from the refractive index associated with the refracted ray ($n_2$). The plane of incidence lies within the x-z plane and is defined by both the surface normal and the incident ray.
-
-In the context of each ray, the direction of wave propagation ($\vec{\mathbf{k}}$), can be established by the vector cross product of the electric field ($\vec{\mathbf{E}}$), and magnetic field ($\vec{\mathbf{B}}$) vectors, expressed as $\vec{\mathbf{E}} \times \vec{\mathbf{B}}$. This relationship can be conveniently determined using the right-hand rule, offering a valuable method for directional assessment.
-
-Let us consider that the incident light comprises of plane harmonic waves:
-\begin{equation} \label{Plane harmonic wave equation - incident}
-\vec{\mathbf{E}} = \vec{\mathbf{E}_0} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)}
-\end{equation}
-In our analytical approach, we will specifically examine a linearly polarized light wave, where the electric field vector $\vec{\mathbf{E}}$ is oriented perpendicular to the plane of incidence. According to the right-hand rule, this configuration places the magnetic field vector $\vec{\mathbf{B}}$ within the plane of incidence. This particular polarization is known as the \textit{transverse electric} (TE) mode
-
-% REPHRASE DOWN ONWARDS
-The reflected and transmitted waves can then also be expressed in the form of the incident wave:
-\begin{equation} \label{Plane harmonic wave equation - reflected}
-\vec{\mathbf{E}_r} = \vec{\mathbf{E}_{0r}} e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega_r t)}
-\end{equation}
-
-\begin{equation} \label{Plane harmonic wave equation - refracted}
-\vec{\mathbf{E}_t} = \vec{\mathbf{E}_{0t}} e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega_t t)}
-\end{equation}
-
-At the boundary where all three waves exit simultaneously, there has to be a boundary condition that sets the relationship between the three wave amplitudes, that is, the boundary condition is such that the waves into and out of the plane of incidence should be continuous and differentiable given that the interface is isotropic.
-
-\subsection{Boundary Conditions for TE Waves}
-Considering our TE mode set-up, we can write the wave equations of our incident, reflected, and transmitted wave as:
-\begin{align*}
-\vec{\mathbf{E}_0} &= E\hat{y}           &  \vec{\mathbf{E}_{0r}} &= E_r\hat{y}               &  \vec{\mathbf{E}_{0t}} &= E_t\hat{y}
-\end{align*}
-where $E$, $E_r$, and $E_t$ are the complex field amplitudes associated with the incident, reflected, and transmitted waves respectively. The boundary conditions then guarantee that the components of the electric field parallel to the boundary plane be continuous at the boundary, as in:
-\begin{equation} \label{Electric field boundary conditions for TE waves}
-E + E_r = E_t
-\end{equation}
-
-According to basic trigonometry and Maxwell's equations, we can find the corresponding magnetic fields to be:
