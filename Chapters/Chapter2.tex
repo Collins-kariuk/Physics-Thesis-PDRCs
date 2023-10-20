@@ -58,15 +58,12 @@ B\mathrm{cos}(\theta) - B_r\mathrm{cos}(\theta) = B_t\mathrm{cos}(\theta_t)
 Here, it's important to note that $\theta = \theta_r$ according to the law of reflection. Equations \ref{Electric field boundary conditions for TE waves} and \ref{Magnetic field boundary conditions for TE waves} stand as two pivotal equations arising from the boundary conditions for TE waves. These equations, instrumental in determining $R$, serve as a critical foundation. Nevertheless, before we delve into the calculation of $R$ through these boundary conditions, it is imperative to demonstrate the applicability of the same procedure to the transverse magnetic case.
 
 \subsection{Boundary Conditions for TM Waves}
-There exists another type of polarization for electromagnetic waves called the \textit{transverse magnetic} (TM) polarization mode. In this polarization mode, the magnetic field vector is perpendicular to the plane of incidence while the electric field vector is transverse to the plane of incidence.
-
-In the context of our TM mode configuration, we can express the wave equations for the incident, reflected, and transmitted electric field components waves as follows:
+Another polarization mode for electromagnetic waves is known as the \textit{transverse magnetic} (TM) polarization. In this mode, the magnetic field vector is oriented perpendicular to the plane of incidence, while the electric field vector lies transverse to the plane of incidence. Within the framework of our TM mode configuration, we can formulate the wave equations governing the electric field components of the incident, reflected, and transmitted waves as follows:
 \begin{align*} 
 \vec{\mathbf{E}} &= (E\mathrm{cos}(\theta \hat{x}) - E\mathrm{sin}(\theta \hat{z})) e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
 \vec{\mathbf{E}}_r &= (E_r\mathrm{cos}(\theta_r \hat{x}) + E_r\mathrm{sin}(\theta_r \hat{z})) e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega t)} \\ 
 \vec{\mathbf{E}}_t &= (E_t\mathrm{cos}(\theta_t \hat{x}) - E_t\mathrm{sin}(\theta_t \hat{z})) e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega t)}
 \end{align*}
-
 Consequently, the magnetic field components can be written as:
 \begin{align*}
     \vec{\mathbf{B}} &= -B\hat{y} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
@@ -81,7 +78,7 @@ Consequently, the magnetic field components can be written as:
   \caption{The transverse electric (TM) set-up}
 \end{figure}
 
-These wave equations adhere to the boundary conditions, ensuring the continuity of electric field components parallel to the interface, as in:
+These equations adhere to the boundary conditions, guaranteeing the continuity of electric field components parallel to the interface, as demonstrated by:
 \begin{equation} \label{Magnetic field boundary conditions for TM waves}
 -B + B_r = -B_t
 \end{equation}
@@ -90,9 +87,9 @@ These wave equations adhere to the boundary conditions, ensuring the continuity 
 Ecos(\theta) + E_rcos(\theta) = E_tcos(\theta_t)
 \end{equation}
 
+% REFLECTION AND TRANSMISSION COEFFICIENTS
 \subsection{Reflection and Transmission Coefficients}
-To figure out the reflectance $R$, and consequently the transmittance $T$, we need to determine the reflection and transmission coefficients which are defined as:
-
+To determine the reflectance $R$ and, consequently, the transmittance $T$, it is imperative to define the reflection and transmission coefficients, as follows:
 \begin{equation} \label{Definition of the reflection coefficient}
 r = \frac{E_r}{E}
 \end{equation}
@@ -101,12 +98,12 @@ and
 t = \frac{E_t}{E}
 \end{equation}
 
-However, we need to determine these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are related by this relation:
+However, it is essential to calculate these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are linked through the following relation:
 \begin{equation} \label{Equation relating the electric and magnetic field amplitudes}
 E = \nu B = (\frac{c}{n})B
 \end{equation}
 
-We can use \ref{Equation relating the electric and magnetic field amplitudes} to substitute every mention of $B$ in the boundary conditions for its corresponding $E$. Starting with the TE case, recall that the two important boundary condition equations for the TE case:
+We can employ \ref{Equation relating the electric and magnetic field amplitudes} to replace every occurrence of \(B\) in the boundary conditions with its corresponding \(E\). Initiating with the TE case, remember the two vital boundary condition equations for the TE mode:
 \begin{equation}
 TE:
 \begin{cases} \label{TE boundary conditions}
@@ -114,23 +111,21 @@ TE:
   n_1Ecos(\theta) - n_1E_rcos(\theta) = n_2E_tcos(\theta_t)
 \end{cases}
 \end{equation}
-We can then solve the system of equation above for the TE case to figure out $r_{TE}$ (simply by eliminating every mention of $E_t$ above). Introducing the \textbf{relative refractive index} - $n \equiv \frac{n_2}{n_1}$, we can find:
+We can proceed to solve the system of equations above for the TE case to determine $r_{TE}$ (by eliminating all instances of $E_t$). Introducing the concept of the \textit{relative refractive index}, denoted as $n$ and defined as $n \equiv \frac{n_2}{n_1}$, we can derive:
 
 \begin{equation} \label{Reflection coefficient (TE) in terms of n}
 r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - ncos(\theta_t)}{cos(\theta) + ncos(\theta_t)}
 \end{equation}
-
 By the law of refraction, $sin(\theta) = nsin(\theta_t)$, we can eliminate $\theta_t$ by noting that:
 \begin{equation} \label{Replacing \theta_t using the law of refraction}
 ncos(\theta_t) = n \sqrt{cos^{2}(\theta_t)} = n\sqrt{1 - sin^2(\theta_t)} = \sqrt{n^2 - sin^2(\theta)}
 \end{equation}
-
 Finally, our $r_{TE}$ is:
 \begin{equation} \label{Reflection coefficient (TE) without \theta_t}
 r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - \sqrt{n^2 - sin^2(\theta)}}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 
-Similarly, using our boundary conditions for the TM case and \ref{Equation relating the electric and magnetic field amplitudes}, we find our reevaluated boundary conditions for the TM case to be:
+Likewise, employing our boundary conditions for the TM case along with \ref{Equation relating the electric and magnetic field amplitudes}, we arrive at the reevaluated boundary conditions for the TM mode, which are as follows:
 \begin{equation}
 TM:
 \begin{cases} \label{TM boundary conditions}
@@ -138,11 +133,10 @@ TM:
   Ecos(\theta) + E_rcos(\theta) = E_tcos(\theta_t)
 \end{cases}
 \end{equation}
-Using this new form for the boundary condition, we can evaluate $r_{TM}$ in the same manner as we did for $r_{TE}$ to be:
+With this revised form of the boundary condition, we can compute $r_{TM}$ in a manner similar to our determination of $r_{TE}$, resulting in:
 \begin{equation} \label{Reflection coefficient (TM) without \theta_t}
 r_{TE} = \frac{E_r}{E} = \frac{-n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
-
 Similarly, if we follow the same steps we did for evaluating $r_{TM}$ and $r_{TE}$, we can subsequently figure out $t_{TM}$ and $t_{TE}$ (we now eliminate $E_r$ instead of $E_t$ ). We find:
 \begin{equation} \label{Reflection coefficient (TM) without \theta_t}
 t_{TE} = \frac{E_t}{E} = \frac{2cos(\theta)}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
@@ -152,13 +146,11 @@ t_{TE} = \frac{E_t}{E} = \frac{2cos(\theta)}{cos(\theta) + \sqrt{n^2 - sin^2(\th
 t_{TM} = \frac{E_t}{E} = \frac{2ncos(\theta)}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 
-Notice, for instance, the relationship between $t_{TE}$ and $r_{TE}$. They have the same denominator which indicates that one can be found in terms of the other. To figure out how you can combine the two equations, you can subtract $r_{TE}$ from $t_{TE}$ to get 1. A bit more manipulation can be done to find the corresponding equation connecting $t_{TM}$ and $r_{TM}$. Finally, you can express $r$ in terms of $t$ to get:
-
+Observing, for instance, the interconnection between $t_{TE}$ and $r_{TE}$, it is evident that they share the same denominator, suggesting that one can be expressed in terms of the other. To establish the relationship between the two equations, one can subtract $r_{TE}$ from $t_{TE}$, yielding 1. With some additional manipulation, the corresponding equation linking $t_{TM}$ and $r_{TM}$ can be derived. Ultimately, $r$ can be expressed in terms of $t$ as follows:
 \begin{align*}
     t_{TE} &= 1 + r_{TE} \\
     nt_{TM} &= 1 - r_{TM} \\
 \end{align*}
-
-The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ are the \textbf{Fresnel Equations}. They give reflection and transmission coefficients which relate the incident and reflected energy field amplitudes to the incident energy field amplitudes. The Fresnel equations apply to any linear, isotropic, and homogeneous media. The goal of the Fresnel equations was to help us get to the Reflectance $R$ and Transmittance $T$, which is covered in the next subsection.
+The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ constitutes the \textbf{Fresnel Equations}. These equations provide reflection and transmission coefficients that establish the connection between incident and reflected energy field amplitudes in any linear, isotropic, and homogeneous medium. The primary objective of the Fresnel equations is to facilitate the determination of Reflectance $R$ and Transmittance $T$, which will be discussed in the subsequent subsection.
 
 \subsection{Reflectance and Transmittance}
