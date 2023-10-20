@@ -101,4 +101,64 @@ and
 t = \frac{E_t}{E}
 \end{equation}
 
-However, we need to determine these coefficients for both the TE and TM cases. First, we need to 
+However, we need to determine these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are related by this relation:
+\begin{equation} \label{Equation relating the electric and magnetic field amplitudes}
+E = \nu B = (\frac{c}{n})B
+\end{equation}
+
+We can use \ref{Equation relating the electric and magnetic field amplitudes} to substitute every mention of $B$ in the boundary conditions for its corresponding $E$. Starting with the TE case, recall that the two important boundary condition equations for the TE case:
+\begin{equation}
+TE:
+\begin{cases} \label{TE boundary conditions}
+  E + E_r = E_t \\
+  n_1Ecos(\theta) - n_1E_rcos(\theta) = n_2E_tcos(\theta_t)
+\end{cases}
+\end{equation}
+We can then solve the system of equation above for the TE case to figure out $r_{TE}$ (simply by eliminating every mention of $E_t$ above). Introducing the \textbf{relative refractive index} - $n \equiv \frac{n_2}{n_1}$, we can find:
+
+\begin{equation} \label{Reflection coefficient (TE) in terms of n}
+r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - ncos(\theta_t)}{cos(\theta) + ncos(\theta_t)}
+\end{equation}
+
+By the law of refraction, $sin(\theta) = nsin(\theta_t)$, we can eliminate $\theta_t$ by noting that:
+\begin{equation} \label{Replacing \theta_t using the law of refraction}
+ncos(\theta_t) = n \sqrt{cos^{2}(\theta_t)} = n\sqrt{1 - sin^2(\theta_t)} = \sqrt{n^2 - sin^2(\theta)}
+\end{equation}
+
+Finally, our $r_{TE}$ is:
+\begin{equation} \label{Reflection coefficient (TE) without \theta_t}
+r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - \sqrt{n^2 - sin^2(\theta)}}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
+\end{equation}
+
+Similarly, using our boundary conditions for the TM case and \ref{Equation relating the electric and magnetic field amplitudes}, we find our reevaluated boundary conditions for the TM case to be:
+\begin{equation}
+TM:
+\begin{cases} \label{TM boundary conditions}
+  -n_1E + n_1E_r = -n_2E_t \\
+  Ecos(\theta) + E_rcos(\theta) = E_tcos(\theta_t)
+\end{cases}
+\end{equation}
+Using this new form for the boundary condition, we can evaluate $r_{TM}$ in the same manner as we did for $r_{TE}$ to be:
+\begin{equation} \label{Reflection coefficient (TM) without \theta_t}
+r_{TE} = \frac{E_r}{E} = \frac{-n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
+\end{equation}
+
+Similarly, if we follow the same steps we did for evaluating $r_{TM}$ and $r_{TE}$, we can subsequently figure out $t_{TM}$ and $t_{TE}$ (we now eliminate $E_r$ instead of $E_t$ ). We find:
+\begin{equation} \label{Reflection coefficient (TM) without \theta_t}
+t_{TE} = \frac{E_t}{E} = \frac{2cos(\theta)}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
+\end{equation}
+
+\begin{equation} \label{Reflection coefficient (TM) without \theta_t}
+t_{TM} = \frac{E_t}{E} = \frac{2ncos(\theta)}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
+\end{equation}
+
+Notice, for instance, the relationship between $t_{TE}$ and $r_{TE}$. They have the same denominator which indicates that one can be found in terms of the other. To figure out how you can combine the two equations, you can subtract $r_{TE}$ from $t_{TE}$ to get 1. A bit more manipulation can be done to find the corresponding equation connecting $t_{TM}$ and $r_{TM}$. Finally, you can express $r$ in terms of $t$ to get:
+
+\begin{align*}
+    t_{TE} &= 1 + r_{TE} \\
+    nt_{TM} &= 1 - r_{TM} \\
+\end{align*}
+
+The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ are the \textbf{Fresnel Equations}. They give reflection and transmission coefficients which relate the incident and reflected energy field amplitudes to the incident energy field amplitudes. The Fresnel equations apply to any linear, isotropic, and homogeneous media. The goal of the Fresnel equations was to help us get to the Reflectance $R$ and Transmittance $T$, which is covered in the next subsection.
+
+\subsection{Reflectance and Transmittance}
