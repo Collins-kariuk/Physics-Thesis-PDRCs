@@ -154,31 +154,66 @@ Observing, for instance, the interconnection between $t_{TE}$ and $r_{TE}$, it i
 The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ constitutes the \textbf{Fresnel Equations}. These equations provide reflection and transmission coefficients that establish the connection between incident and reflected energy field amplitudes in any linear, isotropic, and homogeneous medium. The primary objective of the Fresnel equations is to facilitate the determination of Reflectance $R$ and Transmittance $T$, which will be discussed in the subsequent subsection.
 
 \subsection{Reflectance and Transmittance}
-For energy conservation purposes, at a given boundary, the power incident on the boundary must be equal to the reflected and transmitted power at that boundary.
+For the sake of energy conservation, it is imperative that, at a specific boundary, the power incident upon the boundary equals the combined power of both the reflected and transmitted energy at that boundary.
 \begin{equation} \label{power balance equation at boundary}
 P_i = P_r + P_t
 \end{equation}
-
-Finally, if we define reflectance $R$ and transmittance $T$ as:
+We can preemptively define reflectance $R$ and transmittance $T$ as:
 \begin{equation} \label{Reflectance}
 R = \frac{P_r}{P_i}
 \end{equation}
 \begin{equation} \label{Transmittance}
 T = \frac{P_t}{P_i}
 \end{equation}
-So, $R$ is the ratio of the reflected to incident power while transmittance $T$ is the ratio of the transmitted to incident power. This means that \ref{power balance equation at boundary} takes the form of the famous unity equation (assuming no absorption):
+Hence, $R$ represents the proportion of reflected power relative to incident power, and transmittance $T$ signifies the proportion of transmitted power in relation to incident power. This implies that \ref{power balance equation at boundary} conforms to the well-known unity equation, under the assumption of zero absorption:
 \begin{equation} \label{R+T=1}
 R + T = 1
 \end{equation}
-Power can be defined as the irradiance of the electromagnetic wave multiplied by the cross-sectional area traversed by the same wave. As in:
+Power can be defined as the product of the irradiance of the electromagnetic wave and the cross-sectional area through which the wave passes, as demonstrated by:
 \begin{equation} \label{power balance equation in terms of irradiance}
 I_iA_i = I_rA_r + I_tA_t
 \end{equation}
-To determine $A_i$, $A_r$, and $A_t$, we need to determine the cross-sectional area spanned by the incident, reflected, and transmitted electromagnetic waves respectively.
+
+To ascertain $A_i$, $A_r$, and $A_t$, it is essential to calculate the cross-sectional area covered by the incident, reflected, and transmitted electromagnetic waves, respectively. By employing trigonometric relationships, as illustrated in the accompanying figure, we can calculate the cross-sectional areas encompassed by the incident, reflected, and transmitted waves and subsequently substitute them into the equation \ref{power balance equation in terms of irradiance} to be:
+\begin{equation} \label{power balance equations after CSA substitution}
+I_iAcos(\theta) = I_rAcos(\theta) + I_tAcos(\theta_t)
+\end{equation}
 
 % Including the CSA example for the incident, reflected, and transmitted electromagnetic waves
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{Chapters/Figures/CSA Example for the Incident, Reflected, and Transmitted Electromagnetic Waves.jpg}
-  \caption{The transverse electric (TM) set-up}
+  \caption{Cross sections of the incident, reflected, and transmitted beams}
 \end{figure}
+
+Using the relation between irradiance and electrical field amplitude, 
+\begin{equation}
+I = E_{0}^2(\frac{\varepsilon \nu}{2})
+\end{equation}
+and that $\nu_i = \nu_r$ and $\varepsilon_i = \varepsilon_r$ since they correspond to the same medium, we can rephrase the power balance equation to be:
+\begin{equation}
+E_{0i}^2 = E_{0r}^2 + E_{0t}^2\left(\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}\right) \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
+\end{equation}
+$\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}$ is a complicated way of expressing $n$ - the relative refractive index. Using the facts that $\mu_i = \mu_t = \mu_0$ (for nonmagnetic materials) and the relation that $\nu^2 = \frac{1}{\mu\varepsilon}$:
+\begin{equation}
+\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i} = \frac{\nu_i^2\mu_i}{\nu_t^2\mu_t} \frac{\nu_t}{\nu_i} = \frac{\nu_i}{\nu_t} = n
+\end{equation}
+Thus we can include $n$ in the power balance equations:
+\begin{equation}
+E_{0i}^2 = E_{0r}^2 + n E_{0t}^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
+\end{equation}
+Dividing through by $E_{0i}^2$, we get:
+\begin{equation} \label{power balance equation with r^2 and t^2}
+1 = r^2 + n t^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
+\end{equation}
+Note that equations \ref{Definition of the reflection coefficient} and \ref{Definition of the transmission coefficient} allow us to make the substitutions for $r$ and $t$ above. Note that \ref{power balance equation with r^2 and t^2} certify that:
+
+\begin{equation} \label{definition of R}
+R = \frac{P_r}{P_i} = \frac{I_r}{I_i} = r^2
+\end{equation}
+Consequently,
+\begin{equation} \label{definition of T}
+T =  n t^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
+\end{equation}
+
+It's worth noting that $T$ is not merely $t^2$, as we must consider the altered speed of the electromagnetic wave when it enters a medium with a different refractive index. This change in speed impacts the rate of energy propagation and, consequently, the power of the beam.
