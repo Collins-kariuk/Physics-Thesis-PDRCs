@@ -154,3 +154,31 @@ Observing, for instance, the interconnection between $t_{TE}$ and $r_{TE}$, it i
 The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ constitutes the \textbf{Fresnel Equations}. These equations provide reflection and transmission coefficients that establish the connection between incident and reflected energy field amplitudes in any linear, isotropic, and homogeneous medium. The primary objective of the Fresnel equations is to facilitate the determination of Reflectance $R$ and Transmittance $T$, which will be discussed in the subsequent subsection.
 
 \subsection{Reflectance and Transmittance}
+For energy conservation purposes, at a given boundary, the power incident on the boundary must be equal to the reflected and transmitted power at that boundary.
+\begin{equation} \label{power balance equation at boundary}
+P_i = P_r + P_t
+\end{equation}
+
+Finally, if we define reflectance $R$ and transmittance $T$ as:
+\begin{equation} \label{Reflectance}
+R = \frac{P_r}{P_i}
+\end{equation}
+\begin{equation} \label{Transmittance}
+T = \frac{P_t}{P_i}
+\end{equation}
+So, $R$ is the ratio of the reflected to incident power while transmittance $T$ is the ratio of the transmitted to incident power. This means that \ref{power balance equation at boundary} takes the form of the famous unity equation (assuming no absorption):
+\begin{equation} \label{R+T=1}
+R + T = 1
+\end{equation}
+Power can be defined as the irradiance of the electromagnetic wave multiplied by the cross-sectional area traversed by the same wave. As in:
+\begin{equation} \label{power balance equation in terms of irradiance}
+I_iA_i = I_rA_r + I_tA_t
+\end{equation}
+To determine $A_i$, $A_r$, and $A_t$, we need to determine the cross-sectional area spanned by the incident, reflected, and transmitted electromagnetic waves respectively.
+
+% Including the CSA example for the incident, reflected, and transmitted electromagnetic waves
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Incident, Relfected, and Transmitted Ray for TM Mode.jpg}
+  \caption{The transverse electric (TM) set-up}
+\end{figure}
