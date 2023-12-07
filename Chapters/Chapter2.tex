@@ -100,7 +100,7 @@ t = \frac{E_t}{E}
 
 However, it is essential to calculate these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are linked through the following relation:
 \begin{equation} \label{Equation relating the electric and magnetic field amplitudes}
-E = \nu B = (\frac{c}{n})B
+E = \nu B = \left(\frac{c}{n}\right)B
 \end{equation}
 
 We can employ \ref{Equation relating the electric and magnetic field amplitudes} to replace every occurrence of \(B\) in the boundary conditions with its corresponding \(E\). Initiating with the TE case, remember the two vital boundary condition equations for the TE mode:
@@ -220,11 +220,46 @@ It's worth noting that $T$ is not merely $t^2$, as we must consider the altered 
 
 %------------- FROM THE THEORY OF MULTILAYER FILMS ------------
 \section{Multilayer films}
-In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we intend to employ multiple stacks comprising diverse materials with distinct refractive indices, arranged in layers to enhance the overall reflection coefficient and consequently increase reflectance. It is crucial to comprehend the electromagnetic wave interaction and optimal layer stacking physics to maximize reflectance. We again need a rigorous consideration of boundary conditions as dictated by Maxwell's equations.
+In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we intend to employ multiple stacks comprising diverse materials with distinct refractive indices, arranged in layers to enhance the overall reflection coefficient and consequently increase reflectance. It is crucial to comprehend the electromagnetic wave interaction and optimal layer stacking physics to maximize reflectance. We again need a rigorous consideration of boundary conditions as dictated by Maxwell's equations. %R
 
 \subsection{Transfer Matrix}
-Consider the set-up below where the electric field amplitude is perpendicular to the plane of incidence (a transverse electric wave):
+Consider the set-up above where the electric field amplitude is perpendicular to the plane of incidence (a transverse electric (TE) wave).
 
+% inserting the multilayer film set-up
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Multilayer Film Set-Up.jpeg}
+  \caption{Multilayer Film Set-Up}
+\end{figure}
 
+A TE wave travels from air and makes it way to the air-film boundary. A portion of the beam is transmitted some of it is reflected. Subsequently, the transmitted beam is then incident on the film-substrate interface where a portion is further transmitted and another is reflected. This reflected bit then becomes incident on the film-air interface where some of it is transmitted and some is reflected and so on and so forth. One can imagine this at a larger scale where we could have multiple films. Notice that the film and substrate have different refractive indices, $n_1$ and $n_s$ respectively.
 
+To capture the intricate interplay of reflected and transmitted beams, we develop a convenient notation as clearly evident on the set-up image. For example, $E_{r1}$ represents the sum of all the multiply reflected beams at interface (a). $E_{i2}$ represents the sum of all the multiple beams incident at interface (b) and going toward the substrate.
 
+Again, we hold true to our assumptions that the film is both homogeneous (has the same properties at every point) and isotropic (the physical properties do not differ regardless of the direction or orientation in which it is examined). Moreover, we assume further that the thickness of the film is on the order of wavelength of light.
+
+The boundary conditions for the electric and magnetic fields of plane waves, which follow from Maxwell's equation, dictate that the tangential components of the electric and magnetic fields should be continuous across the interface, that is, equal on either side. Notice that the electric field component is everywhere tangent to the interfaces but since the magnetic field vector has to be tangential to the electric field vector, we need to find the consequent tangential magnetic field vectors so that we can properly invoke the boundary conditions.
+
+\begin{equation} \label{E_a - Multilayer films electric field boundary equations}
+E_a = E_0 + E_{r1} = E_{t1} + E_{i1}
+\end{equation}
+
+\begin{equation} \label{E_b - Multilayer films electric field boundary equations}
+E_b = E_{i2} + E_{r2} = E_{t2}
+\end{equation}
+
+To figure out the tangential magnetic field vectors, we can employ trigonometry to find the following boundary conditions:
+
+\begin{equation} \label{B_a - Multilayer films magnetic field boundary equations}
+B_a = B_0cos(\theta_0) - B_{r1}cos(\theta_0) = B_{t1}cos(\theta_{t1}) - B_{i1}cos(\theta_{t1})
+\end{equation}
+
+\begin{equation} \label{B_b - Multilayer films magnetic field boundary equations}
+B_b = B_{i2}cos(\theta_{t1}) - B_{r2}cos(\theta_{t1}) = B_{t2}cos(\theta_{t2})
+\end{equation}
+
+We can build on equation \ref{Equation relating the electric and magnetic field amplitudes} to notice that we can express B in terms of E by doing this:
+\begin{equation} \label{Alternative B and E representation}
+B = n\sqrt{\varepsilon_0\mu_0}E
+\end{equation}
+since $c=\frac{1}{\sqrt{\varepsilon_0\mu_0}}$
