@@ -272,11 +272,19 @@ B_a = \gamma_0(E_0 - E_{r1}) = \gamma_1(E_{t1} - E_{i1})
 B_b = \gamma_1(E_{i2} - E_{r2}) = \gamma_sE_{t2}
 \end{equation}
 where
-\begin{align*}
-    \gamma_0 \equiv n_0 \sqrt{\varepsilon_0\mu_0} cos(\theta_0) \\
-    \gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1}) \\
+
+\begin{equation} \label{gamma 0}
+    \gamma_0 \equiv n_0 \sqrt{\varepsilon_0\mu_0} cos(\theta_0)
+\end{equation}
+
+\begin{equation} \label{gamma 1}
+    \gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})
+\end{equation}
+
+\begin{equation} \label{gamma s}
     \gamma_s \equiv n_s \sqrt{\varepsilon_0\mu_0} cos(\theta_{t2})
-\end{align*}
+\end{equation}
+
 
 % look more into the OPTICAL PATH LENGTH
 $E_{i2}$ differs from $E_{t1}$ only because of a phase difference $\delta$ that develops due to one traversal of the film. The optical path length associated with one traversal is $\Delta_1=n_1tcos(\theta_{t1})$. The optical path length is the length light "thinks" it has travelled in a medium and you can express it in terms of the number of cycles the light beam has travelled through a particular medium. Naturally, the optical path length is proportional to the refractive index of the medium the light is travelling in and the geometric length of said medium.
@@ -412,3 +420,61 @@ Solving for $r$ by solving the system of linear equations above, we get
 r=\frac{\gamma_0m_{11} + \gamma_0\gamma_sm_{12} - m_{21} - \gamma_sm_{22}}{\gamma_0m_{11} + \gamma_0\gamma_sm_{12} + m_{21} + \gamma_sm_{22}}
 \end{equation}
 and we can solve for $t$ similarly.
+
+%----- Section on ANTIREFLECTING FILMS -------
+\subsection{Antireflecting Films}
+To better understand how we can optimize reflectance, let's first investigate the properties that bring about antireflectance. By using a double layer of quarter-wave-thickness films, it is possible to essentially achieve zero reflectance at a specific wavelength. Let's look at the simplest case for normal incidence where all angles of incidence, reflection, and refraction are zero. The transfer matrix is then
+
+\[
+M = 
+% \[
+    \begin{bmatrix}
+    cos(\delta) & \frac{isin(\delta)}{\gamma_1}    \\
+    i\gamma_1sin(\delta) & cos(\delta)
+    \end{bmatrix} = 
+% \[
+    \begin{bmatrix}
+    0 & \frac{i}{\gamma_1}  \\
+    i\gamma_1 & 0
+  \end{bmatrix}
+    % \]
+    % \]
+\]
+since, at quarter-wave thickness, $t=\frac{\lambda}{4} = \frac{1}{4} \times \frac{\lambda_0}{n_1} = \frac{\lambda_0}{4n_1}$. Recall also we defined the phase difference, \ref{phase difference}, to be $\delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})$.
+\begin{align*}
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})\\
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(0) \\
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1t\\
+    \delta = \frac{\pi}{2} \\
+\end{align*} so that $cos(\delta) = 0$ and $sin(\delta) = 1$ which is why the main diagonal is composed of zeros.
+
+For two such quarter-wave thickness films, we could multiple the individual similar-in-form tranfer matrices to get an overall transfer matrix:
+\[
+M = 
+% \[
+    \begin{bmatrix}
+    -\frac{\gamma_2}{\gamma_1} & 0 \\
+    0 & -\frac{\gamma_1}{\gamma_2}
+  \end{bmatrix}
+        % \]
+\]
+
+Equation \ref{reflection coefficient in terms of transfer matrix terms} then simplifies to:
+\begin{equation}\label{reflection coefficient for 2-layer antireflecting films}
+r = \frac{\gamma_2^2\gamma_0 - \gamma_s\gamma_1^2}{\gamma_2^2\gamma_0 + \gamma_s\gamma_1^2}
+\end{equation}
+Recall, that the reflectance $R$ is simply $|r|^2$ and using equations \ref{gamma 0} through \ref{gamma s}, we can figure out $R$ to be
+\begin{equation}\label{reflectance for 2-layer antireflecting films}
+R = \left(\frac{n_0n_2^2 - n_sn_1^2}{n_0n_2^2 + n_sn_1^2}\right)^2
+\end{equation}
+
+Zero reflectance is then expected when the numerator is zero
+\begin{align*}
+    n_0n_2^2 = n_sn_1^2 \\
+    \frac{n_2^2}{n_1^2} = \frac{n_s}{n_0}  \\
+\end{align*} so that
+\begin{equation}\label{zero reflectance criterion}
+\frac{n_2}{n_1} = \sqrt{\frac{n_s}{n_0}}
+\end{equation}
+
+% TO BE CONTINUED AND TO BE REPHRASED
