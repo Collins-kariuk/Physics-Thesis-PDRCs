@@ -238,7 +238,7 @@ To capture the intricate interplay of reflected and transmitted beams, we develo
 
 Again, we hold true to our assumptions that the film is both homogeneous (has the same properties at every point) and isotropic (the physical properties do not differ regardless of the direction or orientation in which it is examined). Moreover, we assume further that the thickness of the film is on the order of wavelength of light.
 
-The boundary conditions for the electric and magnetic fields of plane waves, which follow from Maxwell's equation, dictate that the tangential components of the electric and magnetic fields should be continuous across the interface, that is, equal on either side. Notice that the electric field component is everywhere tangent to the interfaces but since the magnetic field vector has to be tangential to the electric field vector, we need to find the consequent tangential magnetic field vectors so that we can properly invoke the boundary conditions.
+The boundary conditions for the electric and magnetic fields of plane waves, which follow from Maxwell's equation, dictate that the tangential components of the electric and magnetic fields should be continuous across the interface, that is, equal on either side. Notice that the electric field component is everywhere tangent to the interfaces but since the magnetic field vector has to be tangential to the electric field vector, we need to find the consequent tangential magnetic field vectors so that we can properly invoke the boundary conditions. At the end of it all, what we're working toward is a formula that relates the electric and magnetic fields at one interface to those at the next interface.
 
 \begin{equation} \label{E_a - Multilayer films electric field boundary equations}
 E_a = E_0 + E_{r1} = E_{t1} + E_{i1}
@@ -271,3 +271,210 @@ B_a = \gamma_0(E_0 - E_{r1}) = \gamma_1(E_{t1} - E_{i1})
 \begin{equation} \label{Alternative B_b - Multilayer films magnetic field boundary equations}
 B_b = \gamma_1(E_{i2} - E_{r2}) = \gamma_sE_{t2}
 \end{equation}
+where
+
+\begin{equation} \label{gamma 0}
+    \gamma_0 \equiv n_0 \sqrt{\varepsilon_0\mu_0} cos(\theta_0)
+\end{equation}
+
+\begin{equation} \label{gamma 1}
+    \gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})
+\end{equation}
+
+\begin{equation} \label{gamma s}
+    \gamma_s \equiv n_s \sqrt{\varepsilon_0\mu_0} cos(\theta_{t2})
+\end{equation}
+
+
+% look more into the OPTICAL PATH LENGTH
+$E_{i2}$ differs from $E_{t1}$ only because of a phase difference $\delta$ that develops due to one traversal of the film. The optical path length associated with one traversal is $\Delta_1=n_1tcos(\theta_{t1})$. The optical path length is the length light "thinks" it has travelled in a medium and you can express it in terms of the number of cycles the light beam has travelled through a particular medium. Naturally, the optical path length is proportional to the refractive index of the medium the light is travelling in and the geometric length of said medium.
+
+We can express the phase difference that develops due to one traversal of the film as:
+\begin{equation} \label{phase difference}
+\delta = k_0\Delta_1 = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})
+\end{equation}
+
+Therefore we can express the pair electric field sums $E_{i2}$ \& $E_{t1}$ and $E_{i1}$ \& $E_{r2}$ as follows:
+\begin{align*}
+    E_{i2} = E_{t1}e^{-i\delta} \\
+    E_{i1} = E_{r2}e^{-i\delta}
+\end{align*}
+and consequently rephrase \ref{E_b - Multilayer films electric field boundary equations} and \ref{Alternative B_b - Multilayer films magnetic field boundary equations} as:
+
+\begin{equation} \label{E_b form after phase difference}
+E_b = E_{t1}e^{-i\delta} + E_{i1}e^{i\delta} = E_{t2}
+\end{equation}
+\begin{equation} \label{B_b form after phase difference}
+B_b = \gamma_1(E_{t1}e^{-i\delta} - E_{i1}e^{i\delta}) = \gamma_sE_{t2}
+\end{equation}
+
+Looking at the middle terms, we can solve for $E_{t1}$ and $E_{i1}$ in terms of $E_b$ and $B_b$.
+\begin{equation} \label{E_t1}
+E_{t1} = \left(\frac{\gamma_1E_b + B_b}{2\gamma_1}\right)e^{i\delta}
+\end{equation}
+\begin{equation} \label{E_i1}
+E_{i1} = \left(\frac{\gamma_1E_b - B_b}{2\gamma_1}\right)e^{-i\delta}
+\end{equation}
+
+Utilizing the Euler identities $2isin(\delta) \equiv e^{i\delta} - e^{-i\delta}$ and $2cos(\delta) \equiv e^{i\delta} + e^{-i\delta}$, we can utilize the equations above (\ref{E_t1} and \ref{E_i1}) and substitute them into \ref{E_a - Multilayer films electric field boundary equations} and \ref{Alternative B_b - Multilayer films magnetic field boundary equations} to have both:
+
+\begin{equation} \label{E_a in terms of E_b and B_b}
+E_a = E_bcos(\delta) + B_b\left(\frac{isin(\delta)}{\gamma_1}\right)
+\end{equation}
+\begin{equation} \label{B_a in terms of E_b and B_b}
+B_a = E_b(i\gamma_1sin(\delta)) + B_bcos(\delta)
+\end{equation}
+
+which we can rewrite in matrix notation as:
+
+% Lol, I don't know why this works but I will not mess with it
+\[
+  \begin{bmatrix}\label{Full form transfer matrix}
+    E_a  \\
+    B_a
+  \end{bmatrix} = 
+% \[
+    \begin{bmatrix}
+    cos(\delta) & \frac{isin(\delta)}{\gamma_1}    \\
+    i\gamma_1sin(\delta) & cos(\delta)
+    \end{bmatrix}
+% \[
+    \begin{bmatrix}
+    E_b  \\
+    B_b
+  \end{bmatrix}
+    % \]
+    % \]
+\]
+
+This convenient notation brings to light the useful $2 \times 2$ matrix that relates the electric and magnetic fields at one interface with those at the next interface. This useful matrix is called the \emph{transfer matrix} and moving forward we're going to describe it generically as:
+\[
+M=
+  \begin{bmatrix}
+    m_{11} & m_{12}  \\
+    m_{21} & m_{22}
+  \end{bmatrix}
+\]
+
+As you might imagine, we can extend this formalism further by considering the stacking of multiple films and thus the appearance of multiple interfaces. Generalizing, for an arbitrary number N of layers:
+\[
+  \begin{bmatrix}
+    E_a  \\
+    B_a
+  \end{bmatrix} = 
+% \[
+    M_1M_2M_3\hdots M_N
+% \[
+    \begin{bmatrix}
+    E_N \\
+    B_N
+  \end{bmatrix}
+    % \]
+    % \]
+\]
+with the multiplication of individual transfer matrices represents the entire multilayer stack in the order in which the beam encounters them.
+
+Going back to the original full-form transfer matrix above, we can replace $E_a$ and $B_a$ with the middle portions of \ref{E_a - Multilayer films electric field boundary equations} and \ref{Alternative B_a - Multilayer films magnetic field boundary equations}. We can also replace $E_b$ and $B_b$ with the right-most portions of \ref{E_b form after phase difference} and \ref{B_b form after phase difference} to get:
+
+\[
+  \begin{bmatrix}
+    E_0 + E_{r1}  \\
+    \gamma_0(E_0 - E_{r1})
+  \end{bmatrix} = 
+% \[
+    \begin{bmatrix}
+    cos(\delta) & \frac{isin(\delta)}{\gamma_1}    \\
+    i\gamma_1sin(\delta) & cos(\delta)
+    \end{bmatrix}
+% \[
+    \begin{bmatrix}
+    E_{t2}  \\
+    \gamma_sE_{t2}
+  \end{bmatrix} =
+  % \[
+        \begin{bmatrix}
+            m_{11} & m_{12}  \\
+            m_{21} & m_{22}
+        \end{bmatrix}
+        % \[
+        \begin{bmatrix}
+            E_{t2}  \\
+            \gamma_sE_{t2}
+          \end{bmatrix}
+        % \]
+  % \]
+    % \]
+    % \]
+\]
+
+Recall $r \equiv \frac{E_{r1}}{E_0}$ and $t \equiv \frac{E_{t2}}{E_0}$ (the reflection and transmission coefficients, respectively) and so we can simply the equation that results by matrix multiplying the matrix to get
+\begin{equation}
+1 + r = m_{11}t + m_{12}\gamma_st
+\end{equation}
+\begin{equation}
+\gamma_0(1 - r) = m_{21}t + m_{22}\gamma_st
+\end{equation}
+
+Solving for $r$ by solving the system of linear equations above, we get
+\begin{equation}\label{reflection coefficient in terms of transfer matrix terms}
+r=\frac{\gamma_0m_{11} + \gamma_0\gamma_sm_{12} - m_{21} - \gamma_sm_{22}}{\gamma_0m_{11} + \gamma_0\gamma_sm_{12} + m_{21} + \gamma_sm_{22}}
+\end{equation}
+and we can solve for $t$ similarly.
+
+%----- Section on ANTIREFLECTING FILMS -------
+\subsection{Antireflecting Films}
+To better understand how we can optimize reflectance, let's first investigate the properties that bring about antireflectance. By using a double layer of quarter-wave-thickness films, it is possible to essentially achieve zero reflectance at a specific wavelength. Let's look at the simplest case for normal incidence where all angles of incidence, reflection, and refraction are zero. The transfer matrix is then
+
+\[
+M = 
+% \[
+    \begin{bmatrix}
+    cos(\delta) & \frac{isin(\delta)}{\gamma_1}    \\
+    i\gamma_1sin(\delta) & cos(\delta)
+    \end{bmatrix} = 
+% \[
+    \begin{bmatrix}
+    0 & \frac{i}{\gamma_1}  \\
+    i\gamma_1 & 0
+  \end{bmatrix}
+    % \]
+    % \]
+\]
+since, at quarter-wave thickness, $t=\frac{\lambda}{4} = \frac{1}{4} \times \frac{\lambda_0}{n_1} = \frac{\lambda_0}{4n_1}$. Recall also we defined the phase difference, \ref{phase difference}, to be $\delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})$.
+\begin{align*}
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})\\
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(0) \\
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1t\\
+    \delta = \frac{\pi}{2} \\
+\end{align*} so that $cos(\delta) = 0$ and $sin(\delta) = 1$ which is why the main diagonal is composed of zeros.
+
+For two such quarter-wave thickness films, we could multiple the individual similar-in-form tranfer matrices to get an overall transfer matrix:
+\[
+M = 
+% \[
+    \begin{bmatrix}
+    -\frac{\gamma_2}{\gamma_1} & 0 \\
+    0 & -\frac{\gamma_1}{\gamma_2}
+  \end{bmatrix}
+        % \]
+\]
+
+Equation \ref{reflection coefficient in terms of transfer matrix terms} then simplifies to:
+\begin{equation}\label{reflection coefficient for 2-layer antireflecting films}
+r = \frac{\gamma_2^2\gamma_0 - \gamma_s\gamma_1^2}{\gamma_2^2\gamma_0 + \gamma_s\gamma_1^2}
+\end{equation}
+Recall, that the reflectance $R$ is simply $|r|^2$ and using equations \ref{gamma 0} through \ref{gamma s}, we can figure out $R$ to be
+\begin{equation}\label{reflectance for 2-layer antireflecting films}
+R = \left(\frac{n_0n_2^2 - n_sn_1^2}{n_0n_2^2 + n_sn_1^2}\right)^2
+\end{equation}
+
+Zero reflectance is then expected when the numerator is zero
+\begin{align*}
+    n_0n_2^2 = n_sn_1^2 \\
+    \frac{n_2^2}{n_1^2} = \frac{n_s}{n_0}  \\
+\end{align*} so that
+\begin{equation}\label{zero reflectance criterion}
+\frac{n_2}{n_1} = \sqrt{\frac{n_s}{n_0}}
+\end{equation}
+
+% TO BE CONTINUED AND TO BE REPHRASED
