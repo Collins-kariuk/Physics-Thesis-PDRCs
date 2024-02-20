@@ -89,3 +89,42 @@ The COMSOL desktop is the staging area where you will build and interact with yo
 
 % SUBSECTION --- Building the Geometry ---
 \subsection{Building the Geometry}.
+You have various options when it comes to building your model's geometry. First, you could use COMSOL's drawing tools or shape options. You can also import a geometry from an external file.
+
+% TODO: Add "Geometry Ribbon" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+For our case, since the busbar is already made and within COMSOL's geometry library, all we have to do is access this library of pre-made model geometries. To do this, go to File and then select Application Libraries.
+
+% TODO: Add image containing "application libraries" selection
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+Select the COMSOL Multiphysics branch and do the same for the Multiphysics section. We can then select 'busbar\_geom' and then click Open and then save your file.
+
+% TODO: Add "Application Libraries" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+The geometry will now be in the Graphics window where you can zoom in and out as well as examine it by moving it around. Notice that the Geometry node in the Model Builder window has changed signifying the steps that it took to create the busbar geometry. Moreover, upon further examination, we see that parameters have been used to create this particular geometry. You can find these parameters in the Parameters 1 node which contains a table which lists the editable parameters used to create the geometry.
+
+% TODO: Add image after when you add default busbare geom to model
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
