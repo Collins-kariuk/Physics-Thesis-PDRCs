@@ -3,4 +3,89 @@ COMSOL Multiphysics\textsuperscript{TM} is a comprehensive software suite for fi
 
 COMSOL software supports a broad spectrum of applications, from electromagnetics and structural mechanics to acoustics, fluid dynamics, heat transfer, and chemical engineering. COMSOL features an extensive array of modules, including the Wave Optics module for optical applications simulations like wave propagation in fiber optics and photonics, the Semiconductor module for the analysis of semiconductor devices such as diodes and transistors, and the AC/DC module for examining electric and magnetic fields in static and low-frequency scenarios. For my thesis, which involves analyzing ray paths in optical systems, I will be utilizing the Ray Optics module.
 
+% ----- THE MODELLING WORKFLOW -----
 \section{The COMSOL Modelling Workflow}
+Briefly the modelling workflow consists of the following steps, if you start a model completely from scratch:
+\begin{enumerate}
+    \item Setting up the model environment
+    \item Building the geometry
+    \item Specifying material properties
+    \item Defining physics boundary conditions
+    \item Creating the mesh
+    \item Running the simulation
+    \item Post-processing the results
+\end{enumerate}
+
+To do this, I shall work through the modelling workflow on a small sample project that'll showcase the power of COMSOL alongside the ease of using the modelling workflow to build all of your projects. Please note that the modelling workflow is the same no matter what physics one is attempting to model hence the modelling workflow will inform the rest of the models I shall create for my thesis too.
+
+Specifically, I shall walk you through modelling Joule heating in a busbar. One passes an electric current through metal which heats up because of the resistance to the electric current flow.
+
+Our busbar will contain three titanium bolts. We are conducting a current from the single bolt on one side of the busbar to the pair of bolts on the other end of the busbar. The goal is to see the temperature distribution as the busbar heats up.
+
+% TODO: Add the busbar image
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+% SUBSECTION --- Setting up the model environment ---
+\subsection{Setting Up the Model Environment}.
+% TODO: Add set-up screen image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+One you click on the COMSOL icon, you will be prompted to choose whether you want to start from scratch (choosing a Blank Model) or the Model Wizard, a guided approach which allows you to make prepared selections as part of your model setup which is recommended. The Blank Model allows you to go directly to the working environment, the COMSOL desktop, without making any pre-selections as you would if you chose the Model Wizard.
+
+% TODO: Add "Select Space Dimension" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+Since our busbar model is three-dimensional, we choose the "3D" option.
+
+% TODO: Add "Select Physics" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+Next, we encounter the page that prompts you to select the type of Physics you would like to model. Since we're dealing with Joule heating, we select it. However, say you want to investigate thin-film fluid flow, you would go to the "Fluid Flow" node and select the "Thin-Film Flow" under it. Notice that once we add the "Joule Heating" physics, it is accompanied by other types of physics such as "Electric Currents (ec)" and "Heat Transfer in Solids (ht)". This is because "Joule Heating" is a coupled interface meaning it has multiple Physics bundled up into one.
+
+Ultimately the choice of Physics you would like to investigate depends on the nature of your project and the tier of the COMSOL subscription you have. Indeed, I had to wait a couple of weeks before I got the "Ray Optics" package I needed for my thesis since my initial subscription did not come with it. So, it is prudent to check which type of Physics you need for your project early on.
+
+Once you're ready, we click on "Study" to continue.
+
+% TODO: Add "Select Study" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+In this window, we encounter a list of studies that are available based on the previous choices we made for the spatial dimension and the physics of our model. For the busbar, we only need the "Stationary" study since we are conducting a stationary study. Once we click "Done", we move on to the COMSOL desktop.
+
+% TODO: Add "COMSOL Desktop" image
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{ Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+The COMSOL desktop is the staging area where you will build and interact with your model from scratch. It intuitively contains buttons or ribbons to the order of the modelling workflow. The Model Builder window contains the modelling tree where you can, for example, specify your model's dimensions including specifying particular physics equations your model should abide by. You can re-order the COMSOL desktop's windows depending on your preferences too.
+
+% SUBSECTION --- Building the Geometry ---
+\subsection{Building the Geometry}.
