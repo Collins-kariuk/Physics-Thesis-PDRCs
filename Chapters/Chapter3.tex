@@ -267,7 +267,6 @@ If we select and expand the Study 1 node, in the Settings window, there's a chec
 
 In the step 1: stationary sub-node under the Physics and Variables dropdown selection, we can see the full multiphysics problem is being computed through the "Solve For Column". We can go ahead and click the "Compute" button. Now that the model has computed, we can move on to the next workflow step and post-process the results.
 
-
 % TODO: Add image showing computed results.
 % \begin{figure}[ht!]
 %   \centering
@@ -275,3 +274,51 @@ In the step 1: stationary sub-node under the Physics and Variables dropdown sele
 %   \caption{Source: \cite{}}
 %   \label{}
 % \end{figure}
+
+% SUBSECTION --- Post-Processing the Results ---
+\subsection{Post-Processing the Results}.
+After completing the workflow to build your model, you can then package it into a simulation app and this is done in the Application Builder. We can create an app from our busbar model that allows us to experiment with the values for some of our parameters.
+
+We can access the Application Builder through the home bar.
+
+% TODO: Add image showing application builder button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+The quick and easy way to create an app is to use the New Form Wizard
+
+% TODO: Add image showing New Form Wizard button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+We can choose parameters from our model which we can change the values for, and will serve as inputs for our simulation app. For the inputs, we choose the length, width, and applied voltage of the busbar. In the next tab, we can choose the graphics that we want to be available to display in the app. In the next tab, the Buttons tab, we definitely want to include the "Compute Study" button option.
+
+We can click "Done" and this opens the Form Editor and through this we can edit the user interface of our simulation app customizing the appearance, organizing its display using multiple forms, use methods to include additional functionality and much more.
+
+% TODO: Add image showing Form Editor
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+If we click the Test Application button, our simulation app appears.
+
+% TODO: Add image after clicking "Test Application" button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+We can change some of the values of the parameters such as increasing the length and the width and re-run the app by clicking "Compute".
