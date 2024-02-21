@@ -91,7 +91,7 @@ The COMSOL desktop is the staging area where you will build and interact with yo
 \subsection{Building the Geometry}.
 You have various options when it comes to building your model's geometry. First, you could use COMSOL's drawing tools or shape options. You can also import a geometry from an external file.
 
-% TODO: Add "Geometry Ribbon" image
+% TODO: Add "Geometry Button" image
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
@@ -121,7 +121,7 @@ Select the COMSOL Multiphysics branch and do the same for the Multiphysics secti
 
 The geometry will now be in the Graphics window where you can zoom in and out as well as examine it by moving it around. Notice that the Geometry node in the Model Builder window has changed signifying the steps that it took to create the busbar geometry. Moreover, upon further examination, we see that parameters have been used to create this particular geometry. You can find these parameters in the Parameters 1 node which contains a table which lists the editable parameters used to create the geometry.
 
-% TODO: Add image after when you add default busbare geom to model
+% TODO: Add image after when you add default busbar geom to model
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
@@ -229,7 +229,7 @@ Since the Joule Heating physics option we selected was a coupled one, we also ne
 
 Under the Heat Flux section, we're going to select the "Convective heat flux" option under "Flux Type" and we want to enter a value of 5 $W/(m^2\cdot K)$. But like we did for the electric potential, we just refer back to the Parameters 1 node, and type in htc which specifies the value of 5 $W/(m^2\cdot K)$.
 
-% TODO: Add image showing "Electric Currents" boundary conditions
+% TODO: Add image showing Heat Flux boundary conditions
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
@@ -256,14 +256,6 @@ COMSOL Multiphysics contains different 2D and 3D element types such as pyramids,
 % SUBSECTION --- Run the Study ---
 \subsection{Run the Study}.
 If we select and expand the Study 1 node, in the Settings window, there's a check box for "Generate default plots" and this will generate plots based on the physics selected in your model. Since our model involves electric currents and heat transfer, we will have results plots including the electric potential as well as the temperature of our busbar.
-
-% TODO: Add image showing "Generate default plots" for Study 1 node
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{}
-%   \caption{Source: \cite{}}
-%   \label{}
-% \end{figure}
 
 In the step 1: stationary sub-node under the Physics and Variables dropdown selection, we can see the full multiphysics problem is being computed through the "Solve For Column". We can go ahead and click the "Compute" button. Now that the model has computed, we can move on to the next workflow step and post-process the results.
 
