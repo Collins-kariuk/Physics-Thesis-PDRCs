@@ -227,4 +227,17 @@ Lastly, we want to include a ground boundary condition to the bottom surface of 
 
 Since the Joule Heating physics option we selected was a coupled one, we also need to specify the boundary conditions for the thermal portion of our model. Again, here the "Thermal Insulation 1" boundary condition is applied to all part of our model which is not valid in our case. Navigate to the Physics tab then Boundaries, and then select Heat Flux. In the settings window, in the Boundary Selection option, select, "All Boundaries" and omit all the bolt surfaces we selected earlier for the Electric Currents boundary conditions, that is, boundaries 8, 15, and 43. You can do this by selecting these boundary numbers and clicking on the minus sign which is "Remove from Selection".
 
-Under the Heat Flux section, we're going to select the "Convective heat flux" option under "Flux Type" and we want to enter a value of 5 $W/(m^2\cdot K)$.
+Under the Heat Flux section, we're going to select the "Convective heat flux" option under "Flux Type" and we want to enter a value of 5 $W/(m^2\cdot K)$. But like we did for the electric potential, we just refer back to the Parameters 1 node, and type in htc which specifies the value of 5 $W/(m^2\cdot K)$.
+
+% TODO: Add image showing "Electric Currents" boundary conditions
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+In this model of a busbar, both of the Physics we've included, Electric Currents and Heat Transfer in solids, are active everywhere.
+
+% SUBSECTION --- Build the Mesh ---
+\subsection{Build the Mesh}.
