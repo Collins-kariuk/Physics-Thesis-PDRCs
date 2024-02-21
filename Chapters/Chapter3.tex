@@ -252,3 +252,26 @@ COMSOL Multiphysics contains different 2D and 3D element types such as pyramids,
 %   \caption{Source: \cite{}}
 %   \label{}
 % \end{figure}
+
+% SUBSECTION --- Run the Study ---
+\subsection{Run the Study}.
+If we select and expand the Study 1 node, in the Settings window, there's a check box for "Generate default plots" and this will generate plots based on the physics selected in your model. Since our model involves electric currents and heat transfer, we will have results plots including the electric potential as well as the temperature of our busbar.
+
+% TODO: Add image showing "Generate default plots" for Study 1 node
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+In the step 1: stationary sub-node under the Physics and Variables dropdown selection, we can see the full multiphysics problem is being computed through the "Solve For Column". We can go ahead and click the "Compute" button. Now that the model has computed, we can move on to the next workflow step and post-process the results.
+
+
+% TODO: Add image showing computed results.
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
