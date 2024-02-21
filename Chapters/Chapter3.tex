@@ -91,7 +91,7 @@ The COMSOL desktop is the staging area where you will build and interact with yo
 \subsection{Building the Geometry}.
 You have various options when it comes to building your model's geometry. First, you could use COMSOL's drawing tools or shape options. You can also import a geometry from an external file.
 
-% TODO: Add "Geometry Ribbon" image
+% TODO: Add "Geometry Button" image
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
@@ -121,7 +121,7 @@ Select the COMSOL Multiphysics branch and do the same for the Multiphysics secti
 
 The geometry will now be in the Graphics window where you can zoom in and out as well as examine it by moving it around. Notice that the Geometry node in the Model Builder window has changed signifying the steps that it took to create the busbar geometry. Moreover, upon further examination, we see that parameters have been used to create this particular geometry. You can find these parameters in the Parameters 1 node which contains a table which lists the editable parameters used to create the geometry.
 
-% TODO: Add image after when you add default busbare geom to model
+% TODO: Add image after when you add default busbar geom to model
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
@@ -184,10 +184,133 @@ The Bolts selections definition we made earlier comes in handy when we assign ev
 
 With each material addition, and thus, material node addition in the Model Builder window comes a table in the Settings window of the Material Contents which contain the physical properties of said materials, such as, Electrical Conductivity, Heat Capacity, among others.
 
-% TODO: Add image showing material contents
+% TODO: Add image showing material contents (properties)
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{}
 %   \caption{Source: \cite{}}
 %   \label{}
 % \end{figure}
+
+
+% SUBSECTION --- Defining the Physics Boundary Conditions ---
+\subsection{Defining the Physics Boundary Conditions}.
+We can now start assigning mathematical equations to different parts of our geometry or model in order to simulate our Physics and we do this by selecting parts of the geometry and then specifying appropriate equations and physical conditions that describe that part.
+
+Let's start by configuring the Physics for the electric currents interface which will simulate the conduction of electric current from the single bolt to the pair of bolts on the other end of the busbar. Depending on the Physics you selected when setting up the model environment, some equations may be built-in to your Physics nodes, for instance, if you navigate to the "Electric Currents (ec)" node, you can see the corresponding equations detailed in the Settings window. One of the equations is the ubiquitous equation relating the electric field to the electric potential, $\mathbf{E} = -\nabla V$.
+
+% TODO: Add image showing equation
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+So there's no black box in COMSOL Multiphysics since the user can always know what COMSOL Multiphysics is doing and how.
+
+When we added the physics to our model, this also included a few default nodes under each respective physics nodes and we only add the boundary conditions and constraints to our model when they are different from these default nodes. So for instance, for the "Electric Currents (ec)" Physics, you have default boundary conditions such as "Electric Insulation 1" which is default and applied to all boundaries. This is not valid for the case of our model.
+
+We want to apply a voltage to the the bottom surface of the single bolt. To do this, we click on the Physics tab, click Boundaries, and select Electric Potential and upon selecting it, you'll see an Electric Potential 1 node was added. We now need to select the select the piece of geometry this potential applies to, and as stated before, we hover over the surface we want to select and click it. For the value of electric potential, we want to apply a voltage of 20 mV, to which you enter as 20[mV] where the brackets specify the units if different from the default.
+
+To make your life easier though, recall that in the Parameters table in the "Parameters 1" node, we have a variable Vtot, that included the value for the applied voltage so instead of manually writing 20[mV], you could just type the variable name. Doing this will allow you to set up a parametric study later on.
+
+Lastly, we want to include a ground boundary condition to the bottom surface of each pair of bolts on the other side of the busbar. To do this, we can click the boundaries button in the Physics tab and select Ground and select the appropriate parts of the geometry.
+
+% TODO: Add image showing "Electric Currents" boundary conditions
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+Since the Joule Heating physics option we selected was a coupled one, we also need to specify the boundary conditions for the thermal portion of our model. Again, here the "Thermal Insulation 1" boundary condition is applied to all part of our model which is not valid in our case. Navigate to the Physics tab then Boundaries, and then select Heat Flux. In the settings window, in the Boundary Selection option, select, "All Boundaries" and omit all the bolt surfaces we selected earlier for the Electric Currents boundary conditions, that is, boundaries 8, 15, and 43. You can do this by selecting these boundary numbers and clicking on the minus sign which is "Remove from Selection".
+
+Under the Heat Flux section, we're going to select the "Convective heat flux" option under "Flux Type" and we want to enter a value of 5 $W/(m^2\cdot K)$. But like we did for the electric potential, we just refer back to the Parameters 1 node, and type in htc which specifies the value of 5 $W/(m^2\cdot K)$.
+
+% TODO: Add image showing Heat Flux boundary conditions
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+In this model of a busbar, both of the Physics we've included, Electric Currents and Heat Transfer in solids, are active everywhere.
+
+% SUBSECTION --- Build the Mesh ---
+\subsection{Build the Mesh}.
+Click the Mesh ribbon tab and select our mesh by clicking the Mesh 1 button. In the Settings window under the Mesh Setting section, if we click the Sequence Type drop-down menu, we have two options. We can always use the default Physics-controlled mesh and this automatically generates a mesh adapted to the Physics settings within the model. The user-controlled mesh allows the user to have manual control over the mesh size and could even create a mesh using different element types.
+
+COMSOL Multiphysics contains different 2D and 3D element types such as pyramids, triangles, prisms among others. COMSOL Multiphysics has nine built-in element size parameter sets, from extremely fine to extremely coarse. To actually build the mesh, we need to click the "Build All" button.
+
+% TODO: Add image showing the mesh of the busbar under "fine"
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+% SUBSECTION --- Run the Study ---
+\subsection{Run the Study}.
+If we select and expand the Study 1 node, in the Settings window, there's a check box for "Generate default plots" and this will generate plots based on the physics selected in your model. Since our model involves electric currents and heat transfer, we will have results plots including the electric potential as well as the temperature of our busbar.
+
+In the step 1: stationary sub-node under the Physics and Variables dropdown selection, we can see the full multiphysics problem is being computed through the "Solve For Column". We can go ahead and click the "Compute" button. Now that the model has computed, we can move on to the next workflow step and post-process the results.
+
+% TODO: Add image showing computed results.
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+% SUBSECTION --- Post-Processing the Results ---
+\subsection{Post-Processing the Results}.
+After completing the workflow to build your model, you can then package it into a simulation app and this is done in the Application Builder. We can create an app from our busbar model that allows us to experiment with the values for some of our parameters.
+
+We can access the Application Builder through the home bar.
+
+% TODO: Add image showing application builder button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+The quick and easy way to create an app is to use the New Form Wizard
+
+% TODO: Add image showing New Form Wizard button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+We can choose parameters from our model which we can change the values for, and will serve as inputs for our simulation app. For the inputs, we choose the length, width, and applied voltage of the busbar. In the next tab, we can choose the graphics that we want to be available to display in the app. In the next tab, the Buttons tab, we definitely want to include the "Compute Study" button option.
+
+We can click "Done" and this opens the Form Editor and through this we can edit the user interface of our simulation app customizing the appearance, organizing its display using multiple forms, use methods to include additional functionality and much more.
+
+% TODO: Add image showing Form Editor
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+If we click the Test Application button, our simulation app appears.
+
+% TODO: Add image after clicking "Test Application" button
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{}
+%   \caption{Source: \cite{}}
+%   \label{}
+% \end{figure}
+
+We can change some of the values of the parameters such as increasing the length and the width and re-run the app by clicking "Compute".
