@@ -247,7 +247,7 @@ where $A$ represents the cross-sectional area through which the wave propagates.
 \end{figure}
 
 Using the relation between irradiance and electrical field amplitude, 
-\begin{equation}
+\begin{equation}\label{eq: definition of irradiance}
 I = E_{0}^2(\frac{\varepsilon \nu}{2})
 \end{equation}
 where:
@@ -257,18 +257,25 @@ where:
     \item $\varepsilon$ denotes the permittivity of the medium.
     \item $\nu$ is the phase velocity of the electromagnetic wave in the medium.
 \end{itemize}
-
-
-
-
 and that $\nu_i = \nu_r$ and $\varepsilon_i = \varepsilon_r$ since they correspond to the same medium, we can rephrase the power balance equation to be:
 \begin{equation}
 E_{0i}^2 = E_{0r}^2 + E_{0t}^2\left(\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}\right) \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
 \end{equation}
-$\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}$ is a complicated way of expressing $n$ - the relative refractive index. Using the facts that $\mu_i = \mu_t = \mu_0$ (for nonmagnetic materials) and the relation that $\nu^2 = \frac{1}{\mu\varepsilon}$:
+where
+\begin{itemize}
+    \item $E_{0i}$, $E_{0r}$, and $E_{0t}$ represent the electric field amplitudes of the incident, reflected, and transmitted waves, respectively.
+    \item $\nu_i$ and $\nu_r$ denote the phase velocities in the incident and reflected paths, which are equal since these paths are within the same medium.
+    \item $\varepsilon_i$ and $\varepsilon_r$ are the permittivities of the medium for the incident and reflected waves, equal because they pertain to the same medium.
+    \item $\nu_t$ and $\varepsilon_t$ refer to the phase velocity and permittivity in the transmission path, respectively.
+    \item The angles $\theta$ and $\theta_t$ are the angles of incidence and transmission, respectively.
+\end{itemize}
+
+The ratio $\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}$ is a complicated way of expressing $n$ - the relative refractive index. Considering that $\mu_i = \mu_t = \mu_0$ for nonmagnetic materials, where $\mu_i$ and $\mu_t$ are the magnetic permeabilities of the incident and transmitted materials, and $\mu_0$ is the magnetic permeability of free space. The relationship, $\nu^2 = \frac{1}{\mu \varepsilon}$ further elucidates the link between phase velocity, magnetic permeability, and permittivity. Hence, we derive:
 \begin{equation}
 \frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i} = \frac{\nu_i^2\mu_i}{\nu_t^2\mu_t} \frac{\nu_t}{\nu_i} = \frac{\nu_i}{\nu_t} = n
 \end{equation}
+This transformation streamlines the comprehension of how waves interact with various media by introducing the concept of the relative refractive index, $n$. This index represents the ratio of the phase velocities of the wave as it moves from the incident to the transmitted medium, thus quantifying the change in phase speed resulting from the passing of the wave between these two media.
+
 Thus we can include $n$ in the power balance equations:
 \begin{equation}
 E_{0i}^2 = E_{0r}^2 + n E_{0t}^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
@@ -277,12 +284,15 @@ Dividing through by $E_{0i}^2$, we get:
 \begin{equation} \label{power balance equation with r^2 and t^2}
 1 = r^2 + n t^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
 \end{equation}
-Note that equations \ref{Definition of the reflection coefficient} and \ref{Definition of the transmission coefficient} allow us to make the substitutions for $r$ and $t$ above. Note that \ref{power balance equation with r^2 and t^2} certify that:
+% Note that equations \ref{Definition of the reflection coefficient} and \ref{Definition of the transmission coefficient} allow us to make the substitutions for $r$ and $t$ above. Note that \ref{power balance equation with r^2 and t^2} certify that:
 
-\begin{equation} \label{definition of R}
-R = \frac{P_r}{P_i} = \frac{I_r}{I_i} = r^2
+Reflectance ($R$) and transmittance ($T$) quantify the fractions of incident electromagnetic power that are reflected and transmitted across a boundary, respectively. These concepts are grounded in the principle of energy conservation, which, in the context of electromagnetic waves at an interface, is expressed as:
+\begin{equation}
+    R = \frac{P_r}{P_i} = \frac{I_r}{I_i} = \left(\frac{E_{0r}}{E_0i}\right)^2 = r^2
 \end{equation}
-Consequently,
+where in the last step, I have utilized equation \ref{eq: definition of irradiance}. The term $r^2$ is introduced as a shorthand notation for this ratio, encapsulating the reflectance in terms of the electric field amplitude rations.
+
+Looking at equation \ref{R+T=1}, we gather that:
 \begin{equation} \label{definition of T}
 T =  n t^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
 \end{equation}
@@ -291,7 +301,7 @@ It's worth noting that $T$ is not merely $t^2$, as we must consider the altered 
 
 %------------- FROM THE THEORY OF MULTILAYER FILMS ------------
 \section{Multilayer films}
-In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we intend to employ multiple stacks comprising diverse materials with distinct refractive indices, arranged in layers to enhance the overall reflection coefficient and consequently increase reflectance. It is crucial to comprehend the electromagnetic wave interaction and optimal layer stacking physics to maximize reflectance. We again need a rigorous consideration of boundary conditions as dictated by Maxwell's equations. %R
+In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we intend to employ multiple stacks comprising diverse materials with distinct refractive indices, arranged in layers to enhance the overall reflection coefficient and consequently increase reflectance. It is crucial to comprehend the electromagnetic wave interaction and optimal layer stacking physics to maximize reflectance. We again need a rigorous consideration of boundary conditions as dictated by Maxwell's equations.
 
 %------------- TRANSFER MATRIX SECTION ------------
 \subsection{Transfer Matrix}
