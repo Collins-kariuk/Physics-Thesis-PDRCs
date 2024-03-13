@@ -12,24 +12,37 @@ To enhance the effectiveness of PDRC, it becomes essential to optimize this refl
 The Fresnel equations are mathematical expressions that delineate the proportion of incident electromagnetic fields that is either transmitted or reflected at the interface of two materials with differing refractive indices. This concept aligns precisely with our objectives, as we plan to stack plane surfaces featuring distinct reflective properties and refractive indices. This chapter serves as an exploration of the theoretical framework underpinning the derivation of $R$ via the Fresnel Equations, delving into associated phenomena such as total internal reflection. Additionally, we explore the practical application of these principles to PDRC devices.
 
 \section{Fresnel Equations}
-Consider a light ray incident at point P upon a planar interface, leading to the generation of both reflected and refracted rays. It is important to recognize that the refractive index before the interface ($n_1$) and after the interface ($n_2$). are properties intrinsic to the materials themselves, determining how light propagates through them. Specifically, $n_1$ is the refractive index of the material through which the incident and reflected rays travel, while $n_2$ is the refractive index of the material through which the refracted ray travels. The plane of incidence, lying within the x-z plane, is defined by both the surface normal and the direction of the incident ray.
-
-In the context of each ray, the direction of wave propagation ($\vec{\mathbf{k}}$), can be established by the vector cross product of the electric field ($\vec{\mathbf{E}}$), and magnetic field ($\vec{\mathbf{B}}$) vectors, expressed as $\vec{\mathbf{E}} \times \vec{\mathbf{B}}$. This relationship can be conveniently determined using the right-hand rule, offering a valuable method for directional assessment.
+Consider a light ray incident at point P upon a planar interface, leading to the generation of both reflected and refracted rays. It is important to recognize that the refractive index before the interface ($n_1$) and after the interface ($n_2$). are properties intrinsic to the materials themselves, determining how light propagates through them. Specifically, $n_1$ is the refractive index of the material through which the incident and reflected rays travel, while $n_2$ is the refractive index of the material through which the refracted ray travels. The plane of incidence, lying within the x-z plane, is defined by both the surface normal and the direction of the incident ray. See figure \ref{fig:The TE Set-up}.
 
 % inserting the TE wave example
-\begin{figure}
+\begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Incident, Relfected, and Transmitted Ray for TE Mode.png}
-  \caption{The transverse electric (TE) set-up}
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 2 Figures/Incident, Reflected, and Transmitted Ray for TE Mode.png}
+  \caption[The transverse electric (TE) set-up]{The transverse electric (TE) set-up. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig:The TE Set-up}
 \end{figure}
+
+In the context of each ray, the direction of wave propagation ($\vec{\mathbf{k}}$), can be established by the vector cross product of the electric field ($\vec{\mathbf{E}}$), and magnetic field ($\vec{\mathbf{B}}$) vectors, expressed as $\vec{\mathbf{E}} \times \vec{\mathbf{B}}$. This relationship can be conveniently determined using the right-hand rule, offering a valuable method for directional assessment.
 
 Let us consider that the incident light comprises of plane harmonic waves:
 \begin{equation} \label{Plane harmonic wave equation - incident}
 \vec{\mathbf{E}} = \vec{\mathbf{E}_0} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)}
 \end{equation}
+
+where 
+\begin{itemize}
+    \item $\vec{\mathbf{E}}$ represents the electric field vector of the wave at any point.
+    \item $\vec{\mathbf{E}_0}$ is the amplitude of $\vec{\mathbf{E}}$ which represents the maximum strength or value of $\vec{\mathbf{E}}$.
+    \item $\vec{\mathbf{k}}$ is the wave (direction) vector and it indicates the direction of wave propagation and has a magnitude equal to the wave number $k=\frac{2\pi}{\lambda}$.
+    \item $\vec{\mathbf{r}}$ represents the position vector in space where the field is being examined.
+    \item $\omega$ is the angular frequency of the wave.
+    \item $t$ represents the time.
+    \item $i$, the imaginary number, indicates the wave has both real and imaginary components.
+\end{itemize}
+
 In our analytical approach, we will specifically examine a linearly polarized light wave, where the electric field vector $\vec{\mathbf{E}}$ is oriented perpendicular to the plane of incidence. According to the right-hand rule, this configuration places the magnetic field vector $\vec{\mathbf{B}}$ within the plane of incidence. This particular polarization is known as the \textit{transverse electric} (TE) mode
 
-The reflected and transmitted waves can then also be expressed as plane harmonic wave equations:
+The reflected and transmitted waves can then be expressed as plane harmonic waves:
 \begin{equation} \label{Plane harmonic wave equation - reflected}
 \vec{\mathbf{E}_r} = \vec{\mathbf{E}_{0r}} e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega_r t)}
 \end{equation}
@@ -38,52 +51,75 @@ The reflected and transmitted waves can then also be expressed as plane harmonic
 \vec{\mathbf{E}_t} = \vec{\mathbf{E}_{0t}} e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega_t t)}
 \end{equation}
 
-At the interface where all three waves emerge simultaneously, a crucial boundary condition must be established to govern the relationship between their respective wave amplitudes. This boundary condition stipulates that the waves both incident upon and emerging from the plane of incidence should exhibit continuity and differentiability. This requirement is contingent upon the assumption that the interface is isotropic.
+where
+\begin{itemize}
+    \item $\vec{\mathbf{E}_r}$ represents the electric field vector of the reflected wave at any point.
+    \item $\vec{\mathbf{E}_t}$ represents the electric field vector of the transmitted wave at any point.
+    \item $\vec{\mathbf{k}_r}$ is the wave (direction) vector of the reflected wave.
+    \item $\vec{\mathbf{k}_t}$ is the wave (direction) vector of the transmitted wave.
+\end{itemize}
 
 % --- SUBSECTION ON BOUNDARY CONDITIONS FOR TE WAVES ---
 \subsection{Boundary Conditions for TE Waves}
-In the context of our TM mode configuration, we can express the wave equations for the incident, reflected, and transmitted electric field components waves as follows:
+At the interface where all three waves emerge simultaneously, a crucial boundary condition must be established to govern the relationship between their respective wave amplitudes. This boundary condition stipulates that the waves both incident upon and emerging from the plane of incidence should exhibit continuity and differentiability. This requirement is contingent upon the assumption that the interface is isotropic meaning that the physical properties of the material do not vary with different directions of measurement at the interface.
+% Simply put, the condition of the interface being isotropic ensures that the wave will behave the same way regardless of the direction from which it approaches or into which it travels after interacting with the interface.
+
+\begin{equation} \label{Plane harmonic wave equation - reflected}
+\vec{\mathbf{E}_r} = \vec{\mathbf{E}_{0r}} e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega_r t)}
+\end{equation}
+
+In the context of our TE mode configuration (see figure \ref{fig:The TE Set-up}), we can express the waves for the incident, reflected, and transmitted electric field components waves as follows:
     \begin{align*}
-    \vec{\mathbf{E}_0} &= E\hat{y}           &  \vec{\mathbf{E}_{0r}} &= E_r\hat{y}               &  \vec{\mathbf{E}_{0t}} &= E_t\hat{y}
+    \vec{\mathbf{E}} &= E \hat{y} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)}           &  \vec{\mathbf{E}_r} &= E_r \hat{y} e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega_r t)}               &  \vec{\mathbf{E}_t} &= E_t \hat{y} e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega_t t)}
     \end{align*}
-where $E$, $E_r$, and $E_t$ denote the complex field amplitudes corresponding to the incident, reflected, and transmitted waves, respectively. These wave equations adhere to the boundary conditions, ensuring the continuity of electric field components parallel to the interface, as in:
+where $E$, $E_r$, and $E_t$ denote the complex field amplitudes corresponding to the incident, reflected, and transmitted waves, respectively. These waves adhere to the boundary conditions, ensuring the continuity of electric field components parallel to the interface, as in:
 \begin{equation} \label{Electric field boundary conditions for TE waves}
 E + E_r = E_t
 \end{equation}
 
-By basic trigonometry and Maxwell's equations, we can find the corresponding magnetic fields to be:
+Using basic trigonometry and Maxwell's equations, we can derive the corresponding magnetic fields for the incident, reflected, and transmitted waves. The expressions for these fields, assuming a TE mode, are:
 \begin{align*} 
 \vec{\mathbf{B}} &= (B\mathrm{cos}(\theta \hat{x}) - B\mathrm{sin}(\theta \hat{z})) e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
 \vec{\mathbf{B}}_r &= (-B_r\mathrm{cos}(\theta_r \hat{x}) - B_r\mathrm{sin}(\theta_r \hat{z})) e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega t)} \\ 
 \vec{\mathbf{B}}_t &= (B_t\mathrm{cos}(\theta_t \hat{x}) - B_t\mathrm{sin}(\theta_t \hat{z})) e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega t)}
 \end{align*}
 
+where
+\begin{itemize}
+    \item $\theta$ represents the angle of incidence (the angle between the incident wave's direction of propagation and the normal to the interface). See figure \ref{fig:The TE Set-up}.
+    \item $\theta_r$ represents the angle of reflection (the angle between the reflected wave's direction of propagation and the normal to the interface).
+    \item $\theta_t$ represents the angle of transmission (the angle between the transmitted wave's direction of propagation and the normal to the interface).
+\end{itemize}
+
 As the magnetic field vector lies transversely to the plane of incidence, adherence to the boundary conditions necessitates the connection of parallel components of the magnetic field, as defined by:
 \begin{equation} \label{Magnetic field boundary conditions for TE waves}
 B\mathrm{cos}(\theta) - B_r\mathrm{cos}(\theta) = B_t\mathrm{cos}(\theta_t) 
 \end{equation}
-Here, it's important to note that $\theta = \theta_r$ according to the law of reflection. Equations \ref{Electric field boundary conditions for TE waves} and \ref{Magnetic field boundary conditions for TE waves} stand as two pivotal equations arising from the boundary conditions for TE waves. These equations, instrumental in determining $R$, serve as a critical foundation. Nevertheless, before we delve into the calculation of $R$ through these boundary conditions, it is imperative to demonstrate the applicability of the same procedure to the transverse magnetic case.
+Here, it's important to note that $\theta = \theta_r$ according to the Law of Reflection. Equations \ref{Electric field boundary conditions for TE waves} and \ref{Magnetic field boundary conditions for TE waves} stand as two pivotal equations arising from the boundary conditions for TE waves. These equations, instrumental in determining $R$, serve as a critical foundation. Nevertheless, before we delve into the calculation of $R$ through these boundary conditions, it is imperative to demonstrate the applicability of the same procedure to the transverse magnetic case.
 
 \subsection{Boundary Conditions for TM Waves}
-Another polarization mode for electromagnetic waves is known as the \textit{transverse magnetic} (TM) polarization. In this mode, the magnetic field vector is oriented perpendicular to the plane of incidence, while the electric field vector lies transverse to the plane of incidence. Within the framework of our TM mode configuration, we can formulate the wave equations governing the electric field components of the incident, reflected, and transmitted waves as follows:
+Another polarization mode for electromagnetic waves is known as the \textit{transverse magnetic} (TM) polarization. In this mode, the magnetic field vector is oriented perpendicular to the plane of incidence, while the electric field vector lies transverse to the plane of incidence. Within the framework of our TM mode configuration, we can formulate the wave equations governing the electric field components of the incident, reflected, and transmitted waves as follows (see figure \ref{fig: The TM set-up}):
+
+% inserting the TM wave example
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 2 Figures/Incident, Reflected, and Transmitted Ray for TM Mode.jpg}
+  \caption[The transverse electric (TM) set-up]{The transverse electric (TM) set-up. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig: The TM set-up}
+\end{figure}
+
 \begin{align*} 
 \vec{\mathbf{E}} &= (E\mathrm{cos}(\theta \hat{x}) - E\mathrm{sin}(\theta \hat{z})) e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
 \vec{\mathbf{E}}_r &= (E_r\mathrm{cos}(\theta_r \hat{x}) + E_r\mathrm{sin}(\theta_r \hat{z})) e^{i(\vec{\mathbf{k_r}} \cdot \vec{\mathbf{r}} - \omega t)} \\ 
 \vec{\mathbf{E}}_t &= (E_t\mathrm{cos}(\theta_t \hat{x}) - E_t\mathrm{sin}(\theta_t \hat{z})) e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega t)}
 \end{align*}
-Consequently, the magnetic field components can be written as:
+
+Consequently, the magnetic field components can be written as (see figure \ref{fig: The TM set-up}):
 \begin{align*}
     \vec{\mathbf{B}} &= -B\hat{y} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
     \vec{\mathbf{B}}_r &= B_r\hat{y} e^{i(\vec{\mathbf{k}} \cdot \vec{\mathbf{r}} - \omega t)} \\
     \vec{\mathbf{B}}_t &= -B_t\hat{y} e^{i(\vec{\mathbf{k_t}} \cdot \vec{\mathbf{r}} - \omega t)} \\
 \end{align*}
-
-% inserting the TM wave example
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Incident, Relfected, and Transmitted Ray for TM Mode.jpg}
-  \caption{The transverse electric (TM) set-up}
-\end{figure}
 
 These equations adhere to the boundary conditions, guaranteeing the continuity of electric field components parallel to the interface, as demonstrated by:
 \begin{equation} \label{Magnetic field boundary conditions for TM waves}
@@ -96,21 +132,34 @@ Ecos(\theta) + E_rcos(\theta) = E_tcos(\theta_t)
 
 % REFLECTION AND TRANSMISSION COEFFICIENTS
 \subsection{Reflection and Transmission Coefficients}
-To determine the reflectance $R$ and, consequently, the transmittance $T$, it is imperative to define the reflection and transmission coefficients, as follows:
+To determine the reflectance $R$ and, consequently, the transmittance $T$, it is imperative to define the reflection ($r$) and transmission coefficients ($t$), as follows:
 \begin{equation} \label{Definition of the reflection coefficient}
-r = \frac{E_r}{E}
+r \equiv \frac{E_r}{E}
 \end{equation}
 and
 \begin{equation} \label{Definition of the transmission coefficient}
-t = \frac{E_t}{E}
+t \equiv \frac{E_t}{E}.
 \end{equation}
 
-However, it is essential to calculate these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are linked through the following relation:
+% However, it is essential to calculate these coefficients for both the TE and TM cases. Recall that the electric and magnetic field amplitudes are linked through the following relation:
+% \begin{equation} \label{Equation relating the electric and magnetic field amplitudes}
+% E = \nu B = \left(\frac{c}{n}\right)B
+% \end{equation}
+However, it is essential to calculate these coefficients for both the Transverse Electric (TE) and Transverse Magnetic (TM) polarization cases. Recall that the electric (E) and magnetic (B) field amplitudes are interconnected through the following relation:
+
 \begin{equation} \label{Equation relating the electric and magnetic field amplitudes}
 E = \nu B = \left(\frac{c}{n}\right)B
 \end{equation}
 
-We can employ \ref{Equation relating the electric and magnetic field amplitudes} to replace every occurrence of \(B\) in the boundary conditions with its corresponding \(E\). Initiating with the TE case, remember the two vital boundary condition equations for the TE mode:
+where:
+\begin{itemize}
+    \item E represents the amplitude of the electric field.
+    \item $\nu$ represents the phase velocity of the wave within the medium, $\nu=\frac{c}{n}$.
+    \item $n$ is the refractive index of the medium.
+    \item $c$ is the speed of light.
+\end{itemize}
+
+We can employ \ref{Equation relating the electric and magnetic field amplitudes} to replace every occurrence of $B$ in the boundary conditions with its corresponding $E$. Initiating with the TE case, remember the two vital boundary condition equations for the TE mode:
 \begin{equation}
 TE:
 \begin{cases} \label{TE boundary conditions}
@@ -118,17 +167,18 @@ TE:
   n_1Ecos(\theta) - n_1E_rcos(\theta) = n_2E_tcos(\theta_t)
 \end{cases}
 \end{equation}
-We can proceed to solve the system of equations above for the TE case to determine $r_{TE}$ (by eliminating all instances of $E_t$). Introducing the concept of the \textit{relative refractive index}, denoted as $n$ and defined as $n \equiv \frac{n_2}{n_1}$, we can derive:
+We can proceed to solve the system of equations above for the TE case to determine $r_{TE}$ (by eliminating all instances of $E_t$). Introducing the concept of the \textit{relative refractive index}, denoted as $n$ and defined as $n \equiv \frac{n_2}{n_1}$ where $n_1$ is the refractive index of the initial medium through which the incident wave travels, and $n_2$ is the refractive index of the second medium into which the wave is transmitted.
 
+We can derive:
 \begin{equation} \label{Reflection coefficient (TE) in terms of n}
-r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - ncos(\theta_t)}{cos(\theta) + ncos(\theta_t)}
+r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - ncos(\theta_t)}{cos(\theta) + ncos(\theta_t)}.
 \end{equation}
-By the law of refraction, $sin(\theta) = nsin(\theta_t)$, we can eliminate $\theta_t$ by noting that:
+By the Law of Refraction, $sin(\theta) = nsin(\theta_t)$, so we can eliminate $\theta_t$ by noting that:
 \begin{equation} \label{Replacing \theta_t using the law of refraction}
 ncos(\theta_t) = n \sqrt{cos^{2}(\theta_t)} = n\sqrt{1 - sin^2(\theta_t)} = \sqrt{n^2 - sin^2(\theta)}
 \end{equation}
-Finally, our $r_{TE}$ is:
-\begin{equation} \label{Reflection coefficient (TE) without \theta_t}
+Finally, our reflection coefficient is:
+\begin{equation} \label{eq:reflection_TE}
 r_{TE} = \frac{E_r}{E} = \frac{cos(\theta) - \sqrt{n^2 - sin^2(\theta)}}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 
@@ -141,31 +191,32 @@ TM:
 \end{cases}
 \end{equation}
 With this revised form of the boundary condition, we can compute $r_{TM}$ in a manner similar to our determination of $r_{TE}$, resulting in:
-\begin{equation}
-r_{TE} = \frac{E_r}{E} = \frac{-n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
+\begin{equation} \label{eq:reflection_TM}
+r_{TM} = \frac{E_r}{E} = \frac{-n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 Similarly, if we follow the same steps we did for evaluating $r_{TM}$ and $r_{TE}$, we can subsequently figure out $t_{TM}$ and $t_{TE}$ (we now eliminate $E_r$ instead of $E_t$ ). We find:
-\begin{equation} \label{Transmission coefficient (TE) without \theta_t}
+\begin{equation} \label{Final tTE}
 t_{TE} = \frac{E_t}{E} = \frac{2cos(\theta)}{cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 
-\begin{equation} \label{Transmission Coefficient (TM) without \theta_t}
+\begin{equation} \label{Final tTM}
 t_{TM} = \frac{E_t}{E} = \frac{2ncos(\theta)}{n^2cos(\theta) + \sqrt{n^2 - sin^2(\theta)}}
 \end{equation}
 
-Observing, for instance, the interconnection between $t_{TE}$ and $r_{TE}$, it is evident that they share the same denominator, suggesting that one can be expressed in terms of the other. To establish the relationship between the two equations, one can subtract $r_{TE}$ from $t_{TE}$, yielding 1. With some additional manipulation, the corresponding equation linking $t_{TM}$ and $r_{TM}$ can be derived. Ultimately, $r$ can be expressed in terms of $t$ as follows:
+Observing, for instance, the interconnection between $t_{TE}$ and $r_{TE}$, it is evident that they share the same denominator, suggesting that one can be expressed in terms of the other. To establish the relationship between the two equations, one can subtract $r_{TE}$ from $t_{TE}$, yielding 1. With some additional manipulation, the corresponding equation linking $t_{TM}$ and $r_{TM}$ can be derived. Ultimately, $r$ can be expressed in terms of $t$ as follows (see figure \ref{fig: The TM set-up}):
 \begin{align*}
     t_{TE} &= 1 + r_{TE} \\
     nt_{TM} &= 1 - r_{TM} \\
 \end{align*}
-The set of equations $r_{TE}$, $r_{TM}$, $t_{TE}$, and $t_{TM}$ constitutes the \textbf{Fresnel Equations}. These equations provide reflection and transmission coefficients that establish the connection between incident and reflected energy field amplitudes in any linear, isotropic, and homogeneous medium. The primary objective of the Fresnel equations is to facilitate the determination of Reflectance $R$ and Transmittance $T$, which will be discussed in the subsequent subsection.
+
+The set of equations $r_{TE}$ (\ref{eq:reflection_TE}), $r_{TM}$ (\ref{eq:reflection_TM}), $t_{TE}$ (\ref{Final tTE}), and $t_{TM}$ (\ref{Final tTM}) constitutes the \textbf{Fresnel Equations}. These equations provide reflection and transmission coefficients that establish the connection between incident and reflected energy field amplitudes in any linear, isotropic, and homogeneous medium. The primary objective of the Fresnel equations is to facilitate the determination of reflectance $R$ and transmittance $T$, which will be discussed in the subsequent subsection.
 
 \subsection{Reflectance and Transmittance}
 For the sake of energy conservation, it is imperative that, at a specific boundary, the power incident upon the boundary equals the combined power of both the reflected and transmitted energy at that boundary.
 \begin{equation} \label{power balance equation at boundary}
 P_i = P_r + P_t
 \end{equation}
-We can preemptively define reflectance $R$ and transmittance $T$ as:
+We define reflectance $R$ and transmittance $T$ as:
 \begin{equation} \label{Reflectance}
 R = \frac{P_r}{P_i}
 \end{equation}
@@ -176,27 +227,40 @@ Hence, $R$ represents the proportion of reflected power relative to incident pow
 \begin{equation} \label{R+T=1}
 R + T = 1
 \end{equation}
-Power can be defined as the product of the irradiance of the electromagnetic wave and the cross-sectional area through which the wave passes, as demonstrated by:
+Power can be defined as the product of the irradiance ($I$) of the electromagnetic wave and the cross-sectional area ($A$) through which the wave passes, so \ref{power balance equation at boundary} can be written as:
 \begin{equation} \label{power balance equation in terms of irradiance}
 I_iA_i = I_rA_r + I_tA_t
 \end{equation}
 
-To ascertain $A_i$, $A_r$, and $A_t$, it is essential to calculate the cross-sectional area covered by the incident, reflected, and transmitted electromagnetic waves, respectively. By employing trigonometric relationships, as illustrated in the accompanying figure, we can calculate the cross-sectional areas encompassed by the incident, reflected, and transmitted waves and subsequently substitute them into the equation \ref{power balance equation in terms of irradiance} to be:
+To ascertain $A_i$, $A_r$, and $A_t$, it is essential to calculate the cross-sectional area covered by the incident, reflected, and transmitted electromagnetic waves, respectively. By employing trigonometric relationships, as illustrated in \ref{fig: The CSA Example}, we can calculate the cross-sectional areas encompassed by the incident, reflected, and transmitted waves and subsequently substitute them into the equation \ref{power balance equation in terms of irradiance} to be:
 \begin{equation} \label{power balance equations after CSA substitution}
 I_iAcos(\theta) = I_rAcos(\theta) + I_tAcos(\theta_t)
 \end{equation}
+where $A$ represents the cross-sectional area through which the wave propagates.
 
 % Including the CSA example for the incident, reflected, and transmitted electromagnetic waves
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{Chapters/Figures/CSA Example for the Incident, Reflected, and Transmitted Electromagnetic Waves.jpg}
-  \caption{Cross sections of the incident, reflected, and transmitted beams}
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 2 Figures/CSA Example for the Incident, Reflected, and Transmitted Electromagnetic Waves.jpg}
+  \caption[Cross sections of the incident, reflected, and transmitted beams]{Cross sections of the incident, reflected, and transmitted beams. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig: The CSA Example}
 \end{figure}
 
 Using the relation between irradiance and electrical field amplitude, 
 \begin{equation}
 I = E_{0}^2(\frac{\varepsilon \nu}{2})
 \end{equation}
+where:
+\begin{itemize}
+    \item $I$ represents the irradiance, which is the power per unit area received by a surface
+    \item $E_0$ is the amplitude of the electric field, indicating the maximum strength of the field.
+    \item $\varepsilon$ denotes the permittivity of the medium.
+    \item $\nu$ is the phase velocity of the electromagnetic wave in the medium.
+\end{itemize}
+
+
+
+
 and that $\nu_i = \nu_r$ and $\varepsilon_i = \varepsilon_r$ since they correspond to the same medium, we can rephrase the power balance equation to be:
 \begin{equation}
 E_{0i}^2 = E_{0r}^2 + E_{0t}^2\left(\frac{\nu_t\varepsilon_t}{\nu_i\varepsilon_i}\right) \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
