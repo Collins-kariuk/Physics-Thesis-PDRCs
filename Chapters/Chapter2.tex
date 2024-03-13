@@ -320,12 +320,14 @@ In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we inte
 
 %------------- TRANSFER MATRIX SECTION ------------
 \subsection{Transfer Matrix}
-Consider the set-up above where the electric field amplitude is perpendicular to the plane of incidence (a transverse electric (TE) wave).
 
+At the heart of analyzing how electromagnetic waves interact with thin film structures lies a powerful tool - the transfer matrix. We shall spend most of this section elucidating the process by which we derive a general form of the transfer matrix, $M$, for arbitrary thin films. This $2 \times 2$ matrix is instrumental in establishing a quantitative link between the electric and magnetic fields at one interface. By introducing the transfer matrix, we enable the prediction of wave behavior across various interfaces encountered within a multilayer stack. The transfer matrix not only does this for double layers (single interfaces) but it also offers a scalable approach to tackling the dynamics of multiple layers.
+
+Consider the set-up above where the electric field amplitude is perpendicular to the plane of incidence (a transverse electric (TE) wave).
 % inserting the multilayer film set-up
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 2 Figures/Multilayer Film Set-Up.jpeg}
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 2 Figures/Multilayer Film Set-Up.png}
   \caption[Multilayer Film Set-Up]{Multilayer Film Set-Up. Source: \cite{pedrotti_introduction_2007}}
   \label{Multilayer Film Set-Up}
 \end{figure}
@@ -385,12 +387,12 @@ where
         \gamma_s \equiv n_s \sqrt{\varepsilon_0\mu_0} cos(\theta_{t2})
     \end{equation}
 
-% I NEED TO LOOK MORE INTO THE OPTICAL PATH LENGTH TO OFFER A BETTER EXPLANATION l
-$E_{i2}$ differs from $E_{t1}$ solely due to a phase difference $\delta$ arising from a single traversal of the film. The optical path length linked with one traversal is denoted as $\Delta_1=n_1t\cos(\theta_{t1})$. The optical path length represents the distance that light "perceives" it has covered in a medium and can be quantified in terms of the number of cycles the light beam has undergone within that specific medium. It is inherently proportional to the refractive index and the geometric length of the medium through which light is propagating. %R
+% I NEED TO LOOK MORE INTO THE OPTICAL PATH LENGTH TO OFFER A BETTER EXPLANATION
+$E_{i2}$ differs from $E_{t1}$ solely due to a phase difference $\delta$ arising from a single traversal of the film. The optical path length linked with one traversal is denoted as $\Delta_1=n_1d\cos(\theta_{t1})$. The optical path length represents the distance that light "perceives" it has covered in a medium and can be quantified in terms of the number of cycles the light beam has undergone within that specific medium. It is inherently proportional to the refractive index and the geometric length of the medium through which light is propagating. %R
 
 We can express the phase difference that develops due to one traversal of the film as:
     \begin{equation} \label{phase difference}
-    \delta = k_0\Delta_1 = \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})
+    \delta = k_0\Delta_1 = \left(\frac{2\pi}{\lambda_0}\right) n_1dcos(\theta_{t1})
     \end{equation}
 
 Therefore we can express the pair electric field sums $E_{i2}$ \& $E_{t1}$ and $E_{i1}$ \& $E_{r2}$ as follows:
@@ -522,7 +524,17 @@ Solving for $r$ by solving the system of linear equations above, we get
 
 %----- SECTION OF ANTIREFLECTING FILMS -------
 \subsection{Antireflecting Films}
-To gain a deeper insight into optimizing reflectance, let's explore the characteristics conducive to antireflection. Employing a double layer of quarter-wave-thickness films allows for the attainment of minimal reflectance at a specific wavelength. We will examine the simplest scenario for normal incidence, where all angles of incidence, reflection, and refraction are zero. The corresponding transfer matrix is expressed as: %R
+To gain deeper insights into optimizing reflectance, let's explore the characteristics conducive to anti-reflection using the structure shown in figure \ref{Sample Antireflecting Double Layer}. Employing a double layer of quarter-wave-thickness films allows for the attainment of minimal reflectance at a specific wavelength. We will examine the simplest scenario for normal incidence, where all angles of incidence, reflection, and refraction are zero.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Antireflecting Double Layer.jpeg}
+  \caption{Antireflecting Double Layer}
+  \label{Sample Antireflecting Double Layer}
+\end{figure}
+
+
+The corresponding transfer matrix is expressed as: %R
 
     \[
     M = 
@@ -579,12 +591,6 @@ Zero reflectance is then expected when the numerator is zero
     \end{equation}
 
 For a glass substrate with a refractive index of $n_s = 1.52$ and incidence from air with $n_0 = 1$, the optimal ratio of the refractive indices for the two films should be $\frac{n_2}{n_1} = \sqrt{1.52} = 1.23$. However, achieving near-zero reflectance is challenging over the broader region of the visible spectrum.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Antireflecting Double Layer.jpeg}
-  \caption{Antireflecting Double Layer}
-\end{figure}
 
 PERSONAL NOTE - I WILL INCLUDE A FIGURE OF REFLECTANCE VERSUS WAVELENGTH ONCE I GENERATE THE STUDY ON COMSOL.
 
