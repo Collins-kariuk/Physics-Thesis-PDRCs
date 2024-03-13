@@ -299,6 +299,21 @@ T =  n t^2 \left(\frac{cos(\theta_t)}{cos(\theta)} \right)
 
 It's worth noting that $T$ is not merely $t^2$, as we must consider the altered speed of the electromagnetic wave when it enters a medium with a different refractive index. This change in speed impacts the rate of energy propagation and, consequently, the power of the beam.
 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Chapters/Figures/Chapter 2 Figures/Reflectance vs Angle of Incidence.jpg}
+  \caption[Reflectance vs Angle of Incidence]{Reflectance vs Angle of Incidence. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig: R vs Theta}
+\end{figure}
+
+Figure \ref{fig: R vs Theta} illustrates how the reflectance $R$ of light varies with the angle of incidence $\theta$ for two different polarizations of light we've looked at, the transverse electric (TE) and transverse magnetic (TM). The graph is split into two regions that represent different physical scenarios of light interaction with a boundary: internal reflection (glass-to-air) and external reflection (air-to-glass).
+
+The critical angle, denoted as $\theta_c$, represents the specific angle of incidence at which a refracted light ray grazes the interface between two media. At this angle, the ray runs parallel to the boundary, without penetrating into the second medium or retreating into the first. When the angle of incidence surpasses $\theta_c$, a scenario of total internal reflection unfolds: all the incident light is entirely reflected into the originating denser medium, and no light is refracted into the less dense medium, such as air. This results in the graph indicating a reflectance of 100\% for both TE and TM polarization states in situations of glass-to-air transition. This effect is exclusive to internal reflection; conversely, when light travels from a less dense to a denser medium, it is almost always refracted into the denser medium, a behavior consistent across all incidence angles.
+
+Brewster's Angles, marked by vertical dashed lines at \(56.31^\circ\) for external reflection (air-to-glass) and \(33.69^\circ\) for internal reflection (glass-to-air), correspond to the specific angles of incidence where the reflectance reaches a minimum for TM-polarized light in external reflection and internal reflection respectively. At these angles, the reflected intensity is significantly reduced for the respective polarization states.
+
+$n$ is a function of the wavelength ($\lambda$) of light. Consequently, both reflectance ($R$) and transmittance ($T$) are wavelength-dependent. This wavelength dependence is particularly relevant to the scope of this work as it influences the behavior of light across different spectra. The refractive index’s variation with wavelength means that the critical and Brewster's angles, and therefore the efficiency of reflection and transmission, will vary with the wavelength of the incident light, which has significant implications for applications that rely on precise control of light propagation, such as in optical filters and coatings.
+
 %------------- FROM THE THEORY OF MULTILAYER FILMS ------------
 \section{Multilayer films}
 In the development of Passive Daytime Radiative Cooling Devices (PDRCs), we intend to employ multiple stacks comprising diverse materials with distinct refractive indices, arranged in layers to enhance the overall reflection coefficient and consequently increase reflectance. It is crucial to comprehend the electromagnetic wave interaction and optimal layer stacking physics to maximize reflectance. We again need a rigorous consideration of boundary conditions as dictated by Maxwell's equations.
