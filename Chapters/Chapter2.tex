@@ -528,14 +528,19 @@ To gain deeper insights into optimizing reflectance, let's explore the character
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Antireflecting Double Layer.jpeg}
+  % \includegraphics[width=0.4\textwidth]{Chapters/Figures/Antireflecting Double Layer.jpeg}
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 2 Figures/Antireflecting Double Layer.jpeg}
   \caption{Antireflecting Double Layer}
   \label{Sample Antireflecting Double Layer}
 \end{figure}
 
+At normal incidence ($\theta=0$) and for a film of quarter-wave thickness where $d=\frac{\lambda}{4} = \frac{1}{4} \times \frac{\lambda_0}{n_1} = \frac{\lambda_0}{4n_1}$, the phase difference, denoted as $\delta$, becomes: 
 
-The corresponding transfer matrix is expressed as: %R
+\begin{equation}
+    \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1dcos(\theta_{t1}) = \frac{\pi}{2}
+\end{equation}
 
+so that $cos(\delta) = 0$ and $sin(\delta) = 1$. With the phase difference established, the corresponding transfer matrix is expressed as:
     \[
     M = 
         % \[
@@ -551,25 +556,48 @@ The corresponding transfer matrix is expressed as: %R
             % \]
         % \]
     \]
-since, at quarter-wave thickness, $t=\frac{\lambda}{4} = \frac{1}{4} \times \frac{\lambda_0}{n_1} = \frac{\lambda_0}{4n_1}$. Recall also we defined the phase difference, \ref{phase difference}, to be
-    \begin{align*}
-        \delta &= \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(\theta_{t1})\\
-        \delta &= \left(\frac{2\pi}{\lambda_0}\right) n_1tcos(0) \\
-        \delta &= \left(\frac{2\pi}{\lambda_0}\right) n_1t\\
-        \delta &= \frac{\pi}{2} \\
-    \end{align*}
-so that $cos(\delta) = 0$ and $sin(\delta) = 1$.
 
-For two quarter-wave thickness films of similar form, the overall transfer matrix can be obtained by multiplying the individual transfer matrices:
-    \[
-    M = 
-        % \[
-            \begin{bmatrix}
-            -\frac{\gamma_2}{\gamma_1} & 0 \\
-            0 & -\frac{\gamma_1}{\gamma_2}
-          \end{bmatrix}
-        % \]
-    \]
+The term $\gamma_1$ is related to the refractive index $n_1$ of the first film layer from the top, Cerium Fluoride (CeF3), as depicted in figure \ref{Sample Antireflecting Double Layer}. According to our earlier definitions (equation \ref{gamma 1}), $\gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})$ where $n_1$ is the refractive index of the CeF3 layer and $\theta_{t1}$ is the angle of transmission within this first layer. $\gamma_1$ is related to the wave impedance within the film relative to the impedance of free space, modified by the cosine of the angle of transmission.
+
+Given two quarter-wave thickness films, the individual transfer matrices are expressed as:
+\[
+M_1 = 
+    \begin{bmatrix}
+        0 & \frac{i}{\gamma_1}  \\
+        i\gamma_1 & 0
+    \end{bmatrix}
+\]
+and
+\[
+M_2 = 
+    \begin{bmatrix}
+        0 & \frac{i}{\gamma_2}  \\
+        i\gamma_2 & 0
+    \end{bmatrix}
+\]
+
+The overall transfer matrix for the system is then the product of \(M_1\) and \(M_2\):
+\[
+M = M_1 \cdot M_2 = 
+    \begin{bmatrix}
+        0 & \frac{i}{\gamma_1}  \\
+        i\gamma_1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & \frac{i}{\gamma_2}  \\
+        i\gamma_2 & 0
+    \end{bmatrix}
+\]
+
+Calculating the product of these matrices, we obtain the overall transfer matrix for this double layer:
+\[
+M = 
+    \begin{bmatrix}
+        -\frac{\gamma_2}{\gamma_1} & 0 \\
+        0 & -\frac{\gamma_1}{\gamma_2}
+    \end{bmatrix}
+\]
+
 
 Equation \ref{reflection coefficient in terms of transfer matrix terms}, the reflection coefficient, then simplifies to:
     \begin{equation}\label{reflection coefficient for 2-layer antireflecting films}
@@ -590,15 +618,15 @@ Zero reflectance is then expected when the numerator is zero
     \frac{n_2}{n_1} = \sqrt{\frac{n_s}{n_0}}
     \end{equation}
 
-For a glass substrate with a refractive index of $n_s = 1.52$ and incidence from air with $n_0 = 1$, the optimal ratio of the refractive indices for the two films should be $\frac{n_2}{n_1} = \sqrt{1.52} = 1.23$. However, achieving near-zero reflectance is challenging over the broader region of the visible spectrum.
+For a glass substrate with a refractive index of $n_s = 1.52$ and incidence from air with $n_0 = 1$, the optimal ratio of the refractive indices for the two films should be $\frac{n_2}{n_1} = \sqrt{1.52} \approx 1.23$. However, achieving near-zero reflectance is challenging over the broader region of the visible spectrum because the refractive index of each material in the layers vary with wavelength.
 
-PERSONAL NOTE - I WILL INCLUDE A FIGURE OF REFLECTANCE VERSUS WAVELENGTH ONCE I GENERATE THE STUDY ON COMSOL.
+In the visible spectrum, which ranges approximately from 400 to 700 nm, each wavelength interacts differently with the optical materials based on their refractive index at that specific wavelength. The optimal thickness and refractive index that reduce reflectance for one wavelength will not necessarily be optimal for another due to this dispersion. Furthermore, the phase change upon reflection at the boundary of a medium also varies with wavelength, which affects the constructive and destructive interference patterns needed for anti-reflective properties.
+
+Practically, this requires a careful design of the coating's material properties and thicknesses to achieve broader-wavelength anti-reflection. This design must account for the wavelength-dependent change in refractive indices and the cumulative effect of multiple reflections and transmissions at different interfaces within the multilayer stack, which becomes increasingly complex as the wavelength range widens, hence the difficulty of zero reflectance across the broader region over the visible spectrum.
 
 %----- SECTION ON HIGH-REFLECTANCE LAYERS -------
 \subsection{High-Reflectance Layers.}
-In the previous section, we established that to optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack} or \emph{dielectric mirror}. %R
-
-PERSONAL NOTE - I WILL INCLUDE A FIGURE OF REFLECTANCE VERSUS WAVELENGTH ONCE I GENERATE THE STUDY ON COMSOL.
+In the previous section, we established that to optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack} or \emph{dielectric mirror}.
 
 The transfer matrix for the two films in the order of high index-low index is
     \[
@@ -642,12 +670,9 @@ For N similar double layers, we obtain $M = (M_{HL})^N$. In matrix form,
     \]
 
 Considering normal incidence and using equations \ref{gamma 0} through \ref{gamma s},
-    \begin{align*}
-        \frac{\gamma_L}{\gamma_H} &= \frac{n_L\sqrt{\varepsilon_0\mu_0}cos(\frac{\pi}{2})}{n_H\sqrt{\varepsilon_0\mu_0}cos(\frac{\pi}{2})}\\
-        \frac{\gamma_L}{\gamma_H} &= \frac{n_L\sqrt{\varepsilon_0\mu_0}}{n_H\sqrt{\varepsilon_0\mu_0}}  \\
-        \frac{\gamma_L}{\gamma_H} &= \frac{n_L}{n_H}
-    \end{align*}
-Similarly, $\frac{\gamma_H}{\gamma_L} = \frac{n_H}{n_L}$
+\begin{equation}
+    \frac{\gamma_L}{\gamma_H} = \frac{n_L}{n_H}.
+\end{equation}
 
 Equation \ref{reflection coefficient in terms of transfer matrix terms}, the reflection coefficient, then simplifies to:
     \begin{equation}\label{reflection coefficient for double high-reflectance layers}
@@ -658,13 +683,10 @@ To get $R$, we calculate $|r|^2$ to get
     \begin{equation}\label{maximum reflectance equation}
     R = \left[ \frac{ \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  - 1 }{  \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  + 1     }  \right]^2
     \end{equation}
-PERSONAL NOTE - ONCE I FIGURE HOW TO DO SO, I SHALL INCLUDE THE STEPS IN THE DERIVATION OF \ref{maximum reflectance equation}.
 
 Maximum (100\%) reflectance is either achieved when:
     \begin{enumerate}
-      \item When $N$ approaches infinity.
+      \item When $N$ (the number of layer pairs) approaches infinity.
       \item When $\frac{n_L}{n_H}$ approaches zero. For example, when this ratio is 0.5 and there are 3 layers, a reflectance of 95.97 is achieved.
     \end{enumerate}
-Since the optimal reflectance is obtained with the smallest ratio of $\frac{n_L}{n_H}$, high-reflectance stacks can be constructed using alternating layers of $MgF_2$ $(n_L = 1.38$) and $ZnS$ $(n_H = 2.35)$ or $TiO_2$ $(n_H = 240)$. For example, employing alternating double layers of $MgF_2$ and $ZnS$ can achieve a reflectance of 99.95\% with a layer count ($N$) of 8. %R
-
-PERSONAL NOTE - I WILL INCLUDE A FIGURE OF THE SPECTRAL REFLECTANCE OF A HIGH-LOW INDEX STACK ONCE I GENERATE IT ON COMSOL.
+Since the optimal reflectance is obtained with the smallest ratio of $\frac{n_L}{n_H}$, high-reflectance stacks can be constructed using alternating layers of $MgF_2$ $(n_L = 1.38$) and $ZnS$ $(n_H = 2.35)$ or $TiO_2$ $(n_H = 2.40)$. For example, employing alternating double layers of $MgF_2$ and $ZnS$ can achieve a reflectance of 99.95\% with a layer count ($N$) of 8.
