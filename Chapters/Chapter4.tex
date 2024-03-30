@@ -35,24 +35,22 @@ You need to model the layers as thin film dielectrics in COMSOL. To accurately e
 Here is a snapshot of the COMSOL desktop which shows this. Notice the calculation of the quarter-wavelength in the ``Film Properties" section of the ``Thin Dielectric Film" settings:
 
 % TODO: Add the image of the COMSOL desktop showcasing antireflectivity
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/COMSOL Desktop Showcasing Antireflectivity Setup.png}
+  \caption{COMSOL desktop setup showcasing anti-reflectivity modeling.}
+  \label{fig:COMSOL desktop showcasing antireflectivity}
+\end{figure}
 
 These are the results for modelling anti-reflectivity using $\text{CeF}_3$ and $\text{MgF}_2$ (as the quarter-quarter wavelength materials) and $\text{CeF}_3$, $\text{MgF}_2$, and $\text{ZrO}_2$ as the quarter-half-quarter wavelength materials respectively:
 
-% TODO: Add the image of the anti-reflectivity results (from the tutorial) using CeF3 and MgF2 and ZrO2
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{The graph displays the reflective properties of two types of antireflective coatings over a range of wavelengths in the visible spectrum. The blue curve represents a quarter-quarter wavelength coating, while the green curve depicts a quarter-half-quarter wavelength coating. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+% TODO: Add the image of the anti-reflectivity results (from the tutorial) using CeF3 and MgF2 and ZrO2 (my results)
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Quarter-Half-Quarter.png}
+  \caption{The graph displays the reflective properties of two types of anti-reflective coatings over a range of wavelengths in the visible spectrum. The blue curve represents a quarter-quarter wavelength coating, while the green curve depicts a quarter-half-quarter wavelength coating.}
+  \label{fig:both quarter-quarter and quarter-half-quarter}
+\end{figure}
 
 For the quarter-quarter coatings, this configuration consists of two layers, each a quarter-wavelength thick. The ideal situation for such a coating is to have zero reflectance at a specific wavelength, but due to practical limitations of material properties, perfect zero reflectance is usually not achieved. For the quarter-half-quarter coating, adding a third layer, a half-wavelength thick, between the two quarter-wavelength layers forms this configuration. This setup is designed to reduce reflectance over a broader range of wavelengths.
 
@@ -72,13 +70,12 @@ To start off simply, we choose to plot reflectance from a double-layer film vers
 \end{itemize}
 
 % TODO: Add figure 5 (Antireflecting double layer using l>4–l>2 thickness films. Reflectance curves are shown in Figure 4.)
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflecting Double Layer using Quarter and Half-Wavelength Thickness Films Layout.png}
+  \caption{Antireflecting double layer. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig:Antireflecting double layer}
+\end{figure}
 
 Let's start with the quarter-quarter wavelength films. The book uses the first thin dielectric film from the bottom as $\text{ZrO}_2$ and the second thin dielectric film as $\text{CeF}_3$ just above the $\text{ZrO}_2$ layer. Of course, as long as \ref{zero reflectance criterion - chap4} holds, we can use any 2 materials such that the ratio of their refractive indices is optimal for anti-reflectivity. In this case, the theory says, that $\frac{n_2}{n_1} = \frac{2.1}{1.65} \approx 1.273$. This is close to the optimal ratio of 1.225 we would like to have assuming that $n_s = 1.5$ and that the angle of incidence is normal.
 
@@ -87,13 +84,12 @@ Broader regions of low reflectance also become possible in the visible region of
 At the wavelength of 550 nm, for which the $\lambda/4$ and $\lambda/2$ thicknesses are determined, the $\lambda/2$ layer has no effect on the reflectance and the double layer behaves like a single $\lambda/4$ layer with $R = 1.3\%$. At nearby wavelengths, the $\lambda/2$ layer helps to keep $R$ below values attained by a single $\lambda/4$ layer alone. Here is the combined reflectance versus wavelength plot for scenarios (a) through (c):
 
 % TODO: Add the antireflectivity graphs in the Optics book.
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflectivity Graphs in the Optics Book.png}
+  \caption{Anti-reflectivity Graphs as shown in the Optics Textbook. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig:antireflectivity graphs in the Optics book}
+\end{figure}
 
 Although reflectance at 550 nm is about 1.3\%, greater than for the $\lambda/4$- $\lambda/4$ coating, it remains at values less than this over the broad range of wavelengths from about 420 to 800 nm. Other practical solutions for double layer reflecting films become possible if the thicknesses of the layers are allowed to have values other than multiples of $\lambda/4$.
 
@@ -101,33 +97,30 @@ Below are my attempts to model all 3 scenarios (a), (b), and (c) itemized above.
 
 % TODO: Add my own antireflectivity graphs
 % TODO: Add graph (a)
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure a.png}
+  \caption{Results for the anti-reflective double layer composed of 2 quarter-wavelength-thick materials.}
+  \label{fig:Antireflective Figure a}
+\end{figure}
 
 % TODO: Add the antireflectivity graphs in the Optics book.
 % TODO: Add graph (b)
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure b.png}
+  \caption{Results for the anti-reflective double layer composed of a quarter-wavelength thick bottom layer and a half-wavelength thick upper layer made of a material with a refractive index of 1.6.}
+  \label{fig:Antireflective Figure b}
+\end{figure}
 
 % TODO: Add the antireflectivity graphs in the Optics book.
 % TODO: Add graph (c)
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
-%   \label{fig:Test Application button.}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+  \caption{Results for the anti-reflective double layer composed of a quarter-wavelength thick bottom layer and a half-wavelength thick upper layer made of a material with a refractive index of 1.85.}
+  \label{fig:Antireflective Figure c}
+\end{figure}
 
 The 3 curves above have been calculated using the theory presented in chapter 2. The overall transfer-matrix elements are first determined by forming the product of the transfer matrices of the individual layers. In these elements, the phase difference, $\delta$, is expressed as a function of $\lambda$, and the film thickness is determined by the $\lambda/4$ or $\lambda/2$ requirement at a single wavelength (550 nm).
 
