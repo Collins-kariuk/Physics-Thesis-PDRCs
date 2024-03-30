@@ -26,9 +26,16 @@ The busbar in question will incorporate three titanium bolts, with electrical cu
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Busbar.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{The busbar model. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:The busbar model}
 \end{figure}
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 2 Figures/Antireflecting Double Layer.jpeg}
+%   \caption{Antireflecting Double Layer}
+%   \label{Sample Antireflecting Double Layer}
+% \end{figure}
 
 % SUBSECTION --- Setting up the model environment ---
 \subsection{Setting Up the Model Environment}.
@@ -36,8 +43,8 @@ The busbar in question will incorporate three titanium bolts, with electrical cu
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Set-up Screen.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Set-up Screen. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Set-up Screen}
 \end{figure}
 
 Upon launching COMSOL, you are presented with an option to initiate a new project: selecting a Blank Model for starting anew or opting for the Model Wizard for a guided setup. The Model Wizard is advisable for its structured selection process integral to configuring your model. Conversely, choosing a Blank Model grants immediate access to the COMSOL desktop interface, bypassing the preliminary selections required by the Model Wizard.
@@ -46,8 +53,8 @@ Upon launching COMSOL, you are presented with an option to initiate a new projec
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Select Space Dimension.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Select space dimension screen. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Select Space Dimension}
 \end{figure}
 
 Since our busbar model requires a three-dimensional framework, we select the ``3D'' option.
@@ -56,8 +63,8 @@ Since our busbar model requires a three-dimensional framework, we select the ``3
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Select Physics.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Select physics screen. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Select Physics}
 \end{figure}
 
 Subsequently, we arrive at a prompt to select the desired physics for the model. In our case, we opt for Joule heating. In another scenario, for instance, if one's project was on thin-film fluid flow, navigating to the ``Fluid Flow'' node and selecting ``Thin-Film Flow'' would be the procedure. Adding ``Joule Heating'' automatically associates it with related physics categories like ``Electric Currents (ec)'' and ``Heat Transfer in Solids (ht),'' indicating that ``Joule Heating'' encompasses a composite interface with multiple physics elements integrated.
@@ -70,23 +77,21 @@ To proceed, we select ``Study''.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Select Study.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Select study screen. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Select Study}
 \end{figure}
 
 Upon accessing this interface, we are presented with an assortment of study options, determined by our earlier selections regarding the model's spatial dimensions and physics. For our busbar analysis, the ``Stationary'' study suffices, given its static nature. After selecting ``Done'', we transition to the COMSOL desktop environment.
-
 
 % TODO: Add "COMSOL Desktop" image
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Initial COMSOL Desktop.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{The COMSOL desktop. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:The COMSOL desktop}
 \end{figure}
 
 The COMSOL desktop serves as the central hub for constructing and engaging with your model from the ground up. It is designed with an intuitive interface, featuring buttons and ribbons aligned with the modeling process steps. Within the Model Builder window, you'll find the modeling hierarchy, where you have the capability to define your model's dimensions and select specific physics equations for adherence. Additionally, the layout of the COMSOL desktop windows can be customized to suit your preferences.
-
 
 % SUBSECTION --- Building the Geometry ---
 \subsection{Building the Geometry}.
@@ -96,8 +101,8 @@ When developing the geometry of your model, multiple pathways are available. You
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Geometry Tab.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Add geometry button selection. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Add geometry button selection.}
 \end{figure}
 
 For this instance, given that the busbar geometry already exists within COMSOL's comprehensive library of pre-configured geometries, accessing this resource simplifies the process. This is achieved by navigating to the File menu and selecting Application Libraries.
@@ -106,19 +111,18 @@ For this instance, given that the busbar geometry already exists within COMSOL's
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Application Libraries Button.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Application libraries selection. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:"application libraries" selection}
 \end{figure}
 
 Within the Application Libraries, proceed to the COMSOL Multiphysics section, locate the 'busbar\_geom' file, open it, and proceed to save your project accordingly.
-
 
 % TODO: Add "Application Libraries" image
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Application Libraries.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Application libraries. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Application libraries}
 \end{figure}
 
 The geometry will now appear in the Graphics window, allowing for zoom and rotational exploration to closely inspect the model. The alteration in the Geometry node within the Model Builder window reflects the sequence of actions executed to construct the busbar geometry. On closer inspection, it becomes evident that specific parameters were employed in crafting this geometry. These parameters are accessible within the ``Parameters 1'' node, which contains a table detailing the adjustable parameters utilized in the geometry's creation.
@@ -127,8 +131,8 @@ The geometry will now appear in the Graphics window, allowing for zoom and rotat
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Initial Busbar Geom.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{COMSOL desktop after adding the busbar geometry. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:COMSOL desktop after busbar geometry}
 \end{figure}
 
 % SUBSECTION --- Specifying the Material Properties ---
@@ -140,8 +144,8 @@ Our busbar comprises various components each requiring distinct materials, neces
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Explicit Choice Selection from Definitions Tab.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Explicit choice from the Definitions tab. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Explicit choice from the Definitions tab.}
 \end{figure}
 
 Following this, in the Graphics window, we identify and select the bolts, ensuring both their front and back sides are chosen due to their differing material composition from the busbar's main body.
@@ -150,8 +154,8 @@ Following this, in the Graphics window, we identify and select the bolts, ensuri
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Bolts Selection.png}
-  \caption{ Source: \cite{}}
-  \label{}
+  \caption{Adding bolt selections. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Adding bolt selections}
 \end{figure}
 
 Proceeding to material assignment, we move to the Materials ribbon and select the Add Materials feature. This action opens the ``Add Material'' window, offering a selection of materials to apply to the chosen components.
@@ -160,8 +164,8 @@ Proceeding to material assignment, we move to the Materials ribbon and select th
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Add Material Button.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Add Materials option from Materials tab. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Add Materials option from Materials tab.}
 \end{figure}
 
 Select the Built-In option and opt for Titanium (for the bolts) and Copper as the materials.
@@ -170,8 +174,8 @@ Select the Built-In option and opt for Titanium (for the bolts) and Copper as th
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Add Material Window.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Add Materials window. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Add Materials window.}
 \end{figure}
 
 The earlier defined selection for Bolts proves useful now as we assign Titanium to each bolt by selecting the Bolts option, as illustrated below.
@@ -180,8 +184,8 @@ The earlier defined selection for Bolts proves useful now as we assign Titanium 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Bolts Selection Choice.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Assigning some bolts to be made of Titanium. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Assigning some bolts to be made of Titanium.}
 \end{figure}
 
 Every time a material is added, and consequently, a material node is introduced in the Model Builder window, a table appears in the Settings window under Material Contents. This table details the physical properties of the respective materials, including Electrical Conductivity, Heat Capacity, and more.
@@ -190,8 +194,8 @@ Every time a material is added, and consequently, a material node is introduced 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Material Contents in Settings Window.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Material Properties. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig: Material properties.}
 \end{figure}
 
 
@@ -205,8 +209,8 @@ We'll begin by setting up the physics for the electric current interface, aiming
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Electrical Currents Physics Equation.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{The corresponding guiding equation. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:the guiding equation}
 \end{figure}
 
 COMSOL Multiphysics operates transparently, allowing users to fully grasp the software's actions and methodologies.
@@ -223,8 +227,8 @@ Finally, to complete our setup, we establish a ground boundary condition on the 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Electric Currents Boundary Conditions.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Electric Currents boundary conditions. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Electric Currents boundary conditions}
 \end{figure}
 
 Given the selection of Joule Heating as a coupled physics in our model, it's essential to define the thermal boundary conditions as well. The default ``Thermal Insulation 1'' condition, which applies universally across our model, does not suit our specific needs. To address this, proceed to the Physics tab, access Boundaries, and opt for Heat Flux. Within the settings, under Boundary Selection, choose ``All Boundaries'' but exclude the previously selected bolt surfaces for the Electric Currents boundaries—namely, boundaries 8, 15, and 43—by deselecting these numbers using the ``Remove from Selection'' option.
@@ -235,8 +239,8 @@ For the Heat Flux settings, opt for the ``Convective heat flux'' under the Flux 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Heat Flux Boundary Conditions.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Heat Flux boundary conditions. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Heat Flux boundary conditions.}
 \end{figure}
 
 In our busbar model, the two physics components we've incorporated, namely Electric Currents and Heat Transfer in solids, are universally applicable throughout the model.
@@ -251,22 +255,22 @@ COMSOL Multiphysics accommodates a variety of 2D and 3D element shapes, includin
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Fine Mesh.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Fine mesh type. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Fine mesh type.}
 \end{figure}
 
 % SUBSECTION --- Run the Study ---
 \subsection{Run the Study}.
 By selecting and expanding the ``Study 1'' node within the Settings, there's an option to ``Generate default plots'', which automatically creates visual representations tailored to the physics defined in the model. Given our focus on electric currents and heat transfer, this function will produce plots detailing both the electric potential and the temperature distribution within the busbar.
 
-Under the ``Step 1: Stationary'' sub-node, found in the ``Physics and Variables'' dropdown, the integration of the multiphysics problem within the ``Solve For'' section becomes visible. Proceed by clicking the ``Compute'' button to perform the simulation. Once computation is complete, the process advances to the next phase, which involves the post-processing of the generated results.
+Under the ``Step 1: Stationary'' sub-node, found in the ``Physics and Variables'' drop-down, the integration of the multi-physics problem within the ``Solve For'' section becomes visible. Proceed by clicking the ``Compute'' button to perform the simulation. Once computation is complete, the process advances to the next phase, which involves the post-processing of the generated results.
 
 % TODO: Add image showing computed results.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Computed Results.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Computed results. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:computed results}
 \end{figure}
 
 % SUBSECTION --- Post-Processing the Results ---
@@ -279,8 +283,8 @@ The Application Builder is readily accessible from the home toolbar.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Application Builder Button.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Application builder button. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:application builder button}
 \end{figure}
 
 The quick and easy way to create an app is to use the New Form Wizard.
@@ -289,32 +293,32 @@ The quick and easy way to create an app is to use the New Form Wizard.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/New Form Wizard Button.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{New Form Wizard button Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:New Form Wizard button}
 \end{figure}
 
 From our model, we select parameters whose values can be adjusted, serving as input variables for our simulation application. We opt for the busbar's length, width, and applied voltage as these inputs. Following this, we move to the graphics tab to specify which visuals will be shown in the app. In the subsequent Buttons tab, it's crucial to add the ``Compute Study'' button to initiate simulations.
-
-Upon clicking ``Done'', the Form Editor is launched, allowing us to refine the app's user interface. This includes customizing its look, structuring the display through various forms, and implementing methods to extend its functionality significantly.
 
 % TODO: Add image showing Form Editor
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Form Editor Desktop.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Form Editor. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Form Editor}
 \end{figure}
 
+Upon clicking ``Done'', the Form Editor is launched, allowing us to refine the app's user interface. This includes customizing its look, structuring the display through various forms, and implementing methods to extend its functionality significantly.
+
 If we click the Test Application button, our simulation app appears.
+
+We can change some of the values of the parameters such as increasing the length and the width and re-run the app by clicking ``Compute''.
 
 % TODO: Add image after clicking "Test Application" button
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
-  \caption{Source: \cite{}}
-  \label{}
+  \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+  \label{fig:Test Application button.}
 \end{figure}
 
-We can change some of the values of the parameters such as increasing the length and the width and re-run the app by clicking ``Compute''.
-
-%-----------------HERE------------
+% REMAINING TODO: Fix the issue with the placement of the last 2 figures.
