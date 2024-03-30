@@ -6,9 +6,9 @@ We delve into the intricacies of high reflectance by simulating stacks of altern
 
 Aligning with practical applications, we employ the Fresnel equations to map out the reflection coefficient, for both the transverse electric (TE) and transverse magnetic (TM) polarization, against the angle of incidence. The insights gleaned here will serve to consolidate our understanding of various optical phenomena.
 
-Moreover, the thesis explores the stratified design of Passive Daytime Radiative Cooling (PDRC) devices. By systematically layering glass, silver, and Polydimethylsiloxane (PDMS), we dissect the interplay of thermal and optical properties crucial to the development of passive cooling systems.
+Moreover, the thesis explores the layered design of PDRCs. By systematically layering glass, silver, and Polydimethylsiloxane (PDMS), we dissect the optical properties crucial to the development of passive cooling systems.
 
-This chapter stands at the intersection of physics and simulation, merging the realms of theory and experimentation. It lays the foundation for future inquiries, providing the trajectory for subsequent research that leverages our detailed simulations. The collection of results, graphs, and tables here encapsulate more than just data; they are catalysts for continuous inquiry, propelling the quest for deeper understanding in the field of optical physics.
+This chapter stands at the intersection of physics and simulation, merging the realms of theory and experimentation. The collection of results and graphs here encapsulate more than just data; they are catalysts for continuous inquiry and deeper understanding of optical physics as it related to PDRCs.
 
 \section{COMSOL: Modeling Anti-reflectivity.}
 Recall, per equation \ref{reflectance for 2-layer antireflecting films}, assuming normal incidence that
@@ -30,7 +30,7 @@ In this the next section we'll show, the reflectance of two different multilayer
 
 \subsection{Anti-reflectance Layers - not in book}
 
-You need to model the layers as thin film dielectrics in COMSOL. To accurately emulate the zero reflectance criterion \ref{zero reflectance criterion - chap4}, I selected the first thin film dielectric (where I am counting from the bottom-up) to be cerium tri-fluoride ($\text{CeF}_3$) which has a refractive index of 1.63 and the second thin film dielectric to be magnesium fluoride ($\text{MgF}_2$) which has a refractive index of 1.38. The ratio of their refractive indices is thus $\frac{1.63}{1.38} \approx 1.181$ which is close to our desired ratio of 1.225. Recall that for modelling anti-reflectivity for a double layer as we saw in chapter 2, we need both layers to be of a quarter-wavelength thickness, where by this I mean the layers need to be a quarter of the wavelength we're evaluating the zero reflectance at, i.e., the wavelength where we want the reflectance to be at its most minimum. For the three-layer (quarter-half-quarter wavelength) model, which boosts anti-reflectivity across a wider range of wavelengths than the more restrictive quarter-quarter wavelength two-layer model, for the half-wavelength thin-film dielectric material, which sits in between the quarter-wavelength materials, I chose $\text{ZrO}_2$ which has a refractive index of 2.2.
+You need to model the layers as thin film dielectrics in COMSOL. To accurately emulate the zero reflectance criterion \ref{zero reflectance criterion - chap4}, I selected the first thin film dielectric (where I am counting from the bottom-up) to be cerium tri-fluoride ($\text{CeF}_3$) which has a refractive index of 1.63 and the second thin film dielectric to be magnesium fluoride ($\text{MgF}_2$) which has a refractive index of 1.38. The ratio of their refractive indices is thus $\frac{1.63}{1.38} \approx 1.181$ which is close to our desired ratio of 1.225. Recall that for modelling anti-reflectivity for a double layer as we saw in chapter 2, we need both layers to be of a quarter-wavelength thickness, where by this I mean the layers need to be a quarter of the wavelength we're evaluating the zero reflectance at, i.e., the wavelength where we want the reflectance to be at its most minimum. For the three-layer (quarter-half-quarter wavelength) model, which boosts anti-reflectivity across a wider range of wavelengths than the more restrictive quarter-quarter wavelength two-layer model, for the half-wavelength thin-film dielectric material, which sits in between the quarter-wavelength materials, I chose $\text{ZrO}_2$ which has a refractive index of 2.1.
 
 Here is a snapshot of the COMSOL desktop which shows this. Notice the calculation of the quarter-wavelength in the ``Film Properties" section of the ``Thin Dielectric Film" settings:
 
@@ -71,5 +71,64 @@ To start off simply, we choose to plot reflectance from a double-layer film vers
     \item Quarter-half wavelength films (using a different material for the half-wavelength coating).
 \end{itemize}
 
-Let's start with the quarter-quarter wavelength films. The book uses the first thin dielectric film from the bottom as $\text{ZrO}_2$ and the second thin dielectric film as $\text{CeF}_3$.
+% TODO: Add figure 5 (Antireflecting double layer using l>4–l>2 thickness films. Reflectance curves are shown in Figure 4.)
 
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
+%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+%   \label{fig:Test Application button.}
+% \end{figure}
+
+Let's start with the quarter-quarter wavelength films. The book uses the first thin dielectric film from the bottom as $\text{ZrO}_2$ and the second thin dielectric film as $\text{CeF}_3$ just above the $\text{ZrO}_2$ layer. Of course, as long as \ref{zero reflectance criterion - chap4} holds, we can use any 2 materials such that the ratio of their refractive indices is optimal for anti-reflectivity. In this case, the theory says, that $\frac{n_2}{n_1} = \frac{2.1}{1.65} \approx 1.273$. This is close to the optimal ratio of 1.225 we would like to have assuming that $n_s = 1.5$ and that the angle of incidence is normal.
+
+Broader regions of low reflectance also become possible in the visible region of the spectrum, once the restriction of using equal $\lambda/4$ coatings is relaxed. Therefore, we can use a quarter-wavelength thick layer as the second layer (bottom up) to ensure broader regions of low reflectance. Thus for item b, the quarter-wavelength thick material is $\text{MgF}_2$ which has a refractive index of 1.38 and the half-wavelength thick material is made of aluminum oxide which has a refractive index of 1.60 while that of item (c) is made of thorium dioxide which has a refractive index of 1.85. % TODO: CITE PEDROTTI
+
+At the wavelength of 550 nm, for which the $\lambda/4$ and $\lambda/2$ thicknesses are determined, the $\lambda/2$ layer has no effect on the reflectance and the double layer behaves like a single $\lambda/4$ layer with $R = 1.3\%$. At nearby wavelengths, the $\lambda/2$ layer helps to keep $R$ below values attained by a single $\lambda/4$ layer alone. Here is the combined reflectance versus wavelength plot for scenarios (a) through (c):
+
+% TODO: Add the antireflectivity graphs in the Optics book.
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
+%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+%   \label{fig:Test Application button.}
+% \end{figure}
+
+Although reflectance at 550 nm is about 1.3\%, greater than for the $\lambda/4$- $\lambda/4$ coating, it remains at values less than this over the broad range of wavelengths from about 420 to 800 nm. Other practical solutions for double layer reflecting films become possible if the thicknesses of the layers are allowed to have values other than multiples of $\lambda/4$.
+
+Below are my attempts to model all 3 scenarios (a), (b), and (c) itemized above.
+
+% TODO: Add my own antireflectivity graphs
+% TODO: Add graph (a)
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
+%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+%   \label{fig:Test Application button.}
+% \end{figure}
+
+% TODO: Add the antireflectivity graphs in the Optics book.
+% TODO: Add graph (b)
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
+%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+%   \label{fig:Test Application button.}
+% \end{figure}
+
+% TODO: Add the antireflectivity graphs in the Optics book.
+% TODO: Add graph (c)
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 3 Figures/Test Application Results.png}
+%   \caption{Test Application button. Source: \cite{multiphysics__modeling_nodate}}
+%   \label{fig:Test Application button.}
+% \end{figure}
+
+The 3 curves above have been calculated using the theory presented in chapter 2. The overall transfer-matrix elements are first determined by forming the product of the transfer matrices of the individual layers. In these elements, the phase difference, $\delta$, is expressed as a function of $\lambda$, and the film thickness is determined by the $\lambda/4$ or $\lambda/2$ requirement at a single wavelength (550 nm).
+
+The matrix elements can then be used to calculate the reflection coefficient given in \ref{reflection coefficient in terms of transfer matrix terms} so when squared given the reflectance as a function of wavelength. Thankfully, COMSOL, in particular, the Ray Optics package helps in doing semi-automatically, with few probings, such as how to treat the layers (which in this case, we should treat the layers as thin dielectric films).
