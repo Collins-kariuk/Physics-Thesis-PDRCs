@@ -125,3 +125,45 @@ Presented below are the modeled results for scenarios (a), (b), and (c) as detai
 These results derive from the principles outlined in Chapter 2. Initially, the overall transfer matrix elements are calculated by multiplying the transfer matrices of the individual layers together. Within these calculations, the phase difference, $\delta$, varies with $\lambda$, aligning the film thickness with either $\lambda/4$ or $\lambda/2$ at the reference wavelength of 550 nm.
 
 Subsequently, the reflection coefficient, as outlined in \ref{reflection coefficient in terms of transfer matrix terms}, is squared to produce reflectance as a wavelength function. COMSOL's Ray Optics module significantly simplifies this process by automating several steps, although careful consideration is needed for layer treatment, particularly regarding their classification as thin dielectric films.
+
+\section{COMSOL: Modeling High Reflectance.}
+To optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. This specific configuration causes incident light waves to reflect multiple times within the stack. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack} or \emph{dielectric mirror}. High reflectance in the solar spectrum is one of the criteria for successful radiative cooling, recall.
+
+% TODO: FIGURE 8 showing the high-reflectance stack of alternating high and low refractive indices
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
+%   \label{fig:Antireflective Figure c}
+% \end{figure}
+
+\subsection{Verification with Optical Literature.}
+The reflectance, $R$, for this particular configuration in order to get high reflectance at a particular (design) wavelength ($\lambda_0$), is given by \ref{maximum reflectance equation}.
+
+\begin{equation}\label{maximum reflectance equation - chap4}
+    R = \left[ \frac{ \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  - 1 }{  \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  + 1}  \right]^2
+\end{equation}
+
+Maximum (100\%) reflectance is either achieved when:
+\begin{enumerate}
+    \item When $N$ (the number of layer pairs) approaches infinity.
+    \item When $\frac{n_L}{n_H}$ approaches zero.
+\end{enumerate}
+
+The optics textbook literature has plotted this to showcase high reflectance:
+
+% TODO: ADD figure from Pedrotti textbook showing high-reflectance
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
+%   \label{fig:Antireflective Figure c}
+% \end{figure}
+
+We are only going to focus on replicating graph (a) which is when the number of layers, $N=2$ where the higher refractive index is $n_H=2.35$ (Zinc Sulfide - ZnS) and $n_L=1.38$ (Magnesium Fluoride - MgF2). The ratio $\frac{n_L}{n_H}$ is approximately $\frac{1.38}{2.35} \approx 0.587$.
+
+
+We observe a peak reflectance of just above 70\% at the design wavelength of 550 nm which we will try to replicate.
+
