@@ -129,14 +129,12 @@ Subsequently, the reflection coefficient, as outlined in \ref{reflection coeffic
 \section{COMSOL: Modeling High Reflectance.}
 To optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. This specific configuration causes incident light waves to reflect multiple times within the stack. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack}, \emph{dielectric mirror} or \emph{distributed Bragg reflector}. Notably, high reflectance in the solar spectrum is one of the criteria for successful radiative cooling, recall.
 
-% TODO: FIGURE 8 showing the high-reflectance stack of alternating high and low refractive indices
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
-%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
-%   \label{fig:Antireflective Figure c}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Stack of Double Layers.png}
+  \caption{High-reflectance stack of double layers with alternating high- and low- refractive indices. Source: \cite{pedrotti_introduction_2007}} 
+  \label{fig:high-reflectance stack of alternating high and low refractive indices}
+\end{figure}
 
 \subsection{Verification with Optical Literature.}
 The reflectance, $R$, for this particular configuration in order to get high reflectance at a particular (design) wavelength ($\lambda_0$), is given by \ref{maximum reflectance equation}.
@@ -153,14 +151,12 @@ Maximum (100\%) reflectance is either achieved when:
 
 The optics textbook literature has plotted this to showcase high reflectance:
 
-% TODO: ADD figure from Pedrotti textbook showing high-reflectance
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
-%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
-%   \label{fig:Antireflective Figure c}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Graphs in the Optics Book.png}
+  \caption{Spectral reflectance of a high- low index stack for (a) N = 2 and (b) N = 6 double layers. Curve (c) represents an N = 2 stack with an additional high-index layer adjacent to the substrate. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig:High-reflectance plots from Optics book}
+\end{figure}
 
 The figure above shows spectral reflectance of a high-low index stack for
 \begin{enumerate}
@@ -175,27 +171,23 @@ We are only going to focus on replicating graph (c) which represents an $N = 2$ 
 
 The results below derive from the principles of high reflectance outlined in chapter 2.
 
-% TODO: ADD COMSOL figure results for 2 layers
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
-%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
-%   \label{fig:Antireflective Figure c}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5 Layers).png}
+  \caption{Reflectivity versus wavelength for 2 pairs of double high-low refractive index layers plus a high-index layer on top.}
+  \label{fig:COMSOL 5 layer results}
+\end{figure}
 
 Notice how the peak reflectance matches the one given in the textbook at just 90\%.
 
 We could do a parametric sweep in COMSOL to systematically vary one or more model parameters over a specified range or set of values and to compute the solution for each set of values which in this case means we could investigate how reflectance varies with wavelength when the number of double layers $N$ is equal to 2, 5, 10, and 20. An important thing to note is that for all the graphs I have plotted below, we include an extra high-index layer on top to maximize the range of maximum reflectance over the spectrum of wavelengths.
 
-% TODO: ADD COMSOL figure for 2, 5, 10, and 20 layers
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
-%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
-%   \label{fig:Antireflective Figure c}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
+  \caption{Come up with appropriate caption}
+  \label{fig:Antireflective Figure c}
+\end{figure}
 
 The advent of Distributed Bragg Reflectors (DBRs) marks a significant advancement in optical engineering, offering low-loss reflection capabilities across optical and infrared frequencies. Unlike conventional metallic mirrors, DBRs leverage a meticulously engineered structure of alternating thin layers of materials with contrasting refractive indices. This design typically features an odd number of layers, anchored by high refractive index materials at both ends, optimizing their reflectivity. % TODO: CITE DBR tutorial
 
@@ -203,7 +195,7 @@ At the core of a DBR's functionality is the phenomenon of constructive interfere
 
 Expanding beyond the stopband, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima.
 
-By strategically adjusting these parameters, it is possible to shift the stopband's center, enhancing the filter's spectral transmittance across a broader range. This capability to finely control the light's passage through these structures not only underscores the versatility of DBRs but also paves the way for their integration into a wide array of optical devices, where precise manipulation of light is paramount. % TODO: CITE Pedrotti
+By strategically adjusting these parameters, it is possible to shift the stopband's center, enhancing the filter's spectral transmittance across a broader range. This capability to finely control the light's passage through these structures not only underscores the versatility of DBRs but also paves the way for their integration into a wide array of optical devices, where precise manipulation of light is paramount \cite{pedrotti_introduction_2007}.
 
 Building on the principles of DBRs and their implications for enhanced reflectivity, a parallel can be drawn to PDRCS. PDRCs which aim to achieve cooling without energy input by radiating heat into the cold outer space, can significantly benefit from the reflective properties and spectral selectivity offered by DBR structures.
 
