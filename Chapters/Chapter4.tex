@@ -38,7 +38,7 @@ In the following section, we will compare the reflectivity of two distinct multi
 
 \subsection{Anti-reflectance Layers: Setup}
 
-The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride (CeF3) with a refractive index of 1.63, while the second film is magnesium fluoride (MgF2) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in the previous chapter, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
+The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride (CeF3) with a refractive index of 1.63, while the second film is magnesium fluoride (MgF2) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in chapter 2, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
 
 In our enhanced three-layer structure, designed to broaden anti-reflectivity across a larger wavelength spectrum, the middle layer is a half-wavelength film of zirconium dioxide (ZrO2), chosen for its refractive index of 2.1. This multi-layer configuration allows for increased anti-reflective performance compared to the more wavelength-specific two-layer model.
 
@@ -71,11 +71,11 @@ Such multi-layered coatings surpass the effectiveness of single-layer films for 
 This section aims to validate the principles outlined in \emph{Introduction to Optics} by Frank L. Pedrotti et al. through the simulation of multilayer film behavior, ensuring our computational results align with established optical theories.
 
 Beginning with a straightforward approach, we examine the reflectance across various wavelengths for three distinct multilayer film configurations:
-\begin{itemize}
+\begin{enumerate}
     \item Films with quarter-quarter wavelength thickness.
     \item Films with quarter-half wavelength thickness.
     \item Films with quarter-half wavelength thickness, incorporating a different material for the half-wavelength layer.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[ht!]
   \centering
@@ -86,9 +86,9 @@ Beginning with a straightforward approach, we examine the reflectance across var
 
 We first examine films with quarter-quarter wavelength thickness. The reference from Pedrotti et al. specifies the lower thin dielectric layer as $\text{ZrO}_2$ and places $\text{CeF}_3$ directly above. The choice of materials is flexible, provided they adhere to the optimal ratio criterion for antireflectivity as defined in equation \ref{zero reflectance criterion - chap4}. This results in a refractive index ratio of $\frac{n_2}{n_1} = \frac{2.1}{1.65} \approx 1.273$, aligning closely with the ideal ratio of approximately 1.225 for normal incidence, given a substrate refractive index ($n_s$) of 1.5.
 
-Expanding the spectrum of low reflectance within the visible region becomes achievable by diverging from the constraint of equal quarter-wavelength ($\lambda/4$) coatings. By integrating a layer of quarter-wavelength thickness as the second layer (considered from the bottom upwards), we attain more extensive zones of diminished reflectance. Consequently, in the scenario of item b, we employ magnesium fluoride ($\text{MgF}_2$), characterized by a refractive index of 1.38, as the quarter-wavelength thick material. The intermediate half-wavelength layer utilizes aluminum oxide, with a refractive index of 1.60. For item c, thorium dioxide, featuring a refractive index of 1.85, serves as the material for the half-wavelength thick layer, as noted in \cite{pedrotti_introduction_2007}.
+Expanding the spectrum of low reflectance within the visible region becomes achievable by diverging from the constraint of equal quarter-wavelength ($\lambda/4$) coatings. By integrating a layer of quarter-wavelength thickness as the second layer (considered from the bottom upwards), we attain more extensive zones of diminished reflectance. Consequently, in the scenario of item 2, we employ magnesium fluoride ($\text{MgF}_2$), characterized by a refractive index of 1.38, as the quarter-wavelength thick material. The intermediate half-wavelength layer utilizes aluminum oxide, with a refractive index of 1.60. For item 3, thorium dioxide, featuring a refractive index of 1.85, serves as the material for the half-wavelength thick layer, as noted in \cite{pedrotti_introduction_2007}.
 
-For the specific wavelength of 550 nm, where the thicknesses of the quarter-wavelength ($\lambda/4$) and half-wavelength ($\lambda/2$) layers are calculated, the half-wavelength layer does not influence reflectance. In this case, the double-layer system acts akin to a solitary quarter-wavelength layer, resulting in a reflectance of 1.3\%. At wavelengths close to 550 nm, the presence of the half-wavelength layer contributes to maintaining reflectance levels below those achieved by a two quarter-wavelength layers. Below is the plot illustrating reflectance against wavelength for scenarios (a) through (c):
+For the specific wavelength of 550 nm, where the thicknesses of the quarter-wavelength ($\lambda/4$) and half-wavelength ($\lambda/2$) layers are calculated, the half-wavelength layer does not influence reflectance. In this case, the double-layer system acts akin to a solitary quarter-wavelength layer, resulting in a reflectance of 1.3\%. At wavelengths close to 550 nm, the presence of the half-wavelength layer contributes to maintaining reflectance levels below those achieved by a two quarter-wavelength layers. Below is the plot illustrating reflectance against wavelength for scenarios 1 through 3:
 
 The graph below illustrates anti-reflectivity trends as detailed in the Optics textbook, indicating that while the reflectance at a wavelength of 550 nm stands at approximately 1.3\%, this value surpasses the performance of the quarter-quarter wavelength coating. Nevertheless, reflectance stays below this threshold across a wide wavelength span, extending from roughly 420 to 800 nm. This suggests that alternative configurations for dual-layer reflective films could be viable if the layers are not strictly constrained to quarter-wavelength multiples.
 
@@ -99,7 +99,7 @@ The graph below illustrates anti-reflectivity trends as detailed in the Optics t
   \label{fig:antireflectivity graphs in the Optics book}
 \end{figure}
 
-Presented below are the modeled results for scenarios (a), (b), and (c) as detailed previously, with corresponding legends found in figure \ref{fig:antireflectivity graphs in the Optics book}.
+Presented below are the modeled results for scenarios (a), (b), and (c) as detailed previously, with corresponding legends found in figure \ref{fig:antireflectivity graphs in the Optics book}. Notice how each individual plot resembles each plot in figure \ref{fig:antireflectivity graphs in the Optics book}.
 
 \begin{figure}[ht!]
   \centering
@@ -127,7 +127,7 @@ These results derive from the principles outlined in Chapter 2. Initially, the o
 Subsequently, the reflection coefficient, as outlined in \ref{reflection coefficient in terms of transfer matrix terms}, is squared to produce reflectance as a wavelength function. COMSOL's Ray Optics module significantly simplifies this process by automating several steps, although careful consideration is needed for layer treatment, particularly regarding their classification as thin dielectric films.
 
 \section{COMSOL: Modeling High Reflectance.}
-To optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. This specific configuration causes incident light waves to reflect multiple times within the stack. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack} or \emph{dielectric mirror}. High reflectance in the solar spectrum is one of the criteria for successful radiative cooling, recall.
+To optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. This specific configuration causes incident light waves to reflect multiple times within the stack. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack}, \emph{dielectric mirror} or \emph{distributed Bragg reflector}. Notably, high reflectance in the solar spectrum is one of the criteria for successful radiative cooling, recall.
 
 % TODO: FIGURE 8 showing the high-reflectance stack of alternating high and low refractive indices
 
@@ -162,8 +162,50 @@ The optics textbook literature has plotted this to showcase high reflectance:
 %   \label{fig:Antireflective Figure c}
 % \end{figure}
 
-We are only going to focus on replicating graph (a) which is when the number of layers, $N=2$ where the higher refractive index is $n_H=2.35$ (Zinc Sulfide - ZnS) and $n_L=1.38$ (Magnesium Fluoride - MgF2). The ratio $\frac{n_L}{n_H}$ is approximately $\frac{1.38}{2.35} \approx 0.587$.
+The figure above shows spectral reflectance of a high-low index stack for
+\begin{enumerate}
+    \item (a) is for $N = 2$ double layer.
+    \item (b) is for $N = 6$ double layers.
+    \item (c) represents an $N = 2$ stack with an additional high-index layer adjacent to the substrate.
+\end{enumerate}
 
+The layers are $\lambda/4$ thick at $\lambda_0=550$ nm where in all cases, $n_H=2.35$ (Zinc Sulfide - ZnS), $n_L=1.38$ (Magnesium Fluoride - MgF2), and $n_0=1.00$ (air). The ratio $\frac{n_L}{n_H}$ is approximately $\frac{1.38}{2.35} \approx 0.587$.
 
-We observe a peak reflectance of just above 70\% at the design wavelength of 550 nm which we will try to replicate.
+We are only going to focus on replicating graph (c) which represents an $N = 2$ stack with an additional high-index layer adjacent to the substrate. Notice that curve (c) shows the improvement in the maximum reflectance that results for N = 2 stacks when an extra high-index layer is inserted between the substrate and the last low-index layer.
+
+The results below derive from the principles of high reflectance outlined in chapter 2.
+
+% TODO: ADD COMSOL figure for 2 layers
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
+%   \label{fig:Antireflective Figure c}
+% \end{figure}
+
+Notice how the peak reflectance matches the one given in the textbook at just 90\%.
+
+We could do a parametric sweep in COMSOL to systematically vary one or more model parameters over a specified range or set of values and to compute the solution for each set of values which in this case means we could investigate how reflectance varies with wavelength when the number of double layers $N$ is equal to 2, 5, 10, and 20. An important thing to note is that for all the graphs I have plotted below, we include an extra high-index layer on top to maximize the range of maximum reflectance over the spectrum of wavelengths.
+
+% TODO: ADD COMSOL figure for 2, 5, 10, and 20 layers
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+%   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
+%   \label{fig:Antireflective Figure c}
+% \end{figure}
+
+The advent of Distributed Bragg Reflectors (DBRs) marks a significant advancement in optical engineering, offering low-loss reflection capabilities across optical and infrared frequencies. Unlike conventional metallic mirrors, DBRs leverage a meticulously engineered structure of alternating thin layers of materials with contrasting refractive indices. This design typically features an odd number of layers, anchored by high refractive index materials at both ends, optimizing their reflectivity. % TODO: CITE DBR tutorial
+
+At the core of a DBR's functionality is the phenomenon of constructive interference. As optical waves encounter the boundaries between layers, each boundary induces a partial reflection. When the optical wave's wavelength is four times the layers' optical thickness, these reflections interfere constructively, transforming the layers into an efficient reflector. This principle gives rise to a "stopband," a wavelength range where the reflector achieves near-total reflection. With an adequate number of layers, a DBR can achieve a high-quality reflection, making it useful in the operation of vertical cavity surface emitting lasers. % TODO: CITE DBR tutorial
+
+Expanding beyond the stopband, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima.
+
+By strategically adjusting these parameters, it is possible to shift the stopband's center, enhancing the filter's spectral transmittance across a broader range. This capability to finely control the light's passage through these structures not only underscores the versatility of DBRs but also paves the way for their integration into a wide array of optical devices, where precise manipulation of light is paramount. % TODO: CITE Pedrotti
+
+Building on the principles of DBRs and their implications for enhanced reflectivity, a parallel can be drawn to PDRCS. PDRCs which aim to achieve cooling without energy input by radiating heat into the cold outer space, can significantly benefit from the reflective properties and spectral selectivity offered by DBR structures.
+
+PDRCs leverage similar concepts to reflect the solar spectrum while allowing the thermal infrared range to pass through effectively. By incorporating multilayer structures like those used in DBRs, PDRC devices can optimize their performance, achieving a delicate balance between high solar reflectance and high thermal emittance. This enables PDRC systems to reflect the majority of incoming solar radiation, minimizing heat absorption, while simultaneously maximizing the emission of infrared radiation for cooling.
 
