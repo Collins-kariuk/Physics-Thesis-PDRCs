@@ -127,77 +127,71 @@ These results derive from the principles outlined in Chapter 2. Initially, the o
 Subsequently, the reflection coefficient, as outlined in \ref{reflection coefficient in terms of transfer matrix terms}, is squared to produce reflectance as a wavelength function. COMSOL's Ray Optics module significantly simplifies this process by automating several steps, although careful consideration is needed for layer treatment, particularly regarding their classification as thin dielectric films.
 
 \section{COMSOL: Modeling High Reflectance.}
-To optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. This specific configuration causes incident light waves to reflect multiple times within the stack. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack}, \emph{dielectric mirror} or \emph{distributed Bragg reflector}. Notably, high reflectance in the solar spectrum is one of the criteria for successful radiative cooling, recall.
+To achieve anti-reflective properties, layers are arranged starting from the air and progressing through low-index to high-index materials before reaching the substrate. In contrast, for enhanced reflectivity, the sequence is reversed, starting from the air to high-index and then to low-index materials before ending at the substrate. This arrangement encourages multiple reflections of the incident light within the layered structure.
+
+A combination of layers arranged to maximize reflectivity is known as a \emph{dielectric mirror}, \emph{high-reflectance stack}, or \emph{distributed Bragg reflector}. It's important to note that achieving high reflectance across the solar spectrum is a key factor for effective passive daytime radiative cooling, as previously discussed.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Stack of Double Layers.png}
-  \caption{High-reflectance stack of double layers with alternating high- and low- refractive indices. Source: \cite{pedrotti_introduction_2007}} 
-  \label{fig:high-reflectance stack of alternating high and low refractive indices}
+  \caption{High-reflectance stack comprising double layers with alternating high and low refractive indices. Source: \cite{pedrotti_introduction_2007}}
+  \label{fig:visualizing high-reflectance stack with alternating indices}
 \end{figure}
 
-\subsection{Verification with Optical Literature.}
-The reflectance, $R$, for this particular configuration in order to get high reflectance at a particular (design) wavelength ($\lambda_0$), is given by \ref{maximum reflectance equation}.
+\subsection{Corroboration with Optical References.}
+The formula to ascertain high reflectance, $R$, at a chosen design wavelength ($\lambda_0$) for a specific layer arrangement is denoted by \ref{formula for optimal reflectance}.
 
-\begin{equation}\label{maximum reflectance equation - chap4}
+\begin{equation}\label{formula for optimal reflectance - chap4}
     R = \left[ \frac{ \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  - 1 }{  \left( \frac{n_0}{n_s} \right) \left( \frac{n_L}{n_H} \right)^{2N}  + 1}  \right]^2
 \end{equation}
 
-Maximum (100\%) reflectance is either achieved when:
+Achieving maximal reflectance (100\%) occurs under the following conditions:
 \begin{enumerate}
-    \item When $N$ (the number of layer pairs) approaches infinity.
-    \item When $\frac{n_L}{n_H}$ approaches zero.
+    \item As $N$, representing the count of layer pairs, becomes very large.
+    \item When the ratio $\frac{n_L}{n_H}$ approaches zero.
 \end{enumerate}
 
-The optics textbook literature has plotted this to showcase high reflectance:
+The optics textbook illustrates high reflectance with the following depiction:
 
 \begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Graphs in the Optics Book.png}
-  \caption{Spectral reflectance of a high- low index stack for (a) N = 2 and (b) N = 6 double layers. Curve (c) represents an N = 2 stack with an additional high-index layer adjacent to the substrate. Source: \cite{pedrotti_introduction_2007}}
-  \label{fig:High-reflectance plots from Optics book}
+\centering
+\includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Graphs in the Optics Book.png}
+\caption{Reflectance spectra for high-low index stacks: (a) for a two-layer double stack, (b) for a six-layer double stack, and (c) for a two-layer double stack enhanced with an additional high-index layer at the very top. Source: \cite{pedrotti_introduction_2007}}
+\label{fig:Reflectance spectra from optical literature}
 \end{figure}
 
-The figure above shows spectral reflectance of a high-low index stack for
-\begin{enumerate}
-    \item (a) is for $N = 2$ double layer.
-    \item (b) is for $N = 6$ double layers.
-    \item (c) represents an $N = 2$ stack with an additional high-index layer adjacent to the substrate.
-\end{enumerate}
+In these configurations, layers are designed to be $\lambda/4$ thick at a design wavelength $\lambda_0 = 550$ nm. Here, the high-index material (Zinc Sulfide - ZnS) has $n_H = 2.35$, the low-index material (Magnesium Fluoride - MgF2) has $n_L = 1.38$, and the incident medium (air) has $n_0 = 1.00$. The ratio of $\frac{n_L}{n_H}$ is thus approximately $\frac{1.38}{2.35} \approx 0.587$.
 
-The layers are $\lambda/4$ thick at $\lambda_0=550$ nm where in all cases, $n_H=2.35$ (Zinc Sulfide - ZnS), $n_L=1.38$ (Magnesium Fluoride - MgF2), and $n_0=1.00$ (air). The ratio $\frac{n_L}{n_H}$ is approximately $\frac{1.38}{2.35} \approx 0.587$.
+Our analysis will specifically address graph (c), which demonstrates how adding an extra high-index layer between the substrate and the final low-index layer enhances maximum reflectance in a two-layer double stack ($N = 2$). This addition improves reflectance efficiency compared to simpler two-layer double configurations.
 
-We are only going to focus on replicating graph (c) which represents an $N = 2$ stack with an additional high-index layer adjacent to the substrate. Notice that curve (c) shows the improvement in the maximum reflectance that results for N = 2 stacks when an extra high-index layer is inserted between the substrate and the last low-index layer.
-
-The results below derive from the principles of high reflectance outlined in chapter 2.
+The findings showcased below stem from applying the high reflectance principles discussed in Chapter 2.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5 Layers).png}
-  \caption{Reflectivity versus wavelength for 2 pairs of double high-low refractive index layers plus a high-index layer on top.}
-  \label{fig:COMSOL 5 layer results}
+  \caption{Spectral reflectance for a structure with two pairs of high-low refractive index layers, topped with an additional high-index layer.}
+  \label{fig:Reflectance 5-layer structure}
 \end{figure}
 
-Notice how the peak reflectance matches the one given in the textbook at just 90\%.
+Observe the alignment of peak reflectance with the textbook's findings, achieving 90%.
 
-We could do a parametric sweep in COMSOL to systematically vary one or more model parameters over a specified range or set of values and to compute the solution for each set of values which in this case means we could investigate how reflectance varies with wavelength when the number of double layers $N$ is equal to 2, 5, 10, and 20. An important thing to note is that for all the graphs I have plotted below, we include an extra high-index layer on top to maximize the range of maximum reflectance over the spectrum of wavelengths.
+Employing a parametric sweep in COMSOL allows for the exploration of reflectance variation across wavelengths by systematically adjusting the count of double layer pairs ($N$) to values such as 2, 5, 10, and 20. This approach calculates solutions across a range of parameter sets. For all depicted graphs, an extra top layer with a high refractive index is incorporated to broaden the spectrum of maximum reflectance.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-  \caption{Come up with appropriate caption}
-  \label{fig:Antireflective Figure c}
+  \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
+  \label{fig:COMSOL multi-layer reflectance results}
 \end{figure}
 
-The advent of Distributed Bragg Reflectors (DBRs) marks a significant advancement in optical engineering, offering low-loss reflection capabilities across optical and infrared frequencies. Unlike conventional metallic mirrors, DBRs leverage a meticulously engineered structure of alternating thin layers of materials with contrasting refractive indices. This design typically features an odd number of layers, anchored by high refractive index materials at both ends, optimizing their reflectivity. % TODO: CITE DBR tutorial
+Unlike conventional metallic mirrors, DBRs leverage a careful and simple engineered structure of alternating thin layers of materials with contrasting refractive indices. This design typically features an odd number of layers, anchored by high refractive index materials at both ends, optimizing their reflectivity \cite{multiphysics__distributed_nodate}.
 
-At the core of a DBR's functionality is the phenomenon of constructive interference. As optical waves encounter the boundaries between layers, each boundary induces a partial reflection. When the optical wave's wavelength is four times the layers' optical thickness, these reflections interfere constructively, transforming the layers into an efficient reflector. This principle gives rise to a "stopband," a wavelength range where the reflector achieves near-total reflection. With an adequate number of layers, a DBR can achieve a high-quality reflection, making it useful in the operation of vertical cavity surface emitting lasers. % TODO: CITE DBR tutorial
+At the core of a DBR's functionality is the concept of constructive interference. As optical waves encounter the boundaries between layers, each boundary induces a partial reflection. When the optical wave's wavelength is four times the layers' optical thickness, these reflections interfere constructively, transforming the layers into an efficient reflector. This principle gives rise to a \emph{stopband}, a wavelength range where the reflector achieves heightened reflection. With an adequate number of layers, a DBR can achieve a high-quality reflection, making it useful in the operation of vertical cavity surface emitting lasers \cite{multiphysics__distributed_nodate}.
 
-Expanding beyond the stopband, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima.
+Expanding beyond the \emph{stopband}, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima.
 
 By strategically adjusting these parameters, it is possible to shift the stopband's center, enhancing the filter's spectral transmittance across a broader range. This capability to finely control the light's passage through these structures not only underscores the versatility of DBRs but also paves the way for their integration into a wide array of optical devices, where precise manipulation of light is paramount \cite{pedrotti_introduction_2007}.
 
-Building on the principles of DBRs and their implications for enhanced reflectivity, a parallel can be drawn to PDRCS. PDRCs which aim to achieve cooling without energy input by radiating heat into the cold outer space, can significantly benefit from the reflective properties and spectral selectivity offered by DBR structures.
+Building on the principles of DBRs and their implications for enhanced reflectivity, a parallel can be drawn to PDRCS. PDRCs, which aim to achieve cooling without energy input by radiating heat into the cold outer space, can significantly benefit from the reflective properties and spectral selectivity offered by DBR structures.
 
 PDRCs leverage similar concepts to reflect the solar spectrum while allowing the thermal infrared range to pass through effectively. By incorporating multilayer structures like those used in DBRs, PDRC devices can optimize their performance, achieving a delicate balance between high solar reflectance and high thermal emittance. This enables PDRC systems to reflect the majority of incoming solar radiation, minimizing heat absorption, while simultaneously maximizing the emission of infrared radiation for cooling.
-
