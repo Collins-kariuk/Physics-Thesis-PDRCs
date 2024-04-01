@@ -199,19 +199,18 @@ PDRCs leverage similar concepts to reflect the solar spectrum while allowing the
 \section{COMSOL: Modelling PDRCs}.
 At Hudgings Lab, one of the simplest PDRCs has this structure. From the bottom up, silica glass serves as the base, followed by silver on top and then finally Polydimethylsiloxane (PDMS).
 
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{}
-%   \caption{Insert appropriate caption here}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/PDRC Layout.png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 I opted to start modelling the structure from the base up and so the results below show the results for glass, then glass plus silver, then finally glass plus silver plus PDMS where I plot the reflectance versus wavelength to see how they vary.
 
 \subsection{Glass Layer Only.}
 
 % TODO: INCLUDE the figure of the snippet of the COMSOL desktop setup
-
 % \begin{figure}[ht!]
 %   \centering
 %   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
@@ -222,13 +221,12 @@ I opted to start modelling the structure from the base up and so the results bel
 For accurate simulations across a spectrum, it is essential to employ materials whose refractive indices are not fixed but change with wavelength. In COMSOL, this variability is addressed using an interpolation function. This function relies on a data table correlating the refractive index with specific wavelengths over a range. In COMSOL, such a function enables the simulation to adapt the material's refractive index for any given wavelength, reflecting the material's optical characteristics more realistically.
 
 % TODO: INCLUDE figure of the snippet of the interpolation function for the Corning glass
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Glass Substrate.png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 From the interpolation table, you can plot an interpolation function to visually check how the refractive indices varies with wavelength. The function, n, allows the COMSOL model to more accurately simulate how light interacts with the material across a range of wavelengths, which is particularly important in optical simulations where dispersive effects are significant.
 
@@ -237,13 +235,12 @@ With this in mind, I opted to use Corning® HPFS® 7980 Fused Silica as the subs
 As expected when one plots a reflectance versus wavelength plot with just the glass (here Corning® HPFS® 7980 Fused Silica) substrate, the reflectance truly varies with wavelength.
 
 % TODO: INCLUDE the figure of the snippet of result of JUST GLASS
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (Just Glass).png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 In the range of wavelengths shown ($400 - 800$ nm), when you just have a substrate, you have a very low reflectance of less than 4\% which is not optimal if you're considering that we want to increase the reflectivity within the solar spectrum. It calls for additional materials that can satisfy the criteria for high reflectance in the solar spectrum and high emissivity in the atmospheric window. Let's deal with the former first. At Hudgings Lab, realizing that silver is a highly reflective substance, we lay it on top of the substrate to boost the potential PDRC's reflectance. Now that we've shown the results for when we just just use the glass substrate and explained the necessity of using a highly reflective substance especially in the solar spectrum, next I am going to model a glass plus silver layers.
 
@@ -254,34 +251,32 @@ $n$ details the real part of the complex refractive index and $k$, the extension
 
 % TODO: INCLUDE figure of the snippet of the interpolation function for Silver
 
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Silver.png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 Depending on the wavelength range one wants, there are multiple definitions of silver in the materials library of COMSOL. For instance, this silver material, \emph{Ag (Silver) (Johnson and Christy 1972: n,k 0.188-1.94 um)} details the interpolation table from 0.188-1.94 $\mu$m.
 
 Below are the results first when I used \emph{Ag (Silver) (Johnson and Christy 1972: n,k 0.188-1.94 um)} and then when I used \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)}.
 
 % TODO: INCLUDE results glass plus silver for Johnson and Christy 1972
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag (Johnson and Christy).png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 % TODO: INCLUDE figure of glass plus silver for Choi et al. 2020
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag for Choi et al.png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 The graphs above are a tale of mostly expected results. Indeed silver is highly reflective in the visible spectrum of wavelengths which is why we see a close to 100\% reflectance in the visible spectrum (400 - 700 nm).
 
@@ -289,12 +284,11 @@ The graphs above are a tale of mostly expected results. Indeed silver is highly 
 Finally, I included a PDMS layer on top of the silver layer. Here too, I included PDMS material that already had its defined interpolation function for the refractive index. The PDMS material I used was from \emph{(C2H6OSi)n (Polydimethylsiloxane, PDMS) (Gupta et al. 2019: n 0.30-1.69 um)}.
 
 % TODO: INCLUDE figure of glass plus silver plus PDMS results
-
-% \begin{figure}[ht!]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
-%   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
-%   \label{fig:COMSOL multi-layer reflectance results}
-% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance Results (Glass + Ag + PDMS).png}
+  \caption{Insert appropriate caption here}
+  \label{fig:Insert appropriate label here}
+\end{figure}
 
 The reflectance is also 100\% over a huge spectrum range of wavelengths.
