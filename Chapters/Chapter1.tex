@@ -13,7 +13,7 @@ Global sales of ACs have exhibited consistent growth in recent years. Over the p
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Sales of Residential ACs by Country or Region, 2016.jpg}
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 1 Figures/Sales of Residential ACs by Country or Region, 2016.jpg}
   \caption[Sales of Residential ACs by Country or Region, 2016]{Sales of Residential ACs by Country or Region, 2016. Source: \cite{international_energy_agency_future_2018}.}
   \label{fig:sales_acs}
 \end{figure}
@@ -28,7 +28,7 @@ Improving the efficiency of air conditioning systems (ACs) is pivotal in mitigat
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{Chapters/Figures/Schematic for Radiative Cooling.png}
+  \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter 1 Figures/Schematic for Radiative Cooling.png}
   \caption[Schematic for Radiative Cooling] {Schematic for Radiative Cooling. Source: \cite{yang_passive_2020}}
   \label{fig:PDRC_Schematic}
 \end{figure}
@@ -47,30 +47,29 @@ Passive radiative cooling can be realized even during the daytime, necessitating
 
 % NB: Using [ht!] tells LaTeX to try to place the figure here, but if that's not possible, then at the top of the page, and the ! overrides LaTeX's internal parameters for deciding on figure placements. This gives you the best chance of having the figure appear right after your enumerated list, although it's not a guarantee because LaTeX might still decide to move the figure based on its page layout algorithms.
 
-%Force the Figure Placement: While not generally recommended because it can disrupt the flow of text, using the float package with the [H] specifier instead of [ht!] can force the figure to appear exactly where it is defined in the code. Add \usepackage{float} in your preamble, and then:
+% Force the Figure Placement: While not generally recommended because it can disrupt the flow of text, using the float package with the [H] specifier instead of [ht!] can force the figure to appear exactly where it is defined in the code. Add \usepackage{float} in your preamble, and then:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Ideal Optical Properties of a Radiative Cooling Surface.jpg}
-  \caption[Ideal Optical Properties of a Radiative Cooling Surface]{Ideal Optical Properties of a Radiative Cooling Surface. Source: \cite{yang_passive_2020}}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 1 Figures/Ideal Optical Properties of a Radiative Cooling Surface.jpg}
+  \caption[Ideal Optical Properties of a Radiative Cooling Surface]{Ideal Optical Properties of a Radiative Cooling Surface. It is characterized by a high emissivity, $\varepsilon=1$ ($R=1$), within the long-wavelength infrared (LWIR) atmospheric transparency window. Conversely, within the solar spectrum range, the desired emissivity is minimal, $\varepsilon=0$ (or $R=0$), to avoid radiative heating from the atmosphere. The depicted normalized solar spectrum is shown in orange, while the blue dashed line represents the thermal radiation spectrum for a 300 K blackbody, and the blue shaded area delineates the LWIR atmospheric transparency window. Source: \cite{yang_passive_2020}}
   \label{fig:ideal_PDRC_properties}
 \end{figure}
 
 % --------------- SECTION 1.3: LITERATURE REVIEW ---------------
 
 \section{Literature Review}
-At the nexus of physics and technological advancement, Passive Daytime Radiative Cooling Devices (PDRCs) stand as a symbol of optimism amidst the challenges of global warming and the energy crisis. PDRCs are notable not just for their operational efficiency but also for their capacity to transform our approach to energy consumption and environmental conservation. While radiative cooling for nighttime use was established decades ago, only recently has there been significant progress in achieving cooling directly under sunlight, suggesting a promising upward trajectory for the technology's cooling capabilities.
+Passive daytime radiative cooling devices (PDRCs) stand as a sign of optimism amidst the challenges of global warming and the energy crisis. PDRCs are notable not just for their operational efficiency but also for their capacity to transform our approach to energy consumption and environmental conservation. While radiative cooling for nighttime use was established decades ago, only recently has there been significant progress in achieving cooling directly under sunlight, suggesting a promising upward trajectory for the technology's cooling capabilities.
 
 \subsection{Historical Overview of Radiative Cooling.}
-The concept of radiative cooling, hypothesized by French Engineer Félix Trombe in 1965, initially focused on nighttime cooling \cite{trombe_aspects_1965}. Significant strides have recently been made in achieving daytime cooling under direct sunlight, marking a pivotal advancement in the field. Trombe's collaboration at Montlouis Laboratory led to a cooling method that significantly reduced temperatures without insulation, leveraging a system that could cool by 14 to 30 degrees Celsius relative to the surroundings. This system involved a north-facing, slightly tilted facade with infrared-transparent panels and a selective radiator, optimizing both night and daytime cooling as seen in figure \ref{fig:Trombe_cooling_house} \cite{fortin_passive_2023}.
+The concept of radiative cooling, hypothesized by French Engineer Félix Trombe in 1965, initially focused on nighttime cooling \cite{trombe_aspects_1965}. Significant strides have recently been made in achieving daytime cooling under direct sunlight, marking a pivotal advancement in the field. Trombe's collaboration at Montlouis Laboratory led to a cooling method that significantly reduced temperatures of buildings without insulation, leveraging a system that could cool by 14 to 30 degrees Celsius relative to the surroundings. This system involved a north-facing, slightly tilted facade with infrared-transparent panels and a selective radiator, optimizing both night and daytime cooling as seen in Figure \ref{fig:Trombe_cooling_house} \cite{fortin_passive_2023}.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Trombe PDRC Structure.png}
+  \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter 1 Figures/Trombe PDRC Structure.png}
   \caption[Experimental Cooling Container by Trombe et al.]{Experimental Cooling Container by Trombe and his team in Mont-Louis, France. (A) depicts the experimental cooling setup developed by Trombe's team in Mont-Louis. (B) presents a cross-sectional view of Trombe’s patented cold house design. (C) offers a northeast perspective of the cold house, showcasing its radiative cooling facade, a creation of Felix Trombe and his collaborators in 1963. Source: \cite{fortin_passive_2023}}
   \label{fig:Trombe_cooling_house}
 \end{figure}
-% TODO: Investigate whether this image, since it's small, can be made to "look more inline"
 
 Building on Trombe's groundbreaking efforts, in 1975, Catalanotti and his team developed an experimental setup for daytime radiative cooling. This setup combined metals and TEDLAR (polyvinyl-fluoride plastic) to protect the cooling device from direct sunlight, although it was more effective for nighttime use \cite{bijarniya_review_2020}. This TEDLAR film, offering somewhat selective and high infrared (IR) absorption within the 9 to 13 $\mu m$ wavelength range, also absorbs IR significantly beyond 20 $\mu m$, impacting its selectivity and, consequently, the efficiency of radiative cooling. Despite this, they achieved a temperature decrease of 10 degrees Celsius below ambient under diffused sunlight. The primary drawback of using PVF polymer for daytime cooling is its substantial absorption in the solar spectrum \cite{hossain_radiative_2016}.
 
@@ -95,7 +94,7 @@ Beyond solar reflectors, convection shields significantly enhance a radiative co
 \subsection{Photonic Devices and Microstructure Advances.}
 The advancement in photonic-based radiative coolers represents a significant leap towards achieving efficient cooling directly under sunlight, allowing temperatures to fall below ambient levels. This innovative approach differs from traditional methods that rely on the natural optical characteristics of materials, as it harnesses engineered photonic properties in tandem with those natural characteristics to enhance cooling performance \cite{hossain_radiative_2016}.
 
-Raman and colleagues conducted the inaugural experiment showcasing radiative cooling under direct sunlight with planar photonic structures (see figure \ref{fig:planar_photonic_device}), achieving a notable 4.9°C drop below ambient temperature. Their device, composed of seven layers alternating between hafnium oxide ($\text{HfO}_2$) and silicon dioxide ($\text{SiO}_2$) of varied thicknesses, utilized the upper thick layers for IR emission across the 8–13 $\mu m$ range. The lower, thinner layers on an aluminum-coated silicon wafer acted as a chirped 1D photonic crystal, reflecting up to 97\% of solar radiation \cite{raman_passive_2014}.
+Raman and colleagues conducted the inaugural experiment showcasing radiative cooling under direct sunlight with planar photonic structures (see Figure \ref{fig:planar_photonic_device}), achieving a notable 4.9°C drop below ambient temperature. Their device, composed of seven layers alternating between hafnium oxide ($\text{HfO}_2$) and silicon dioxide ($\text{SiO}_2$) of varied thicknesses, utilized the upper thick layers for IR emission across the 8–13 $\mu m$ range. The lower, thinner layers on an aluminum-coated silicon wafer acted as a chirped 1D photonic crystal, reflecting up to 97\% of solar radiation \cite{raman_passive_2014}.
 
 \begin{figure}[ht!]
   \centering
