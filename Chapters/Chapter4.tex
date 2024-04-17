@@ -1,15 +1,20 @@
-Embarking on the findings of this chapter, we transition from the established COMSOL modeling workflow to the critical stage of validating theoretical concepts through the lens of computational analysis. The essence of this chapter is twofold: first, to harness the computational prowess of COMSOL in substantiating key optical phenomena such as anti-reflectivity thus corroborate our simulation outcomes with theoretical models; and second, to attempt to model the simplest Passive Daytime Radiative Cooling devices (PDRCs) at Hudgings Lab by showing how their reflectance varies with wavelength.
+Embarking on the findings of this chapter, I transition from the established COMSOL modeling workflow to the critical stage of validating theoretical concepts through the lens of computational analysis. The essence of this chapter is twofold: first, to harness the computational prowess of COMSOL in validating key optical phenomena such as anti-reflectivity thus corroborate our simulation outcomes with theoretical models; and second, to attempt to model the simplest Passive Daytime Radiative Cooling devices (PDRCs) at Hudgings Lab by showing how their reflectance varies with wavelength.
 
-Our investigation begins with an empirical analysis of anti-reflective behaviors, examining both simple and composite multilayer arrangements. These simulations are meticulously compared to the theoretical predictions presented in \emph{Introduction to Optics} by Frank L. Pedrotti et al., ensuring our findings adhere to the rigorous standards of optical precision.
+My investigation begins with an empirical analysis of anti-reflective behaviors, examining both simple and composite multilayer arrangements. These simulations are meticulously compared to the theoretical predictions presented in \emph{Introduction to Optics} by Frank L. Pedrotti et al. \cite{pedrotti_introduction_2007}.
+
+It is crucial to acknowledge—as delineated in Chapter 2—the analytical derivation of reflectance as a function of angle $R(\theta)$ and wavelength $R(\lambda)$ is straightforward for materials with a constant refractive index $n$. However, the complexity escalates when dealing with materials where the refractive index varies with $\lambda$, a common occurrence in real-world applications. This variation poses significant challenges to traditional analytical methods, thereby necessitating the adoption of sophisticated computational tools like COMSOL for accurate simulations.
 
 We delve into the intricacies of high reflectance by simulating stacks of alternating high and low refractive index layers, shedding light on the nuanced ways layer configurations impact reflectance. These insights are bench-marked against scholarly literature, reinforcing the accuracy of our models.
 
-Moreover, the thesis explores the layered design of PDRCs. By systematically layering glass, silver, and Polydimethylsiloxane (PDMS), we dissect the optical properties crucial to the development of passive cooling systems.
+Moreover, the thesis explores the layered design of PDRCs. By systematically layering glass, silver, and Polydimethylsiloxane (PDMS), we dissect the optical properties crucial to the development of passive cooling systems. The collection of results and graphs here encapsulate more than just data; they are catalysts for continuous inquiry and deeper understanding of optical physics as it related to PDRCs.
 
-This chapter stands at the intersection of physics and simulation, merging the realms of theory and experimentation. The collection of results and graphs here encapsulate more than just data; they are catalysts for continuous inquiry and deeper understanding of optical physics as it related to PDRCs.
+% ---------- SECTION: COMSOL: MODELING ANTI-REFLECTANCE COATINGS ----------
 
-\section{COMSOL: Modeling Anti-reflectivity.}
-Recalling the formula for the reflectance of a two-layer anti-reflecting film, given by equation \ref{reflectance for 2-layer antireflecting films}, and assuming light strikes normally, we have:
+\section{COMSOL: Modeling Anti-Reflectance Coatings}
+
+As we progress in our exploration of anti-reflectance coatings, it is beneficial to revisit the foundational principles that govern their behavior. These coatings are designed to minimize reflection and maximize transmission of light through strategic manipulation of refractive indices across different layers.
+
+To appreciate the mathematical underpinnings of these designs, recall a pivotal formula, Equation \ref{reflectance for 2-layer antireflecting films}, that encapsulates the essence of a two-layer anti-reflecting film's performance. Assuming light strikes normally on the film, the reflectance, $R$, can be described by the following relationship:
 
 \begin{equation}\label{reflectance for 2-layer antireflecting films - chap4}
     R = \left(\frac{n_0n_2^2 - n_sn_1^2}{n_0n_2^2 + n_sn_1^2}\right)^2
@@ -25,20 +30,19 @@ This relationship delineates the necessary ratio between the refractive indices 
 
 When working with a glass substrate of refractive index $n_s = 1.5$ and air of refractive index $n_0 = 1$, the ideal refractive index ratio, $\frac{n_2}{n_1}$, is calculated to be $\sqrt{1.5} \approx 1.225$.
 
-In COMSOL, our goal is to identify and define (in our parameters table) two materials for the double-layer structure that closely match this ratio to maximize anti-reflective properties. It's crucial to note that within the visible spectrum, ranging from 400 to 700 nm, each wavelength uniquely interacts with materials based on their specific refractive index at that wavelength. This variability, known as dispersion, means that optimal thickness and refractive indices for minimizing reflectance at one wavelength may not be as effective at another. While it's challenging to select materials that precisely align their refractive indices to achieve exactly zero reflectance, our aim is to get as close to 0\% reflectance as practically possible.
+In COMSOL, our goal is to identify and define (in our parameters table) two materials for the double-layer structure that closely match this ratio to maximize anti-reflective properties. It is crucial to note that the refractive index of most materials varies with wavelength. This variability, known as dispersion, means that optimal thickness and refractive indices for minimizing reflectance at one wavelength may not be as effective at another. While it is challenging to select materials that precisely align their refractive indices to achieve exactly zero reflectance, our aim is to get as close to 0\% reflectance over as wide a $\lambda$ range as practically possible.
 
 The limitation of a quarter-wavelength layer is its selective reflectivity; it effectively eliminates reflection at a specific wavelength but substantially reflects at other wavelengths in proximity. Additionally, its performance varies significantly with the angle at which light strikes the surface. A viable solution to overcome this is the application of multilayer coatings. These coatings, compared to their single-layer counterparts, tend to lower the reflection coefficient over a broader spectrum and accommodate a greater diversity of tangible materials \cite{pedrotti_introduction_2007}.
 
-In the following section, we will compare the reflectivity of two distinct multilayer coatings across an extensive spectral range. The analysis will cover a dual-layer, quarter-quarter wavelength coating, and a triple-layer, quarter-half-quarter wavelength coating. It will be demonstrated that the triple-layer coating achieves a more uniform low reflectance throughout the majority of the visible light spectrum.
+In the following section, we will compare the reflectivity of two distinct multilayer coatings across an extensive spectral range. The analysis will cover a dual-layer (quarter-quarter wavelength coating) and a triple-layer (quarter-half-quarter wavelength coating). It will be demonstrated that the triple-layer coating achieves a more uniform low reflectance throughout the majority of the visible light spectrum.
 
-
-% TODO: CHANGE the title of this subsection
+% ---------- SUBSECTION: ANTI-REFLECTANCE LAYERS: SETUP ----------
 
 \subsection{Anti-reflectance Layers: Setup}
 
 The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride (CeF3) with a refractive index of 1.63, while the second film is magnesium fluoride (MgF2) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in chapter 2, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
 
-In our enhanced three-layer structure, designed to broaden anti-reflectivity across a larger wavelength spectrum, the middle layer is a half-wavelength film of zirconium dioxide (ZrO2), chosen for its refractive index of 2.1. This multi-layer configuration allows for increased anti-reflective performance compared to the more wavelength-specific two-layer model.
+In our enhanced three-layer structure, designed to broaden anti-reflectivity across a larger wavelength spectrum, the middle layer is a half-wavelength film of zirconium dioxide (ZrO2), chosen for its refractive index of 2.2. This multi-layer configuration allows for increased anti-reflective performance compared to the more wavelength-specific two-layer model.
 
 This screenshot from the COMSOL desktop highlights the configuration for modeling anti-reflective coatings. Pay particular attention to the 'Film Properties' area within the 'Thin Dielectric Film' settings where the quarter-wavelength calculation is outlined.
 
