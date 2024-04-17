@@ -40,24 +40,38 @@ In the following section, we will compare the reflectivity of two distinct multi
 
 \subsection{Anti-reflectance Layers: Setup}
 
-The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride (CeF3) with a refractive index of 1.63, while the second film is magnesium fluoride (MgF2) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in chapter 2, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
+The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride ($\text{CeF}_3$) with a refractive index of 1.63, while the second film is magnesium fluoride ($\text{MgF}_2$) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in chapter 2, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
 
-In our enhanced three-layer structure, designed to broaden anti-reflectivity across a larger wavelength spectrum, the middle layer is a half-wavelength film of zirconium dioxide (ZrO2), chosen for its refractive index of 2.2. This multi-layer configuration allows for increased anti-reflective performance compared to the more wavelength-specific two-layer model.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Double-Layer (PowerPoint).png}
+  \caption{The double-layer anti-reflectance coating layout (dimensions not to scale). Source: created by the author using Microsoft PowerPoint.}
+  \label{fig:Antireflective Double-Layer (PowerPoint)}
+\end{figure}
+
+In our enhanced three-layer structure, designed to broaden anti-reflectivity across a larger wavelength spectrum, the middle layer is a half-wavelength film of zirconium dioxide ($\text{ZrO}_2$), chosen for its refractive index of 2.2. This multi-layer configuration allows for increased anti-reflective performance compared to the more wavelength-specific two-layer model.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Triple-Layer (PowerPoint).png}
+  \caption{The triple-layer anti-reflectance coating layout (dimensions not to scale). Source: created by the author using Microsoft PowerPoint.}
+  \label{fig:Antireflective Triple-Layer (PowerPoint)}
+\end{figure}
 
 This screenshot from the COMSOL desktop highlights the configuration for modeling anti-reflective coatings. Pay particular attention to the 'Film Properties' area within the 'Thin Dielectric Film' settings where the quarter-wavelength calculation is outlined.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/COMSOL Desktop Showcasing Antireflectivity Setup.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/COMSOL Desktop Showcasing Antireflectivity Setup.png}
   \caption{COMSOL desktop setup showcasing anti-reflectivity modeling.}
   \label{fig:COMSOL desktop showcasing antireflectivity}
 \end{figure}
 
-Here, the findings from the anti-reflectivity modeling using CeF3 and MgF2 for the quarter-quarter wavelength combination, as well as CeF3, MgF2, and ZrO2 for the quarter-half-quarter wavelength setup, are presented.
+Here, the findings from the anti-reflectivity modeling using $\text{CeF}_3$ and $\text{MgF}_2$ for the quarter-quarter wavelength combination, as well as $\text{CeF}_3$, $\text{MgF}_2$, and $\text{ZrO}_2$ for the quarter-half-quarter wavelength setup, are presented.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Quarter-Half-Quarter.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Quarter-Half-Quarter.png}
   \caption{Illustration of the reflectance behavior for two anti-reflective coating configurations across the visible light spectrum. The blue line indicates the performance of a quarter-quarter wavelength coating, whereas the green line shows the effect of a quarter-half-quarter wavelength coating.}
   \label{fig:both quarter-quarter and quarter-half-quarter}
 \end{figure}
@@ -68,9 +82,11 @@ On the other hand, the quarter-half-quarter arrangement introduces an additional
 
 Such multi-layered coatings surpass the effectiveness of single-layer films for anti-reflective purposes by accommodating a wider wavelength range. This versatility is particularly beneficial in applications where reducing reflection is paramount, such as in the manufacturing of optical lenses.
 
-\subsection{Verification of Theoretical Results from Optics Literature}
+% ---------- SUBSECTION: VERIFYING COMPUTATIONAL RESULTS THROUGH COMPARISON WITH THEORETICAL OPTICS LITERATURE ----------
 
-This section aims to validate the principles outlined in \emph{Introduction to Optics} by Frank L. Pedrotti et al. through the simulation of multilayer film behavior, ensuring our computational results align with established optical theories.
+\subsection{Verifying Computational Results Through Comparison with Theoretical Optics Literature}
+
+This section aims to validate the obtained computational results with the principles outlined in \emph{Introduction to Optics} by Frank L. Pedrotti et al \cite{pedrotti_introduction_2007}.
 
 Beginning with a straightforward approach, we examine the reflectance across various wavelengths for three distinct multilayer film configurations:
 \begin{enumerate}
@@ -79,14 +95,14 @@ Beginning with a straightforward approach, we examine the reflectance across var
     \item Films with quarter-half wavelength thickness, incorporating a different material for the half-wavelength layer.
 \end{enumerate}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflecting Double Layer using Quarter and Half-Wavelength Thickness Films Layout.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflecting Double Layer using Quarter and Half-Wavelength Thickness Films Layout.png}
   \caption{Antireflective double-layer arrangement. Source: \cite{pedrotti_introduction_2007}}
   \label{fig:antireflective_double_layer}
 \end{figure}
 
-We first examine films with quarter-quarter wavelength thickness. The reference from Pedrotti et al. specifies the lower thin dielectric layer as $\text{ZrO}_2$ and places $\text{CeF}_3$ directly above. The choice of materials is flexible, provided they adhere to the optimal ratio criterion for antireflectivity as defined in equation \ref{zero reflectance criterion - chap4}. This results in a refractive index ratio of $\frac{n_2}{n_1} = \frac{2.1}{1.65} \approx 1.273$, aligning closely with the ideal ratio of approximately 1.225 for normal incidence, given a substrate refractive index ($n_s$) of 1.5.
+We first examine films with quarter-quarter wavelength thickness. The reference from Pedrotti et al. specifies the lower thin dielectric layer as $\text{ZrO}_2$ and places $\text{CeF}_3$ directly above. The choice of materials is flexible, provided they adhere to the optimal ratio criterion for anti reflectance as defined in equation \ref{zero reflectance criterion - chap4}. This results in a refractive index ratio of $\frac{n_2}{n_1} = \frac{2.1}{1.65} \approx 1.273$, aligning closely with the ideal ratio of approximately 1.225 for normal incidence, given a substrate refractive index ($n_s$) of 1.5.
 
 Expanding the spectrum of low reflectance within the visible region becomes achievable by diverging from the constraint of equal quarter-wavelength ($\lambda/4$) coatings. By integrating a layer of quarter-wavelength thickness as the second layer (considered from the bottom upwards), we attain more extensive zones of diminished reflectance. Consequently, in the scenario of item 2, we employ magnesium fluoride ($\text{MgF}_2$), characterized by a refractive index of 1.38, as the quarter-wavelength thick material. The intermediate half-wavelength layer utilizes aluminum oxide, with a refractive index of 1.60. For item 3, thorium dioxide, featuring a refractive index of 1.85, serves as the material for the half-wavelength thick layer, as noted in \cite{pedrotti_introduction_2007}.
 
@@ -94,32 +110,32 @@ For the specific wavelength of 550 nm, where the thicknesses of the quarter-wave
 
 The graph below illustrates anti-reflectivity trends as detailed in the Optics textbook, indicating that while the reflectance at a wavelength of 550 nm stands at approximately 1.3\%, this value surpasses the performance of the quarter-quarter wavelength coating. Nevertheless, reflectance stays below this threshold across a wide wavelength span, extending from roughly 420 to 800 nm. This suggests that alternative configurations for dual-layer reflective films could be viable if the layers are not strictly constrained to quarter-wavelength multiples.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflectivity Graphs in the Optics Book.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflectivity Graphs in the Optics Book.png}
   \caption{Anti-reflectivity Graphs as shown in the Optics Textbook. Source: \cite{pedrotti_introduction_2007}}
   \label{fig:antireflectivity graphs in the Optics book}
 \end{figure}
 
 Presented below are the modeled results for scenarios (a), (b), and (c) as detailed previously, with corresponding legends found in figure \ref{fig:antireflectivity graphs in the Optics book}. Notice how each individual plot resembles each plot in figure \ref{fig:antireflectivity graphs in the Optics book}.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure a.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure a.png}
   \caption{Modeling results of an anti-reflective coating with two layers, each a quarter-wavelength thick.}
   \label{fig:Antireflective Figure a}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure b.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure b.png}
   \caption{Reflectance outcomes for an anti-reflective coating with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.6.}
   \label{fig:Antireflective Figure b}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Figure c.png}
   \caption{Reflectance results for an anti-reflective double layer with a bottom layer a quarter-wavelength thick and a top layer half-wavelength thick, using a material with a refractive index of 1.85.}
   \label{fig:Antireflective Figure c}
 \end{figure}
@@ -133,9 +149,9 @@ To achieve anti-reflective properties, layers are arranged starting from the air
 
 A combination of layers arranged to maximize reflectivity is known as a \emph{dielectric mirror}, \emph{high-reflectance stack}, or \emph{distributed Bragg reflector}. It's important to note that achieving high reflectance across the solar spectrum is a key factor for effective passive daytime radiative cooling, as previously discussed.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Stack of Double Layers.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Stack of Double Layers.png}
   \caption{High-reflectance stack comprising double layers with alternating high and low refractive indices. Source: \cite{pedrotti_introduction_2007}}
   \label{fig:visualizing high-reflectance stack with alternating indices}
 \end{figure}
@@ -155,22 +171,22 @@ Achieving maximal reflectance (100\%) occurs under the following conditions:
 
 The optics textbook illustrates high reflectance with the following depiction:
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Graphs in the Optics Book.png}
+\includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance Graphs in the Optics Book.png}
 \caption{Reflectance spectra for high-low index stacks: (a) for a two-layer double stack, (b) for a six-layer double stack, and (c) for a two-layer double stack enhanced with an additional high-index layer at the very top. Source: \cite{pedrotti_introduction_2007}}
 \label{fig:Reflectance spectra from optical literature}
 \end{figure}
 
-In these configurations, layers are designed to be $\lambda/4$ thick at a design wavelength $\lambda_0 = 550$ nm. Here, the high-index material (Zinc Sulfide - ZnS) has $n_H = 2.35$, the low-index material (Magnesium Fluoride - MgF2) has $n_L = 1.38$, and the incident medium (air) has $n_0 = 1.00$. The ratio of $\frac{n_L}{n_H}$ is thus approximately $\frac{1.38}{2.35} \approx 0.587$.
+In these configurations, layers are designed to be $\lambda/4$ thick at a design wavelength $\lambda_0 = 550$ nm. Here, the high-index material (Zinc Sulfide - ZnS) has $n_H = 2.35$, the low-index material (Magnesium Fluoride - $\text{MgF}_2$) has $n_L = 1.38$, and the incident medium (air) has $n_0 = 1.00$. The ratio of $\frac{n_L}{n_H}$ is thus approximately $\frac{1.38}{2.35} \approx 0.587$.
 
 Our analysis will specifically address graph (c), which demonstrates how adding an extra high-index layer between the substrate and the final low-index layer enhances maximum reflectance in a two-layer double stack ($N = 2$). This addition improves reflectance efficiency compared to simpler two-layer double configurations.
 
 The findings showcased below stem from applying the high reflectance principles discussed in Chapter 2.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5 Layers).png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5 Layers).png}
   \caption{Spectral reflectance for a structure with two pairs of high-low refractive index layers, topped with an additional high-index layer.}
   \label{fig:Reflectance 5-layer structure}
 \end{figure}
@@ -179,9 +195,9 @@ Observe the alignment of peak reflectance with the textbook's findings, achievin
 
 Employing a parametric sweep in COMSOL allows for the exploration of reflectance variation across wavelengths by systematically adjusting the count of double layer pairs ($N$) to values such as 2, 5, 10, and 20. This approach calculates solutions across a range of parameter sets. For all depicted graphs, an extra top layer with a high refractive index is incorporated to broaden the spectrum of maximum reflectance.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/High-Reflectance (5, 11, 21, and 41 Layers).png}
   \caption{Reflectance comparison for configurations with 5, 11, 21, and 41 layers, each enhanced by an additional high-index surface layer.}
   \label{fig:COMSOL multi-layer reflectance results}
 \end{figure}
@@ -201,9 +217,9 @@ PDRCs leverage similar concepts to reflect the solar spectrum while allowing the
 \section{COMSOL: Modelling PDRCs}.
 At Hudgings Lab, one of the foundational PDRC designs comprises a straightforward sequence of layers. Beginning with silica glass as the foundation, a layer of silver is applied directly above, topped with a final layer of Polydimethylsiloxane (PDMS).
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/PDRC Layout.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/PDRC Layout.png}
   \caption{Illustration of a basic PDRC configuration at Hudgings Lab, featuring a silica glass base with subsequent layers of silver and PDMS.}
   \label{fig:PDRC-configuration-Hudgings-Lab}
 \end{figure}
@@ -212,18 +228,18 @@ To understand the optical behavior of this structure, I systematically approache
 
 \subsection{Analysis of Glass Layer Only}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/COMSOL Desktop Layout for PDRC Analysis.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/COMSOL Desktop Layout for PDRC Analysis.png}
   \caption{COMSOL desktop setup for PDRC analysis demonstrating the simulation framework.}
   \label{fig:COMSOL-desktop-PDRC-setup}
 \end{figure}
 
 For simulations that span across various wavelengths, it is crucial to utilize materials with wavelength-dependent refractive indices. In COMSOL Multiphysics, this requirement is met through the use of interpolation functions, which map refractive indices to specific wavelengths. This method allows for dynamic adjustment of a material's refractive index in response to changes in wavelength during simulations, providing a more accurate representation of the material's optical behavior.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Glass Substrate.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Glass Substrate.png}
   \caption{Interpolation table for the glass substrate, showing the wavelength-dependent refractive index.}
   \label{fig:interpolation-table-glass}
 \end{figure}
@@ -234,9 +250,9 @@ For this reason, I selected Corning\texttrademark \space HPFS\texttrademark \spa
 
 When generating a reflectance versus wavelength graph using only the glass substrate (specifically, Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica in this case), the reflectance indeed shows variation across different wavelengths.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (Just Glass).png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (Just Glass).png}
   \caption{Reflectance variation with wavelength for Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica.}
   \label{fig:Reflectance-variation-glass}
 \end{figure}
@@ -250,9 +266,9 @@ Next, I added a silver layer on top the glass substrate, recognizing the continu
 
 COMSOL offers a comprehensive collection of silver materials, each accompanied by interpolation tables that chart the refractive indices over preferred wavelength spans. The entry \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)} provides data on silver’s refractive indices from 1.23 to 6.99 ($\mu$m), where $n$ is the real component of the complex refractive index and $k$—the extinction coefficient—is the imaginary part, indicating the material's degree of light absorption.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Silver.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Silver.png}
   \caption{Interpolation table for silver's refractive index.}
   \label{fig:Interpolation table for silver's refractive index}
 \end{figure}
@@ -261,16 +277,16 @@ COMSOL's materials library offers various definitions of silver to cater to diff
 
 The figures below display the outcomes utilizing \emph{Ag (Silver) (Johnson and Christy 1972: n,k 0.188-1.94 um)} and using \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)}, respectively.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag (Johnson and Christy).png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag (Johnson and Christy).png}
   \caption{Reflectance analysis for glass with Ag (Johnson and Christy).}
   \label{fig:Reflectance analysis for glass with Ag (Johnson and Christy)}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag for Choi et al.png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag for Choi et al.png}
   \caption{Reflectance analysis for glass with Ag (Choi et al.).}
   \label{fig:Reflectance analysis for glass with Ag (Choi et al)}
 \end{figure}
@@ -280,9 +296,9 @@ These graphs mostly reflect the expected outcomes. Given silver's high reflectiv
 \subsection{Analysis of Glass plus Silver plus PDMS Layers.}
 In the final step, a PDMS layer was applied on top of the silver layer. This step also utilized a PDMS material equipped with a pre-defined interpolation function for its refractive index, specifically \emph{(C2H6OSi)n (Polydimethylsiloxane, PDMS) (Gupta et al. 2019: n 0.30-1.69 um)}.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance Results (Glass + Ag + PDMS).png}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance Results (Glass + Ag + PDMS).png}
   \caption{Reflectance analysis for a composite of glass, silver, and PDMS.}
   \label{fig:Reflectance analysis for glass, silver, and PDMS}
 \end{figure}
