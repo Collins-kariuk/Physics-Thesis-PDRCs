@@ -287,58 +287,57 @@ Continuing with our established assumptions, the film is presumed to be homogene
 This endeavor to identify and equate tangential components of both electric and magnetic fields across an interface lays the foundation for deriving expressions that describe the electromagnetic field behavior across different media. It allows us to formulate relationships that link the characteristics of the fields on one side of the interface to those on the other side, essential for predicting how electromagnetic waves propagate through varying materials.
 
     \begin{equation} \label{E_a - Multilayer films electric field boundary equations}
-    E_a = E_0 + E_{r1} = E_{t1} + E_{i1}
+    E_a = E_0 + E_{r1} = E_{t1} + E_{i1},
     \end{equation}
     
     \begin{equation} \label{E_b - Multilayer films electric field boundary equations}
-    E_b = E_{i2} + E_{r2} = E_{t2}
+    E_b = E_{i2} + E_{r2} = E_{t2}.
     \end{equation}
 
 To determine the tangential magnetic field vectors, trigonometry can be applied to establish the following boundary conditions:
 
     \begin{equation} \label{B_a - Multilayer films magnetic field boundary equations}
-    B_a = B_0cos(\theta_0) - B_{r1}cos(\theta_0) = B_{t1}cos(\theta_{t1}) - B_{i1}cos(\theta_{t1})
+    B_a = B_0cos(\theta_0) - B_{r1}cos(\theta_0) = B_{t1}cos(\theta_{t1}) - B_{i1}cos(\theta_{t1}),
     \end{equation}
 
     \begin{equation} \label{B_b - Multilayer films magnetic field boundary equations}
-    B_b = B_{i2}cos(\theta_{t1}) - B_{r2}cos(\theta_{t1}) = B_{t2}cos(\theta_{t2})
+    B_b = B_{i2}cos(\theta_{t1}) - B_{r2}cos(\theta_{t1}) = B_{t2}cos(\theta_{t2}).
     \end{equation}
 
 We can build on equation \ref{Equation relating the electric and magnetic field amplitudes} by expressing B in terms of E as:
     \begin{equation} \label{Alternative B and E representation}
-    B = n\sqrt{\varepsilon_0\mu_0}E
+    B = n\sqrt{\varepsilon_0\mu_0}E,
     \end{equation}
-and since $c=\frac{1}{\sqrt{\varepsilon_0\mu_0}}$, we can rewrite \ref{B_a - Multilayer films magnetic field boundary equations} and \ref{B_b - Multilayer films magnetic field boundary equations} employing \ref{Alternative B and E representation}.
+and since $c=\frac{1}{\sqrt{\varepsilon_0\mu_0}}$, we can rewrite \ref{B_a - Multilayer films magnetic field boundary equations} and \ref{B_b - Multilayer films magnetic field boundary equations} employing \ref{Alternative B and E representation}:
 
     \begin{equation} \label{Alternative B_a - Multilayer films magnetic field boundary equations}
-    B_a = \gamma_0(E_0 - E_{r1}) = \gamma_1(E_{t1} - E_{i1})
+    B_a = \gamma_0(E_0 - E_{r1}) = \gamma_1(E_{t1} - E_{i1}),
     \end{equation}
 
     \begin{equation} \label{Alternative B_b - Multilayer films magnetic field boundary equations}
-    B_b = \gamma_1(E_{i2} - E_{r2}) = \gamma_sE_{t2}
+    B_b = \gamma_1(E_{i2} - E_{r2}) = \gamma_sE_{t2},
     \end{equation}
 where
     % -- THE GAMMA EQUATIONS --
     \begin{equation} \label{gamma 0}
-        \gamma_0 \equiv n_0 \sqrt{\varepsilon_0\mu_0} cos(\theta_0)
+        \gamma_0 \equiv n_0 \sqrt{\varepsilon_0\mu_0} cos(\theta_0),
     \end{equation}
 
     \begin{equation} \label{gamma 1}
-        \gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})
+        \gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1}),
     \end{equation}
 
     \begin{equation} \label{gamma s}
-        \gamma_s \equiv n_s \sqrt{\varepsilon_0\mu_0} cos(\theta_{t2})
+        \gamma_s \equiv n_s \sqrt{\varepsilon_0\mu_0} cos(\theta_{t2}).
     \end{equation}
 
-% I NEED TO LOOK MORE INTO THE OPTICAL PATH LENGTH TO OFFER A BETTER EXPLANATION
-$E_{i2}$ differs from $E_{t1}$ solely due to a phase difference $\delta$ arising from a single traversal of the film. The optical path length linked with one traversal is denoted as $\Delta_1=n_1d\cos(\theta_{t1})$. The optical path length represents the distance that light "perceives" it has covered in a medium and can be quantified in terms of the number of cycles the light beam has undergone within that specific medium. It is inherently proportional to the refractive index and the geometric length of the medium through which light is propagating. %R
+% I MAY NEED TO LOOK MORE INTO THE OPTICAL PATH LENGTH TO OFFER A BETTER EXPLANATION
+$E_{i2}$ differs from $E_{t1}$ solely due to a phase difference $\delta$ arising from a single traversal of the film. The optical path length linked with one traversal is denoted as $\Delta_1=n_1d\cos(\theta_{t1})$. The optical path length represents the distance that light "perceives" it has covered in a medium and can be quantified in terms of the number of cycles the light beam has undergone within that specific medium. It is inherently proportional to the refractive index and the geometric length of the medium through which light is propagating.
 
 We can express the phase difference that develops due to one traversal of the film as:
     \begin{equation} \label{phase difference}
-    \delta = k_0\Delta_1 = \left(\frac{2\pi}{\lambda_0}\right) n_1dcos(\theta_{t1})
+    \delta = k_0\Delta_1 = \left(\frac{2\pi}{\lambda_0}\right) n_1dcos(\theta_{t1}).
     \end{equation}
-
 Therefore we can express the pair electric field sums $E_{i2}$ \& $E_{t1}$ and $E_{i1}$ \& $E_{r2}$ as follows:
     \begin{align*}
         E_{i2} = E_{t1}e^{-i\delta} \\
@@ -402,7 +401,6 @@ This notation introduces the insightful $2 \times 2$ matrix that establishes a c
         m_{21} & m_{22}
       \end{bmatrix}
     \]
-
 Expanding this framework, we can extend the consideration to the stacking of multiple films, leading to the emergence of multiple interfaces. In a more general context, for an arbitrary number N of layers: %R
     \[
       \begin{bmatrix}
@@ -468,17 +466,17 @@ Solving for $r$ by solving the system of linear equations above, we get
 
 %----- SECTION OF ANTIREFLECTING FILMS -------
 \subsection{Antireflecting Films}
-To gain deeper insights into optimizing reflectance, let's explore the characteristics conducive to anti-reflection using the structure shown in Figure \ref{Sample Antireflecting Double Layer}. Employing a double layer of quarter-wave-thickness films allows for the attainment of minimal reflectance at a specific wavelength. We will examine the simplest scenario for normal incidence, where all angles of incidence, reflection, and refraction are zero.
+To gain deeper insights into optimizing reflectance, let us explore the characteristics conducive to anti-reflection using the structure shown in Figure \ref{Sample Antireflecting Double Layer}. Employing a double layer of quarter-wave-thickness films allows for the attainment of minimal reflectance at a specific wavelength. We will examine the simplest scenario for normal incidence, where all angles of incidence, reflection, and refraction are zero.
 
 \begin{figure}[ht!]
   \centering
   % \includegraphics[width=0.4\textwidth]{Chapters/Figures/Antireflecting Double Layer.jpeg}
   \includegraphics[width=0.4\textwidth]{Chapters/Figures/Chapter 2 Figures/Antireflecting Double Layer.jpeg}
-  \caption{Antireflecting Double Layer}
+  \caption{Antireflecting Double Layer. Source \cite{pedrotti_introduction_2007}}
   \label{Sample Antireflecting Double Layer}
 \end{figure}
 
-At normal incidence ($\theta=0$) and for a film of quarter-wave thickness where $d=\frac{\lambda}{4} = \frac{1}{4} \times \frac{\lambda_0}{n_1} = \frac{\lambda_0}{4n_1}$, the phase difference, denoted as $\delta$, becomes: 
+At normal incidence ($\theta=0$) and for a film of quarter-wave thickness where $d=\frac{\lambda}{4}=\frac{\lambda_0}{4n_1}$, the phase difference, denoted as $\delta$, becomes: 
 
 \begin{equation}
     \delta = \left(\frac{2\pi}{\lambda_0}\right) n_1dcos(\theta_{t1}) = \frac{\pi}{2}
@@ -501,7 +499,7 @@ so that $cos(\delta) = 0$ and $sin(\delta) = 1$. With the phase difference estab
         % \]
     \]
 
-The term $\gamma_1$ is related to the refractive index $n_1$ of the first film layer from the top, Cerium Fluoride (CeF3), as depicted in Figure \ref{Sample Antireflecting Double Layer}. According to our earlier definitions (equation \ref{gamma 1}), $\gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})$ where $n_1$ is the refractive index of the CeF3 layer and $\theta_{t1}$ is the angle of transmission within this first layer. $\gamma_1$ is related to the wave impedance within the film relative to the impedance of free space, modified by the cosine of the angle of transmission.
+The term $\gamma_1$ is related to the refractive index $n_1$ of the first film layer from the top, Cerium Fluoride ($\text{CeF}_3$), as depicted in Figure \ref{Sample Antireflecting Double Layer}. According to our earlier definitions (equation \ref{gamma 1}), $\gamma_1 \equiv n_1 \sqrt{\varepsilon_0\mu_0} cos(\theta_{t1})$ where $n_1$ is the refractive index of the $\text{CeF}_3$ layer and $\theta_{t1}$ is the angle of transmission within this first layer. $\gamma_1$ is related to the wave impedance within the film relative to the impedance of free space, modified by the cosine of the angle of transmission.
 
 Given two quarter-wave thickness films, the individual transfer matrices are expressed as:
 \[
@@ -568,6 +566,8 @@ In the visible spectrum, which ranges approximately from 400 to 700 nm, each wav
 
 Practically, this requires a careful design of the coating's material properties and thicknesses to achieve broader-wavelength anti-reflection. This design must account for the wavelength-dependent change in refractive indices and the cumulative effect of multiple reflections and transmissions at different interfaces within the multilayer stack, which becomes increasingly complex as the wavelength range widens, hence the difficulty of zero reflectance across the broader region over the visible spectrum.
 
+This dependence of refractive index on $\lambda$ introduces a level of complexity that is difficult to treat analytically and is one of the motivations for using COMSOL in this work.
+
 %----- SECTION ON HIGH-REFLECTANCE LAYERS -------
 \subsection{High-Reflectance Layers.}
 In the previous section, we established that to optimize for anti-reflectance, we stack layers in the order of air-low index-high index-substrate. Conversely, to optimize for high-reflectance, we follow the opposite order: air-high index-low index-substrate. A set of double layers designed to enhance reflectance is referred to as a \emph{high-reflectance stack} or \emph{dielectric mirror}.
@@ -630,8 +630,8 @@ To get $R$, we calculate $|r|^2$ to get
 
 Maximum (100\%) reflectance is either achieved when:
     \begin{enumerate}
-      \item When $N$ (the number of layer pairs) approaches infinity.
-      \item When $\frac{n_L}{n_H}$ approaches zero. For example, when this ratio is 0.5 and there are 3 layers, a reflectance of 95.97 is achieved.
+      \item $N$ (the number of layer pairs) approaches infinity.
+      \item $\frac{n_L}{n_H}$ approaches zero. For example, when this ratio is 0.5 and there are 3 layers, a reflectance of 95.97 is achieved.
     \end{enumerate}
 Since the optimal reflectance is obtained with the smallest ratio of $\frac{n_L}{n_H}$, high-reflectance stacks can be constructed using alternating layers of $MgF_2$ $(n_L = 1.38$) and $ZnS$ $(n_H = 2.35)$ or $TiO_2$ $(n_H = 2.40)$. For example, employing alternating double layers of $MgF_2$ and $ZnS$ can achieve a reflectance of 99.95\% with a layer count ($N$) of 8.
 
