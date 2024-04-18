@@ -253,21 +253,21 @@ For simulations that span across various wavelengths, it is crucial to include t
 Utilizing the interpolation table enables the plotting of an interpolation function, offering a graphical representation of how refractive indices fluctuate with wavelength. This capability enriches the COMSOL simulation by providing a more precise depiction of light-material interaction over diverse wavelengths, a critical aspect in optics where dispersive phenomena play an important role.
 
 % TODO: Add the interpolation plot for the silicon substrate
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for the Silicon Substrate.png}
-%   \caption{Interpolation table for the silicon substrate, showing the wavelength-dependent refractive index.}
-%   \label{fig:interpolation-table-silicon}
-% \end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Plot (Silicon Substrate).png}
+  \caption{Interpolation plot for the silicon substrate, showing the wavelength-dependent refractive index.}
+  \label{fig:interpolation-plot-silicon}
+\end{figure}
 
-For this reason, I selected Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica for the substrate, taking advantage of its accompanying interpolation function. It's vital to acknowledge that interpolation functions, which depict the wavelength-dependent refractive index variations of materials, can also be derived from experimental data found in scientific literature.
+For this reason, I selected \emph{(Silicon) (Shkondin et al. 2017: n,k 2-20 um)} for the substrate, taking advantage of its accompanying interpolation function. It's vital to acknowledge that interpolation functions, which depict the wavelength-dependent refractive index variations of materials, can also be derived from experimental data found in scientific literature.
 
-When generating a reflectance versus wavelength graph using only the glass substrate (specifically, Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica in this case), the reflectance indeed shows variation across different wavelengths.
+When generating a reflectance versus wavelength graph using only the silicon substrate, the reflectance indeed shows variation across different wavelengths.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (Just Glass).png}
-  \caption{Reflectance variation with wavelength for Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica.}
+  \caption{Reflectance variation with wavelength for \emph{(Silicon) (Shkondin et al. 2017: n,k 2-20 um)}.}
   \label{fig:Reflectance-variation-glass}
 \end{figure}
 
