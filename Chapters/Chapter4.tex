@@ -6,7 +6,7 @@ It is crucial to acknowledge—as delineated in Chapter 2—the analytical deriv
 
 We delve into the intricacies of high reflectance by simulating stacks of alternating high and low refractive index layers, shedding light on the nuanced ways layer configurations impact reflectance. These insights are bench-marked against scholarly literature, reinforcing the accuracy of our models.
 
-Moreover, the thesis explores the layered design of PDRCs. By systematically layering glass, silver, and Polydimethylsiloxane (PDMS), we dissect the optical properties crucial to the development of passive cooling systems. The collection of results and graphs here encapsulate more than just data; they are catalysts for continuous inquiry and deeper understanding of optical physics as it related to PDRCs.
+Moreover, the thesis explores the layered design of PDRCs. By systematically layering silicon, silver, and Polydimethylsiloxane (PDMS), we dissect the optical properties crucial to the development of passive cooling systems. The collection of results and graphs here encapsulate more than just data; they are catalysts for continuous inquiry and deeper understanding of optical physics as it related to PDRCs.
 
 % ---------- SECTION: COMSOL: MODELING ANTI-REFLECTANCE COATINGS ----------
 
@@ -214,7 +214,7 @@ Unlike conventional metallic mirrors, DBRs leverage a careful and simple enginee
 
 At the core of a DBR's functionality is the concept of constructive interference. As optical waves encounter the boundaries between layers, each boundary induces a partial reflection. When the optical wave's wavelength is four times the layers' optical thickness, these reflections interfere constructively, transforming the layers into an efficient reflector. This principle gives rise to a \emph{stopband}, a wavelength range where the reflector achieves heightened reflection. With an adequate number of layers, a DBR can achieve a high-quality reflection, making it useful in the operation of vertical cavity surface emitting lasers \cite{multiphysics__distributed_nodate}.
 
-Expanding beyond the \emph{stopband}, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima.
+Expanding beyond the \emph{stopband}, DBRs exhibit a characteristic where reflectance transitions into a pattern of oscillating maxima and minima. By strategically adjusting these parameters, it is possible to shift the stopband's center, enhancing the filter's spectral transmittance across a broader range. This capability to finely control the light's passage through these structures not only underscores the versatility of DBRs but also paves the way for their integration into a wide array of optical devices, where precise manipulation of light is paramount \cite{pedrotti_introduction_2007}.
 
 % ----- SECTION: COMSOL: MODELING PDRCs -----
 
@@ -224,13 +224,15 @@ At Hudgings Lab, one of the foundational PDRC designs comprises a straightforwar
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/PDRC Layout.png}
-  \caption{Illustration of a basic PDRC configuration at Hudgings Lab, featuring a silica glass base with subsequent layers of silver and PDMS.}
+  \caption{Illustration of a basic PDRC configuration at Hudgings Lab, featuring a silicon base with subsequent layers of silver and PDMS.}
   \label{fig:PDRC-configuration-Hudgings-Lab}
 \end{figure}
 
-To understand the optical behavior of this structure, I systematically approached the modeling process from the bottom layer upwards. The following results present a sequence of reflectance versus wavelength analyses for each layer configuration: initially for glass, followed by glass with an added silver layer, and concluding with the composite structure of glass, silver, and PDMS. This progression illustrates how each layer contributes to the overall reflectance spectrum.
+To understand the optical behavior of this structure, I systematically approached the modeling process from the bottom layer upwards. The following results present a sequence of reflectance versus wavelength analyses for each layer configuration: initially for silicon, followed by silicon with an added silver layer, and concluding with the composite structure of silicon, silver, and PDMS. This progression illustrates how each layer contributes to the overall reflectance spectrum.
 
-\subsection{Analysis of Glass Layer Only}
+% ----- SUBSECTION: ANALYSIS OF SILICON LAYER ONLY -----
+
+\subsection{Analysis of Silicon Layer Only}
 
 \begin{figure}[H]
   \centering
@@ -239,8 +241,9 @@ To understand the optical behavior of this structure, I systematically approache
   \label{fig:COMSOL-desktop-PDRC-setup}
 \end{figure}
 
-For simulations that span across various wavelengths, it is crucial to utilize materials with wavelength-dependent refractive indices. In COMSOL Multiphysics, this requirement is met through the use of interpolation functions, which map refractive indices to specific wavelengths. This method allows for dynamic adjustment of a material's refractive index in response to changes in wavelength during simulations, providing a more accurate representation of the material's optical behavior.
+For simulations that span across various wavelengths, it is crucial to include the wavelength-dependence of the refractive indices of our materials. COMSOL tabulates $n(\lambda)$ for specific $\lambda$ measured in the literature. Then it interpolates between these experimentally measured points. This method allows for dynamic adjustment of a material's refractive index in response to changes in wavelength during simulations, providing a more accurate representation of the material's optical behavior.
 
+% TODO: Replace this figure with that of silicon
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Glass Substrate.png}
@@ -265,7 +268,7 @@ Within the displayed wavelength range of $400 - 800$ nm, a sole substrate yields
 
 Focusing initially on enhancing solar reflectance, designs at Hudgings Lab incorporate silver on top the substrate due to its exceptional reflectivity in the solar spectrum. Having illustrated the outcomes with merely the glass substrate and underscored the importance of a highly reflective layer in the solar spectrum, I will venture into simulating the combined effects of glass and silver layers.
 
-\subsection{Analysis of Glass plus Silver Layers.}
+\subsection{Analysis of Silicon plus Silver Layers}
 Next, I added a silver layer on top the glass substrate, recognizing the continued necessity for an interpolation function to accurately represent silver's refractive index across various wavelengths.
 
 COMSOL offers a comprehensive collection of silver materials, each accompanied by interpolation tables that chart the refractive indices over preferred wavelength spans. The entry \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)} provides data on silver’s refractive indices from 1.23 to 6.99 ($\mu$m), where $n$ is the real component of the complex refractive index and $k$—the extinction coefficient—is the imaginary part, indicating the material's degree of light absorption.
