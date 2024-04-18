@@ -243,15 +243,22 @@ To understand the optical behavior of this structure, I systematically approache
 
 For simulations that span across various wavelengths, it is crucial to include the wavelength-dependence of the refractive indices of our materials. COMSOL tabulates $n(\lambda)$ for specific $\lambda$ measured in the literature. Then it interpolates between these experimentally measured points. This method allows for dynamic adjustment of a material's refractive index in response to changes in wavelength during simulations, providing a more accurate representation of the material's optical behavior.
 
-% TODO: Replace this figure with that of silicon
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for Glass Substrate.png}
-  \caption{Interpolation table for the glass substrate, showing the wavelength-dependent refractive index.}
-  \label{fig:interpolation-table-glass}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for the Silicon Substrate.png}
+  \caption{Interpolation table for the silicon substrate, showing the wavelength-dependent refractive index.}
+  \label{fig:interpolation-table-silicon}
 \end{figure}
 
 Utilizing the interpolation table enables the plotting of an interpolation function, offering a graphical representation of how refractive indices fluctuate with wavelength. This capability enriches the COMSOL simulation by providing a more precise depiction of light-material interaction over diverse wavelengths, a critical aspect in optics where dispersive phenomena play an important role.
+
+% TODO: Add the interpolation plot for the silicon substrate
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Table for the Silicon Substrate.png}
+%   \caption{Interpolation table for the silicon substrate, showing the wavelength-dependent refractive index.}
+%   \label{fig:interpolation-table-silicon}
+% \end{figure}
 
 For this reason, I selected Corning\texttrademark \space HPFS\texttrademark \space 7980 Fused Silica for the substrate, taking advantage of its accompanying interpolation function. It's vital to acknowledge that interpolation functions, which depict the wavelength-dependent refractive index variations of materials, can also be derived from experimental data found in scientific literature.
 
