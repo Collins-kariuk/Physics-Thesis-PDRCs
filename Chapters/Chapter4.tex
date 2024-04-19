@@ -199,7 +199,7 @@ Our analysis will specifically address graph (c), which demonstrates how adding 
 
 The findings showcased below stem from applying the high reflectance principles discussed in Chapter 2.
 
-Observe the alignment of peak reflectance with the textbook's findings, achieving 90%.
+Observe the alignment of peak reflectance with the textbook's findings, achieving 90\%.
 
 Employing a parametric sweep in COMSOL allows for the exploration of reflectance variation across wavelengths by systematically adjusting the count of double layer pairs ($N$) to values such as 2, 5, 10, and 20. This approach calculates solutions across a range of parameter sets. For all depicted graphs, an extra top layer with a high refractive index is incorporated to broaden the spectrum of maximum reflectance.
 
@@ -266,14 +266,27 @@ When generating a reflectance versus wavelength graph using only the silicon sub
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (SIlicon Substrate Only).png}
-  \caption{Reflectance variation with wavelength for \emph{(Silicon) (Shkondin et al. 2017: n,k 2-20 um)}.}
-  \label{fig:Reflectance-variation-glass}
+  % Left image
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance (SIlicon Substrate Only).png}
+    \caption{Reflectance variation with wavelength for \emph{(Silicon) (Shkondin et al. 2017: n,k 2-20 um)}.}
+    \label{fig:Reflectance-Silicon-Substrate}
+  \end{minipage}\hfill
+  % Right image
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Chapters/Figures/Chapter 4 Figures/Just Silicon (Fernando's Results).png}
+    \caption{Reflectance variation with wavelength for Silicon, as experimentally determined by Fernando Castillo from Hudgings Lab. The reflectance measurements were conducted at an angle of 10 degrees from the normal.}
+    \label{fig:Reflectance-Fernando-Results}
+  \end{minipage}
 \end{figure}
 
-Within the displayed wavelength range of $400 - 800$ nm, a sole substrate yields a reflectance below 4\%, which falls short of the desired high reflectivity within the solar spectrum for optimal PDRC performance. This observation underscores the need for integrating materials capable of meeting the dual objectives of high solar reflectance and substantial emissivity within the atmospheric window.
+Within the displayed wavelength range, a sole substrate yields a reflectance below  45\% within the visible spectrum, which falls short of the desired high reflectivity within the solar spectrum for optimal PDRC performance. This observation underscores the need for integrating materials capable of meeting the dual objectives of high solar reflectance and substantial emissivity within the atmospheric window.
 
 Focusing initially on enhancing solar reflectance, designs at Hudgings Lab incorporate silver on top the substrate due to its exceptional reflectivity in the solar spectrum. Having illustrated the outcomes with merely the glass substrate and underscored the importance of a highly reflective layer in the solar spectrum, I will venture into simulating the combined effects of glass and silver layers.
+
+% ----- SUBSECTION: ANALYSIS OF SILICON PLUS SILVER LAYERS -----
 
 \subsection{Analysis of Silicon plus Silver Layers}
 Next, I added a silver layer on top the glass substrate, recognizing the continued necessity for an interpolation function to accurately represent silver's refractive index across various wavelengths.
