@@ -289,9 +289,9 @@ Focusing initially on enhancing solar reflectance, designs at Hudgings Lab incor
 % ----- SUBSECTION: ANALYSIS OF SILICON PLUS SILVER LAYERS -----
 
 \subsection{Analysis of Silicon plus Silver Layers}
-Next, I added a silver layer on top the glass substrate, recognizing the continued necessity for an interpolation function to accurately represent silver's refractive index across various wavelengths.
+Next, I added a silver layer on top the silicon substrate, recognizing the continued necessity for an interpolation function to accurately represent silver's refractive index across various wavelengths.
 
-COMSOL offers a comprehensive collection of silver materials, each accompanied by interpolation tables that chart the refractive indices over preferred wavelength spans. The entry \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)} provides data on silver’s refractive indices from 1.23 to 6.99 ($\mu$m), where $n$ is the real component of the complex refractive index and $k$—the extinction coefficient—is the imaginary part, indicating the material's degree of light absorption.
+COMSOL offers a comprehensive collection of silver materials, each accompanied by interpolation tables that chart the refractive indices over preferred wavelength spans. The entry \emph{Ag (Silver) (Ciesielski et al. 2017: Ag/SiO2; n,k 0.191-20.9 um)} provides data on silver’s refractive indices from 0.191 to 20.9 ($\mu$m), where $n$ is the real component of the complex refractive index and $k$, the extinction coefficient, is the imaginary part, indicating the material's degree of light absorption.
 
 \begin{figure}[H]
   \centering
@@ -300,27 +300,29 @@ COMSOL offers a comprehensive collection of silver materials, each accompanied b
   \label{fig:Interpolation table for silver's refractive index}
 \end{figure}
 
-COMSOL's materials library offers various definitions of silver to cater to different wavelength ranges. For example, the definition \emph{Ag (Silver) (Johnson and Christy 1972: n,k 0.188-1.94 um)} provides an interpolation table covering 0.188-1.94 ($\mu$m).
-
-The figures below display the outcomes utilizing \emph{Ag (Silver) (Johnson and Christy 1972: n,k 0.188-1.94 um)} and using \emph{Ag (Silver) (Choi et al. 2020: n,k 1.23-6.99 um)}, respectively.
+The figure below displays a plot of the refractive index interpolation of \emph{Ag (Silver) (Ciesielski et al. 2017: Ag/SiO2; n,k 0.191-20.9 um)}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag (Johnson and Christy).png}
-  \caption{Reflectance analysis for glass with Ag (Johnson and Christy).}
-  \label{fig:Reflectance analysis for glass with Ag (Johnson and Christy)}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Interpolation Plot (Silver).png}
+  \caption{Interpolation plot for silver's refractive index.}
+  \label{fig:Interpolation plot for silver's refractive index}
 \end{figure}
 
+The figures below display the reflectance outcomes utilizing \emph{Ag (Silver) (Ciesielski et al. 2017: Ag/SiO2; n,k 0.191-20.9 um)}.
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Reflectance for glass and Ag for Choi et al.png}
-  \caption{Reflectance analysis for glass with Ag (Choi et al.).}
-  \label{fig:Reflectance analysis for glass with Ag (Choi et al)}
+  \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Silicon+Silver (Final Result).png}
+  \caption{Reflectance results for Silicon and Silver Layers}
+  \label{fig:Reflectance analysis for glass with Ag (Johnson and Christy)}
 \end{figure}
 
 These graphs mostly reflect the expected outcomes. Given silver's high reflectivity across the visible wavelength spectrum, we observe near 100\% reflectance within the visible range (400 - 700 nm).
 
-\subsection{Analysis of Glass plus Silver plus PDMS Layers.}
+% ----- SUBSECTION: ANALYSIS OF SILICON PLUS SILVER PLUS PDMS LAYERS -----
+
+\subsection{Analysis of Silicon plus Silver plus PDMS Layers.}
 In the final step, a PDMS layer was applied on top of the silver layer. This step also utilized a PDMS material equipped with a pre-defined interpolation function for its refractive index, specifically \emph{(C2H6OSi)n (Polydimethylsiloxane, PDMS) (Gupta et al. 2019: n 0.30-1.69 um)}.
 
 \begin{figure}[H]
