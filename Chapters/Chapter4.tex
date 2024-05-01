@@ -42,6 +42,8 @@ In the following section, we will compare the reflectivity of two distinct multi
 
 The pursuit of anti-reflective coatings leads us to the utilization of thin film dielectrics within COMSOL. In line with the criteria for zero reflectance, the first dielectric film, starting from the base, is cerium trifluoride ($\text{CeF}_3$) with a refractive index of 1.63, while the second film is magnesium fluoride ($\text{MgF}_2$) with a refractive index of 1.38. The refractive index ratio of approximately 1.181 aligns closely with the optimal ratio of 1.225. As established in chapter 2, effective anti-reflectivity for a dual-layer arrangement requires each film to be a quarter-wavelength in thickness, which corresponds to the wavelength at which minimal reflectance is desired.
 
+Note that the anti-reflectance setup below is for normal incidence.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter 4 Figures/Antireflective Double-Layer (PowerPoint).png}
@@ -197,9 +199,7 @@ In these configurations, layers are designed to be $\lambda/4$ thick at a design
 
 Our analysis will specifically address graph (c), which demonstrates how adding an extra high-index layer between the substrate and the final low-index layer enhances maximum reflectance in a two-layer double stack ($N = 2$). This addition improves reflectance efficiency compared to simpler two-layer double configurations.
 
-The findings showcased below stem from applying the high reflectance principles discussed in Chapter 2.
-
-Observe the alignment of peak reflectance with the textbook's findings, achieving 90\%.
+The findings showcased below stem from applying the high reflectance principles discussed in Chapter 2. Observe the alignment of peak reflectance with the textbook's findings, achieving 90\%.
 
 Employing a parametric sweep in COMSOL allows for the exploration of reflectance variation across wavelengths by systematically adjusting the count of double layer pairs ($N$) to values such as 2, 5, 10, and 20. This approach calculates solutions across a range of parameter sets. For all depicted graphs, an extra top layer with a high refractive index is incorporated to broaden the spectrum of maximum reflectance.
 
@@ -354,7 +354,7 @@ In the final step, a PDMS layer was applied on top of the silver layer. This ste
   \end{minipage}
 \end{figure}
 
-This setup achieved a peak reflectance of 100\% across a broad wavelength range. However, as illustrated in Figures \ref{fig:Reflectance-Si-Ag-PDMS-Final} and \ref{fig:Reflectance-Si-Ag-PDMS-Fernando}, the figures do not align perfectly, indicating that further work is needed in this area.
+This setup achieved a peak reflectance of 100\% across a broad wavelength range. However, as illustrated in Figures \ref{fig:Reflectance-Si-Ag-PDMS-Final} and \ref{fig:Reflectance-Si-Ag-PDMS-Fernando}, the figures do not align perfectly, indicating that further work is needed in this area but one prevailing clue could be that the PDMS layer does not affect the reflectance that much in the visible spectrum. Indeed, the purpose of the PDMS is to enhance emissivity in the atmospheric window. See Figure \ref{fig:ideal_PDRC_properties}.
 
 ---
 
